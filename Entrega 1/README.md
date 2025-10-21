@@ -7,6 +7,7 @@
 - Parte 2: Generador de instancias (5 por tamaño; demandas ~ Normal; disposiciones ~ Uniforme entera 0–10).
 
 ## Estructura sugerida
+```
 Entrega1/
 ├─ README.md
 ├─ modelo/                 # notas técnicas y bosquejos para pasar al informe
@@ -22,7 +23,8 @@ Entrega1/
 │     ├─ small/  ├─ medium/  └─ large/
 └─ empaquetado/
    └─ build_zip.sh
-   
+```
+
 ## Cómo trabajar
 1. Diseñar el **modelo** en `Entrega1/modelo/` y traspasar al `report/sections/01_modelo.tex`.  
 2. Implementar el **generador** en `generador/src/` (mantener nombre de archivo).  
