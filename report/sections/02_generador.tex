@@ -1,0 +1,8 @@
+\section{Generador de instancias}
+Se generan 5 instancias por tamaño: \emph{pequeñas, medianas, grandes}.  
+- Días y trabajadores en rangos del enunciado; turnos según tamaño.  
+- Demanda $r_{d,t}$ ~ Normal truncada (enteros $\ge 0$), parámetros coherentes con la oferta.  
+- Disposición $p_{i,d,t}\sim \mathrm{U}\{0,10\}$ entera; $0$ denota imposibilidad.
+
+\subsection{Formato de salida}
+Archivo JSON por instancia con \texttt{meta}, \texttt{sets}, \texttt{demand}, \texttt{preferences}.

@@ -1,0 +1,27 @@
+\section{Modelo matemático}
+\paragraph{Objetivo.} Maximizar la disposición total asignada respetando cobertura y bienestar.
+
+\subsection{Conjuntos e índices}
+$I$: trabajadores;\quad $D=\{1,\dots,H\}$: días (inicia en lunes);\quad $T$: turnos.
+
+\subsection{Parámetros}
+$r_{d,t}$: requerimiento de personal en $(d,t)$;\quad $p_{i,d,t}\in\{0,\dots,10\}$: disposición (0 = no puede).
+
+\subsection{Variables}
+$x_{i,d,t}\in\{0,1\}$: 1 si $i$ trabaja en $(d,t)$.
+
+\subsection{Función objetivo}
+\[
+\max \sum_{i\in I}\sum_{d\in D}\sum_{t\in T} p_{i,d,t}\, x_{i,d,t}.
+\]
+
+\subsection{Restricciones}
+\begin{align}
+\text{Cobertura: } & \sum_{i\in I} x_{i,d,t} \ge r_{d,t} && \forall d\in D,\, t\in T.\\
+\text{Compatibilidad: } & x_{i,d,t}=0 \text{ si } p_{i,d,t}=0 && \forall i,d,t.\\
+\text{Máx.\ 2 turnos/día: } & \sum_{t\in T} x_{i,d,t} \le 2 && \forall i\in I,\, d\in D.\\
+\text{No Noche→Mañana: } & x_{i,d,\mathrm{N}} + x_{i,d+1,\mathrm{M}} \le 1 && \forall i,\, d=1,\dots,H-1.\\
+\text{Fines de semana: } & \text{ver modelado con } w_{i,w} \text{ y } w_{i,w}+w_{i,w+1}+w_{i,w+2}\le 2.
+\end{align}
+
+\paragraph{Notas.} Definir $w_{i,w}\in\{0,1\}$ que indica si el trabajador $i$ hace al menos un turno en el fin de semana $w$; imponer $w_{i,w}\ge x_{i,d,t}$ para $d$ en sábado/domingo del $w$-ésimo fin de semana.
