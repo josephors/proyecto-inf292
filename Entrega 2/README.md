@@ -1,7 +1,5 @@
 # Entrega 2 — Resolución (lpsolve) + Análisis
 
-**Curso/Sección:** OPTI_SJ  
-**Grupo:** 2  
 **Solver asignado:** lpsolve
 
 **Alcance:**

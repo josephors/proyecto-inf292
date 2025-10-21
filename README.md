@@ -1,12 +1,12 @@
 # Proyecto OPTI — OPTI_SJ · Grupo 2
 
-Este repositorio contiene el desarrollo del proyecto de **Fundamentos de Investigación de Operaciones — Optimización**.  
-El objetivo es modelar y resolver un problema de asignación de personal por día–turno maximizando la **disposición total** de los trabajadores, cumpliendo **cobertura** y restricciones de **bienestar/operativas**.
+Este repositorio contiene el desarrollo del proyecto de **Optimización**.  
+El objetivo es modelar y resolver un problema de asignación de personal por día–turno maximizando la disposición total de los trabajadores, cumpliendo cobertura y restricciones de bienestar/operativas.
 
-> **Asignación:** Grupo 2 — Sección **OPTI_SJ** — **Solver: lpsolve** (para la Entrega 2).
+> Grupo 2 **OPTI_SJ** — **Solver: lpsolve** (para la Entrega 2).
 
 # Pendientes:
-- Usar issues 
+- Usar issues en lo ideal.
 
 ## Estructura del repositorio (vista rápida)
 
@@ -77,9 +77,14 @@ El objetivo es modelar y resolver un problema de asignación de personal por dí
 - **LaTeX** con `latexmk` (para compilar reportes).
 - **Git** (flujo colaborativo).
 
+
+<!--
+
 ### Entornos recomendados
-```bash
+bash
 # Crear venv para generador y análisis
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r Entrega1/generador/src/requirements.txt  # si aplica
-```
+
+
+-->

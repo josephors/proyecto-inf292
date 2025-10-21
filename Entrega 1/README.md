@@ -1,7 +1,5 @@
 # Entrega 1 — Modelo matemático + Generador de instancias
 
-**Curso/Sección:** OPTI_SJ  
-**Grupo:** 2  
 **Alcance:**  
 - Parte 1: Modelo matemático (conjuntos, parámetros, variables, objetivo, restricciones, explicación breve).  
 - Parte 2: Generador de instancias (5 por tamaño; demandas ~ Normal; disposiciones ~ Uniforme entera 0–10).
@@ -34,7 +32,11 @@ Entrega1/
    - `Modelo_1_Grupo2_OPTI_SJ.pdf`  
    - `Generador_1_Grupo2_OPTI_SJ.py` (+ archivos auxiliares si corresponde)
 
+<!--
+
 ## Convenciones
 - Disposición `p_{i,d,t} ∈ {0,…,10}` (0 = no puede).  
 - Demandas `r_{d,t}` por día–turno ~ Normal truncada a enteros ≥ 0.  
 - 5 instancias por tamaño: *small, medium, large* (rangos del enunciado).
+
+ -->

@@ -2,13 +2,9 @@
 
 ## Cómo compilar
 
-# Requiere latexmk (recomendado), TeX Live o MikTeX
-```bash
-cd report
-latexmk -pdf -silent report.tex
-# Limpieza
-latexmk -C report.tex
-```
+### Requiere latexmk, TeX Live o MikTeX
+
+Compilen como puedan, desde vs es mas facil...
 
 ## Cómo editar (flujo de equipo)
 - **No edites** `report.tex` salvo para incluir/secuenciar secciones.
