@@ -15,8 +15,6 @@ Entrega1/
 ├─ generador/
 │  ├─ src/
 │  │  ├─ Generador_1_Grupo2_OPTI_SJ.py   # nombre conforme a enunciado
-│  │  ├─ requirements.txt
-│  │  └─ utils.py
 │  └─ instances/
 │     ├─ small/  ├─ medium/  └─ large/
 └─ empaquetado/
