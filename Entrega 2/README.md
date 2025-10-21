@@ -27,7 +27,7 @@ Entrega2/
 │  └─ graficos/calendarios/
 └─ resultados/
    ├─ small/  ├─ medium/  └─ large/
-´´´
+```
 
 ## Flujo de trabajo
 1. Transformar instancias a formato de datos compatible con `lpsolve` (archivos `.lp` + parámetros).  

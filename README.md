@@ -10,6 +10,7 @@ El objetivo es modelar y resolver un problema de asignación de personal por dí
 
 ## Estructura del repositorio (vista rápida)
 
+```
 .
 ├─ Entrega1/                # Parte 1 (modelo) + Parte 2 (generador de instancias)
 │  ├─ README.md
@@ -44,7 +45,7 @@ El objetivo es modelar y resolver un problema de asignación de personal por dí
       ├─ 04_solver_lpsolve.tex
       ├─ 05_analisis_resultados.tex
       └─ 06_tiempos.tex
-
+```
 
 ## Roadmap por entregas
 
