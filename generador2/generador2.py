@@ -1,63 +1,110 @@
-import random, csv
+import random, csv, json
 
-def generar_instancias():
-    filas_generador=[["id_instancia", "tipo", "dias", "trabajadores", "turnos"]]
-    filas_demanda= [["id", "tipo", "dias", "trabajadores", "turno", "demanda"]]
-    filas_disposicion= [["id", "tipo", "dias", "trabajadores", "trabajador", "dia", "turno", "disposicion"]]
-    instancias_arr= ["peq", "med", "gra"]
-    dias_arr= [(5, 7), (7, 14), (14, 28)]
-    trabajadores_arr= [(5, 15), (15, 45), (45, 90)]
-    turnos_arr= [["dia", "noche"], ["manana", "tarde", "noche"], ["manana", "tarde", "noche"]]
-    id_instancia= 1
-    cantidades= [5, 5, 5]  # Cantidad de instancias por tipo
+def generar_instancias(): #peq, med, gra
+    filas=[]
+    filas.append(['id_instancia', 'tipo', 'dias', 'trabajadores', 'turnos'])
+
+    instancias_arr=["peq", "med", "gra"]
+    dias_arr=["5,7", "7,14", "14,28"]
+    trabajadores_arr=["5,15", "15,45", "45,90"]
+    turnos_arr=["dia,noche", "manana,tarde,noche", "manana,tarde,noche"]
+    filas_disposicion = []
+    filas_disposicion.append(['id_instancia', 'tipo', 'dias', 'trabajadores', 'trabajador', 'dia', 'turno', 'disposicion'])
+    id_instancia = 1
+    semana_dias=["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
     random.seed(1234)
+    # lista para el JSON
+    instancias_json = []
+    for ins in instancias_arr: #para cada tipo de instancia
+        index=instancias_arr.index(ins)
 
-    for tipo_idx, tipo in enumerate(instancias_arr):
-        dias_range= dias_arr[tipo_idx]
-        trabajadores_range= trabajadores_arr[tipo_idx]
-        turnos= turnos_arr[tipo_idx]
-        for _ in range(cantidades[tipo_idx]):
-            dias= random.randint(*dias_range)
-            trabajadores= random.randint(*trabajadores_range)
-            filas_generador.append([id_instancia, tipo, dias, trabajadores, ",".join(turnos)])
+        dias_range=dias_arr[index]
+        coma_idx_dias=dias_range.index(',')
+        
+        trabajadores_range=trabajadores_arr[index]
+        coma_idx_trabs=trabajadores_range.index(',')
 
-            # demanda
-            for d in range(1, dias + 1):
+        turnos=turnos_arr[index].split(',')
+
+        i=0
+        while (i<5): #5 instancias para cada tipo de instancia
+            #generamos cada una de las instancias
+            cantidad_turnos=len(turnos)
+            dias=random.randint(int(dias_range[:coma_idx_dias]), int(dias_range[coma_idx_dias+1:]))
+            trabajadores=random.randint(int(trabajadores_range[:coma_idx_trabs]), int(trabajadores_range[coma_idx_trabs+1:]))
+            demanda_dias={}                 # para el JSON
+            demanda_dias_str_parts=[]     # para el csv
+            j=0
+            indicador=0
+            disposicion_en_instancia=[]
+            while (j<dias):
+                semana_dia=semana_dias[j % 7]
+                if (j% 7==0):  # cada vez que damos una vuelta a la semana...
+                    indicador += 1
+
+                # generar la demanda para cada turno
+                demandas_turnos_dict={}  # para el JSON
                 for turno in turnos:
-                    mu= (trabajadores/len(turnos)) * random.uniform(1.0, 1.2)
-                    sigma= mu*0.2
-                    demanda_turno= max(0, int(random.normalvariate(mu, sigma)))
-                    filas_demanda.append([id_instancia, tipo, dias, trabajadores, turno, demanda_turno])
+                    mu = (trabajadores/cantidad_turnos) * random.uniform(1.0, 1.2)
+                    sigma = mu*0.2
 
-            # disposcion
+                    demanda_turno=int(random.normalvariate(mu, sigma))
+                    if demanda_turno<0:
+                        demanda_turno=0
+                    demandas_turnos_dict[turno]=demanda_turno
+            # añadimos al diccionario de días
+                nombre_key=semana_dia+ "_"+str(indicador)
+                demanda_dias[nombre_key] = demandas_turnos_dict
+                partes_turnos=[f"{t}={d}" for t, d in demandas_turnos_dict.items()]
+                demanda_dias_str_parts.append(f"{nombre_key}: " + "; ".join(partes_turnos))
+
+                j+=1
+            
+
+            demanda_resumen_str=" | ".join(demanda_dias_str_parts)     
+            filas.append([id_instancia, ins, dias, trabajadores, demanda_resumen_str])
+
             for w in range(1, trabajadores + 1):
                 for d in range(1, dias + 1):
                     for turno in turnos:
                         dispo= random.randint(0, 10)
-                        filas_disposicion.append([id_instancia, tipo, dias, trabajadores, w, d, turno, dispo])
+                        filas_disposicion.append([id_instancia, ins, dias, trabajadores, w, d, turno, dispo])
+                        # lista anidada para el JSON
+                        disposicion_en_instancia.append({
+                            'trabajador': w,
+                            'dia': d,
+                            'turno': turno,
+                            'disposicion': dispo
+                        })
+            # se añade la instancia al JSON
+            inst_json={
+                "id_instancia": id_instancia,
+                "tipo": ins,
+                "dias": dias,
+                "trabajadores": trabajadores,
+                "demanda_dias": demanda_dias,          # dict: 'lunes_1': [[turno, demanda], ...]
+                "disposicion": disposicion_en_instancia  # lista de dicts
+            }
+            instancias_json.append(inst_json)
+            id_instancia+=1
+            i+=1
 
-            id_instancia += 1
-
-    return filas_demanda, filas_disposicion, filas_generador
-
+    return filas, filas_disposicion, instancias_json
 
 def main():
-    filas_demanda, filas_disposicion, filas_generador = generar_instancias()
 
-    # csv de demanda
-    with open('instancias_demanda.csv', 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(filas_demanda)
+    instancias, disposicion, instancias_json = generar_instancias()
 
-    # csv de disposición
-    with open('instancias_disposicion.csv', 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(filas_disposicion)
+    with open('instancias_demandas.csv', mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(instancias)
 
-    # csv de generador
-    with open('instancias_generador.csv', 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerows(filas_generador)
+    with open('instancias_disposicion.csv', mode='w', newline='') as file:
+        writer_disp = csv.writer(file)
+        writer_disp.writerows(disposicion)
+    
+    with open('instancias.json', 'w') as json_file:
+        json.dump(instancias_json, json_file, ensure_ascii=False, indent=4)
 
 if __name__ == '__main__':
     main()
