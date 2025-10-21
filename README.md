@@ -1,9 +1,19 @@
-# Proyecto OPTI — OPTI_SJ · Grupo 2
+# Proyecto OPTI_SJ · Grupo 2
+
+
+> Grupo 2 **OPTI_SJ** — **Solver: lpsolve** 
+> 
+| Nombre Completo         |  Rol                     |
+|-------------------------|--------------------------|
+| Fenanda Lopez            |     Integrante           |
+| Vicente Jimenez         | 202373523-k               |
+| Matias Romo           | Integrante               |
+| Simón Parra             | Integrante               |
+
 
 Este repositorio contiene el desarrollo del proyecto de **Optimización**.  
 El objetivo es modelar y resolver un problema de asignación de personal por día–turno maximizando la disposición total de los trabajadores, cumpliendo cobertura y restricciones de bienestar/operativas.
 
-> Grupo 2 **OPTI_SJ** — **Solver: lpsolve** (para la Entrega 2).
 
 # Pendientes:
 - Usar issues en lo ideal.
