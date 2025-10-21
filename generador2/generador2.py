@@ -2,7 +2,7 @@ import random, csv, json
 
 def generar_instancias(): #peq, med, gra
     filas=[]
-    filas.append(['id_instancia', 'tipo', 'dias', 'trabajadores', 'turnos'])
+    filas.append(['id_instancia', 'tipo', 'dias', 'trabajadores', 'demanda_dias'])
 
     instancias_arr=["peq", "med", "gra"]
     dias_arr=["5,7", "7,14", "14,28"]
@@ -61,8 +61,7 @@ def generar_instancias(): #peq, med, gra
                 j+=1
             
 
-            demanda_resumen_str=" | ".join(demanda_dias_str_parts)     
-            filas.append([id_instancia, ins, dias, trabajadores, demanda_resumen_str])
+            filas.append([id_instancia, ins, dias, trabajadores, demanda_dias])
 
             for w in range(1, trabajadores + 1):
                 for d in range(1, dias + 1):
