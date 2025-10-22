@@ -7,7 +7,7 @@
 |-------------------------|--------------------------|
 | Fenanda López Saldias       |   202373638-4        |
 | Vicente Jimenez         | 202373523-k               |
-| Matias Romo           | Integrante               |
+| Matias Romo           | 202373632-5            |
 | Simón Parra Saldias            | 202373560-4             |
 
 
