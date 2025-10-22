@@ -41,14 +41,13 @@ El código fuente completo está disponible en el repositorio de GitHub \cite{ge
     \item \texttt{.csv}: archivo plano con las disposiciones individuales, útil para inspección rápida o visualización.
   \end{itemize}
 \end{itemize}
-
+\clearpage
 \subsection*{Descripción del Código}
 
 El script realiza dos tareas principales:
 
 \begin{enumerate}
   \item \textbf{Inicialización:} Elimina las carpetas existentes en \texttt{generador/instancias/} para evitar duplicados y crea nuevas subcarpetas para cada tipo de instancia.
-  \clearpage
   \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. Se utiliza una semilla fija (\texttt{random.seed(1234)}) para asegurar reproducibilidad. El proceso incluye:
   \begin{itemize}
     \item Asignación de días y trabajadores dentro de los rangos definidos.
@@ -89,3 +88,4 @@ def generar_instancias():
 \end{lstlisting}
 
 El código completo incluye la escritura de archivos y está documentado en el repositorio citado.
+

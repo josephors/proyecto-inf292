@@ -82,7 +82,7 @@ El modelo considera las siguientes restricciones para asegurar la factibilidad o
   \sum_{t \in S} x_{i,j,t} \leq 2 \quad \forall i \in T,\ \forall j \in D
   \]
 
-  \item[\textbf{(R4)}] \textbf{Descanso entre noche y mañana:} No se permite asignar a un trabajador al turno de noche de un día y al turno de mañana del día siguiente.
+  \item[\textbf{(R4)}] \textbf{Descanso entre noche y mañana:} No se permite asignar a un trabajador al turno de noche de un día y al turno de mañana del día siguiente.\footnote{En instancias \textit{small}, el conjunto de turnos $S$ solo incluye \texttt{día} y \texttt{noche}, por lo que esta restricción no aplica. Se utiliza una versión ad-hoc del modelo que omite (R4).}
   \[
   x_{i,j,\text{Noche}} + x_{i,j+1,\text{Mañana}} \leq 1 \quad \forall i \in T,\ \forall j \in D \setminus \{H\}
   \]
