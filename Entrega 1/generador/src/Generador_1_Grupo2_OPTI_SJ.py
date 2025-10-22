@@ -3,24 +3,49 @@ import random
 import json
 import csv
 import shutil
+from collections import defaultdict
+import math
 
-# Crear carpetas y eliminar contenido previo desde generador/src hacia generador/instancias
+# Crear carpetas y eliminar contenido previo
 def crear_directorios():
     for carpeta in ['../instancias/small', '../instancias/medium', '../instancias/large']:
         if os.path.exists(carpeta):
             shutil.rmtree(carpeta)  # Elimina instancias anteriores
         os.makedirs(carpeta, exist_ok=True)
 
-# Generador de instancias con comentarios explicativos
-def generar_instancias():
-    random.seed(1234)
+# Función para escalar proporcionalmente demandas por día
+def scale_day(demands_dict, target_sum):
+    if target_sum < 0:
+        target_sum = 0
+    current_sum = sum(demands_dict.values())
+    if current_sum == 0:
+        for k in demands_dict:
+            demands_dict[k] = 0
+        return demands_dict
+    factor = target_sum / current_sum
+    scaled = {}
+    residues = []
+    for k, v in demands_dict.items():
+        raw = v * factor
+        flo = math.floor(raw)
+        scaled[k] = flo
+        residues.append((k, raw - flo, v))
+    deficit = target_sum - sum(scaled.values())
+    residues.sort(key=lambda x: (x[1], x[2]), reverse=True)
+    for i in range(deficit):
+        if i < len(residues):
+            scaled[residues[i][0]] += 1
+    return scaled
+
+# Generador de instancias con control de capacidad
+def generar_instancias(max_turnos_dia=2, dispo_umbral=0):
+    random.seed()
     semana_dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
 
-    # Definición de tipos de instancia y sus rangos según el enunciado
     tipos = ["small", "medium", "large"]
-    dias_rangos = [(5, 7), (7, 14), (14, 28)]  # Rango de días por tipo
-    trabajadores_rangos = [(5, 15), (15, 45), (45, 90)]  # Rango de trabajadores por tipo
-    turnos_rangos = [["dia", "noche"], ["manana", "tarde", "noche"], ["manana", "tarde", "noche"]]  # Turnos por tipo
+    dias_rangos = [(5, 7), (7, 14), (14, 28)]
+    trabajadores_rangos = [(5, 15), (15, 45), (45, 90)]
+    turnos_rangos = [["dia", "noche"], ["manana", "tarde", "noche"], ["manana", "tarde", "noche"]]
 
     id_instancia = 1
 
@@ -30,8 +55,28 @@ def generar_instancias():
             trabajadores = random.randint(*trab_rng)
             cantidad_turnos = len(turnos)
 
-            demanda_dias = {}
+            # 1) Generar disposición primero
             disposicion = []
+            for w in range(1, trabajadores + 1):
+                for d in range(1, dias + 1):
+                    for turno in turnos:
+                        dispo = random.randint(0, 10)
+                        disposicion.append({
+                            "trabajador": w,
+                            "dia": d,
+                            "turno": turno,
+                            "disposicion": dispo
+                        })
+
+            # 2) Calcular capacidad disponible por (día, turno)
+            avail_map = defaultdict(int)
+            for fila in disposicion:
+                if fila["disposicion"] > dispo_umbral:
+                    avail_map[(fila["dia"], fila["turno"])] += 1
+
+            # 3) Generar demanda respetando capacidad por turno y por día
+            demanda_dias = {}
+            capacidad_dia = max_turnos_dia * trabajadores
             indicador = 0
 
             for j in range(dias):
@@ -42,27 +87,22 @@ def generar_instancias():
 
                 demandas_turnos = {}
                 for turno in turnos:
-                    # Generación de demanda con distribución Normal
-                    # La media depende del número de trabajadores y turnos
                     mu = (trabajadores / cantidad_turnos) * random.uniform(1.0, 1.2)
-                    sigma = mu * 0.2  # 20% de desviación estándar
-                    demanda = max(0, int(random.normalvariate(mu, sigma)))
-                    demandas_turnos[turno] = demanda
+                    sigma = mu * 0.2
+                    propuesta = max(0, int(random.normalvariate(mu, sigma)))
+                    # Limitar por disponibilidad del turno
+                    disp_turno = avail_map.get((j + 1, turno), 0)
+                    demanda_final = min(propuesta, disp_turno)
+                    demandas_turnos[turno] = demanda_final
+
+                # Si la suma excede la capacidad diaria, escalar proporcionalmente
+                suma_dia = sum(demandas_turnos.values())
+                if suma_dia > capacidad_dia:
+                    demandas_turnos = scale_day(demandas_turnos, capacidad_dia)
+
                 demanda_dias[nombre_dia] = demandas_turnos
 
-            for w in range(1, trabajadores + 1):
-                for d in range(1, dias + 1):
-                    for turno in turnos:
-                        # Disposición generada con distribución Uniforme U(0,10)
-                        # 0 significa que el trabajador no puede hacer ese turno
-                        dispo = random.randint(0, 10)
-                        disposicion.append({
-                            "trabajador": w,
-                            "dia": d,
-                            "turno": turno,
-                            "disposicion": dispo
-                        })
-
+            # 4) Guardar instancia
             instancia = {
                 "id_instancia": id_instancia,
                 "tipo": tipo,
@@ -87,5 +127,5 @@ def generar_instancias():
 # Ejecutar
 if __name__ == '__main__':
     crear_directorios()
-    generar_instancias()
-    print("Instancias generadas en ../instancias/. Instancias anteriores fueron eliminadas.")
+    generar_instancias(max_turnos_dia=2, dispo_umbral=0)
+    print("Instancias generadas en ../instancias/ con control de capacidad diaria y por turno.")
