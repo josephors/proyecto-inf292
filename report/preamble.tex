@@ -17,11 +17,70 @@
   linkcolor=black,
   urlcolor=blue!50!black,
   citecolor=blue!50!black,
-  pdfauthor={OPTI_SJ · Grupo 2},
-  pdftitle={Proyecto FIO/OPTI},
+  pdfauthor={OPTI SJ - Grupo 2},
+  pdftitle={Proyecto OPTI}
 }
 \usepackage{csquotes}
-\usepackage[numbers]{natbib}
+% Usaremos biblatex+biber en lugar de natbib/BibTeX
+\usepackage{biblatex}
+\addbibresource{references.bib}
+% Paquetes adicionales útiles (referencia del usuario)
+\usepackage{subfiles}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{siunitx}
+\usepackage{centernot}
+% No cargar enumitem con opciones de nuevo (ya se cargó antes)
+% (evitamos choques de opciones)
+\usepackage{datetime}
+\usepackage{listingsutf8}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[vlined,ruled,linesnumbered]{algorithm2e}
+\usepackage{float}
+\usepackage{url}
+\usepackage{cleveref}
+% Para simular json format en listing
+% Se llama asi
+%\begin{lstlisting}[language=json,firstnumber=1]{}
+
+\usepackage{bera}% optional: just to have a nice mono-spaced font
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
 
 % Atajos útiles
 \newcommand{\R}{\mathbb{R}}

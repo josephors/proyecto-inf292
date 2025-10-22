@@ -1,0 +1,68 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{generador2025}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=8dffb608d01eab76f5ec72e085af06b7}{%
+           family={Vargas},
+           familyi={V\bibinitperiod},
+           given={Matías\bibnamedelima Romo},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=fc26e34be68d253aadb9e4502e8c8925}{%
+           family={Saldías},
+           familyi={S\bibinitperiod},
+           given={Simón\bibnamedelima Parra},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=e411bbf1197554ab0f53d16045983950}{%
+           family={Saldías},
+           familyi={S\bibinitperiod},
+           given={Fernanda\bibnamedelima López},
+           giveni={F\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=82b99b8f824df259cfeafcd84d71ce6f}{%
+           family={Sepúlveda},
+           familyi={S\bibinitperiod},
+           given={Vicente\bibnamedelima Jiménez},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e7ff30d39a949b2c62ee3e60bda5a91}
+      \strng{fullhash}{47d71e0a6bfaf2368136ed1cd500bec8}
+      \strng{bibnamehash}{5e7ff30d39a949b2c62ee3e60bda5a91}
+      \strng{authorbibnamehash}{5e7ff30d39a949b2c62ee3e60bda5a91}
+      \strng{authornamehash}{5e7ff30d39a949b2c62ee3e60bda5a91}
+      \strng{authorfullhash}{47d71e0a6bfaf2368136ed1cd500bec8}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accedido en octubre de 2025}
+      \field{title}{proyecto-inf292-Generador de Instancias para Asignación de Turnos Hospitalarios}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://github.com/josephors/proyecto-inf292#
+      \endverb
+      \verb{url}
+      \verb https://github.com/josephors/proyecto-inf292#
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

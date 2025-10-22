@@ -5,10 +5,10 @@
 > 
 | Nombre Completo         |  Rol                     |
 |-------------------------|--------------------------|
-| Fenanda Lopez            |     Integrante           |
+| Fenanda López Saldias       |   202373638-4        |
 | Vicente Jimenez         | 202373523-k               |
 | Matias Romo           | Integrante               |
-| Simón Parra             | Integrante               |
+| Simón Parra Saldias            | 202373560-4             |
 
 
 Este repositorio contiene el desarrollo del proyecto de **Optimización**.  

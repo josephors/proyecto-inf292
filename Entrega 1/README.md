@@ -28,13 +28,10 @@ Entrega1/
 4. Compilar el informe en `report/` (ver `report/README.md`).  
 5. Ejecutar `empaquetado/build_zip.sh` para crear el `.zip` final con:  
    - `Modelo_1_Grupo2_OPTI_SJ.pdf`  
-   - `Generador_1_Grupo2_OPTI_SJ.py` (+ archivos auxiliares si corresponde)
-
-<!--
+   - `Generador_1_Grupo2_OPTI_SJ.py` 
 
 ## Convenciones
 - Disposición `p_{i,d,t} ∈ {0,…,10}` (0 = no puede).  
 - Demandas `r_{d,t}` por día–turno ~ Normal truncada a enteros ≥ 0.  
 - 5 instancias por tamaño: *small, medium, large* (rangos del enunciado).
 
- -->
