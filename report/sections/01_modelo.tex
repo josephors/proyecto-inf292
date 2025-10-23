@@ -1,31 +1,55 @@
 \clearpage
 \section{Modelo Matemático}
 
-\subsection*{Objetivo}
-Maximizar la \textbf{disposición total del personal asignado}, asegurando simultáneamente el cumplimiento de las \textbf{restricciones operativas} y de \textbf{bienestar del personal}, tales como la cobertura de turnos, la carga laboral diaria, los descansos adecuados y la equidad en la asignación de fines de semana.
-
-La función objetivo se define como la suma de las disposiciones individuales de los trabajadores asignados a cada turno, buscando así una planificación que favorezca la satisfacción del personal sin comprometer la continuidad del servicio.
-
 \subsection*{Conjuntos e Índices}
 \begin{itemize}
+  %Conjunto de trabajadores
   \item[$T$:] Conjunto de trabajadores, indexado por \( i \in T \).
+  %Conjunto de Días del horizonte de planificación 
   \item[$D$:] Conjunto de días del horizonte de planificación, definido como
   \[
       D = \{1, 2, \ldots, H\},
   \]
   donde \( H \) representa el número total de días. Cada día se indexa por \( j \in D \).
+  %Conjunto de turnos disponibles (mañana, tarde, noche)
   \item[$S$:] Conjunto de turnos disponibles por día, indexado por \( t \in S \).
 \end{itemize}
 
 \subsection*{Parámetros}
 \begin{itemize}
-  \item[$H$:] Número total de días del horizonte de planificación. Define la cardinalidad del conjunto \( D \).
   
+  % Nivel de disposición del trabajador
   \item[$c_{i,j,t}$:] Nivel de disposición del trabajador \( i \) para realizar el turno \( t \) del día \( j \), donde \( c_{i,j,t} \in \{0,1,\dots,10\} \). Un valor de 0 indica que el trabajador no puede realizar ese turno.
   
+  % Demanda de trabajadores en día
   \item[$r_{j,t}$:] Cantidad requerida de trabajadores para cubrir el turno \( t \) del día \( j \), con \( r_{j,t} \in \mathbb{N} \).
   
-  \item[$W_j$:] Indicador binario que vale 1 si el día \( j \) corresponde a un fin de semana (sábado o domingo), y 0 en caso contrario.
+  \item[$a_{i,j,t}$:] indica si el trabajador  \( i \)  está disponible para realizar el turno \( t \) del día \( j \), definida como:
+  \[
+  a_{i,j,t} =
+  \begin{cases}
+  1 & \text{si } c_{i,j,t} > 0, \\
+  0 & \text{si } c_{i,j,t} = 0.
+  \end{cases}
+  \]
+  
+
+  \item[$W_k$:] Conjunto de días correspondientes al fin de semana de la semana \( k \), utilizado para controlar la asignación de turnos en sábados y domingos. Se define como:
+  \[
+  W_k = \{ \text{s\'abado de la semana } k,\ \text{domingo de la semana } k \}, \quad \text{para } k = 1, \dots, K
+  \]
+  donde el número total de semanas \( K \) se calcula como:
+  \[
+  K = \left\lfloor \frac{H}{7} \right\rfloor
+  \]
+  siendo \( H \) el número total de días del horizonte de planificación.
+
+  \item[$L_i$:] Límite máximo de turnos que el trabajador \( i \) puede ser asignado durante todo el horizonte de planificación. Este parámetro permite controlar la carga total de trabajo por persona, promoviendo equidad y evitando sobreasignaciones. Se puede definir como:
+  \[
+  L_i = \left\lfloor \frac{2H}{3} \right\rfloor
+  \]
+  donde \( H \) es el número total de días del horizonte.
+
 \end{itemize}
 
 \subsection*{Variables de decisión}
@@ -38,24 +62,26 @@ La función objetivo se define como la suma de las disposiciones individuales de
     0, & \text{en caso contrario}.
   \end{cases}
   \]
+
+  \item[$y_{i,k}$:] Variable binaria que indica si el trabajador \( i \) realiza al menos un turno durante el fin de semana correspondiente a la semana \( k \). Se define como:
+  \[
+  y_{i,k} =
+  \begin{cases}
+  1 & \text{si el trabajador } i \text{ realiza al menos un turno en el fin de semana } k, \\
+  0 & \text{en caso contrario}.
+  \end{cases}
+  \]
+  
 \end{itemize}
 
 \clearpage
 \subsection*{Función Objetivo}
 
-El objetivo del modelo es \textbf{maximizar la disposición total del personal asignado}, es decir, la suma de los niveles de disposición de los trabajadores que efectivamente son asignados a turnos. Esto se representa mediante la siguiente función:
+\textbf{Función Objetivo:} Maximizar la disposición total del personal asignado, favoreciendo la asignación de turnos a quienes tienen mayor disposición declarada.
 
 \[
 \max Z = \sum_{i \in T} \sum_{j \in D} \sum_{t \in S} x_{i,j,t} \cdot c_{i,j,t}
 \]
-
-donde:
-\begin{itemize}
-  \item \( x_{i,j,t} \) indica si el trabajador \( i \) es asignado al turno \( t \) del día \( j \),
-  \item \( c_{i,j,t} \) representa la disposición del trabajador \( i \) para trabajar en esa combinación día-turno.
-\end{itemize}
-
-Esta función busca asignar turnos a quienes tienen mayor disposición, promoviendo así una planificación que favorezca el bienestar del personal sin comprometer la cobertura requerida.
 
 
 \subsection*{Restricciones}
@@ -70,33 +96,40 @@ El modelo considera las siguientes restricciones para asegurar la factibilidad o
 
   \item[\textbf{(R2)}] \textbf{Disponibilidad individual:} Un trabajador solo puede ser asignado a un turno si tiene disposición estrictamente positiva para realizarlo.
   \[
-  x_{i,j,t} \leq 
-  \begin{cases}
-  1, & \text{si } c_{i,j,t} > 0 \\
-  0, & \text{si } c_{i,j,t} = 0
-  \end{cases}
-  \quad \forall i \in T,\ \forall j \in D,\ \forall t \in S
-  \]
-  \item[\textbf{(R3)}] \textbf{Máximo de dos turnos por día:} Ningún trabajador puede realizar más de dos turnos en un mismo día.
-  \[
-  \sum_{t \in S} x_{i,j,t} \leq 2 \quad \forall i \in T,\ \forall j \in D
+  x_{i,j,t} \le a_{i,j,t} \quad \forall i \in T,\ \forall j \in D,\ \forall t \in S
   \]
 
-  \item[\textbf{(R4)}] \textbf{Descanso entre noche y mañana:} No se permite asignar a un trabajador al turno de noche de un día y al turno de mañana del día siguiente.\footnote{En instancias \textit{small}, el conjunto de turnos $S$ solo incluye \texttt{día} y \texttt{noche}, por lo que esta restricción no aplica. Se utiliza una versión ad-hoc del modelo que omite (R4).}
+  \item[\textbf{(R3)}] \textbf{Máximo de dos turnos por día:} Ningún trabajador puede realizar más de dos turnos en un mismo día.
   \[
-  x_{i,j,\text{Noche}} + x_{i,j+1,\text{Mañana}} \leq 1 \quad \forall i \in T,\ \forall j \in D \setminus \{H\}
+  \sum_{t \in S} x_{i,j,t} \le 2 \quad \forall i \in T,\ \forall j \in D
+  \]
+
+  \item[\textbf{(R4)}] \textbf{Descanso entre noche y mañana:} No se permite asignar a un trabajador al turno de noche de un día y al turno de mañana del día siguiente.\footnote{En instancias \textit{small}, el conjunto de turnos $S$ solo incluye \texttt{día} y \texttt{noche}, por lo que esta restricción no aplica.}
+  \[
+  x_{i,j,\text{noche}} + x_{i,j+1,\text{mañana}} \le 1 \quad \forall i \in T,\ \forall j \in D \setminus \{H\}
   \]
 
   \item[\textbf{(R5)}] \textbf{No trabajar tres fines de semana consecutivos:} Un trabajador no puede estar asignado a turnos en tres fines de semana seguidos.
   \[
-  w_{i,k} + w_{i,k+1} + w_{i,k+2} \leq 2 \quad \forall i \in T,\ \forall k \in \{1, \dots, K-2\}
+  y_{i,k} + y_{i,k+1} + y_{i,k+2} \le 2 \quad \forall i \in T,\ \forall k \in \{1, \dots, K-2\}
   \]
+
+  \item[\textbf{(R5.1)}] \textbf{Definición de actividad en fin de semana:} La variable $y_{i,k}$ se activa si el trabajador realiza al menos un turno en el fin de semana $k$.
+  \[
+  y_{i,k} \ge x_{i,d,t} \quad \forall d \in W_k,\ \forall t \in S
+  \]
+  \[
+  y_{i,k} \le \sum_{d \in W_k} \sum_{t \in S} x_{i,d,t} \quad \forall i \in T,\ \forall k \in \{1, \dots, K\}
+  \]
+
+  \item[\textbf{(R6)}] \textbf{Límite de carga total por trabajador:} Cada trabajador puede ser asignado como máximo a \( L_i \) turnos en todo el horizonte de planificación.
+  \[
+  \sum_{j \in D} \sum_{t \in S} x_{i,j,t} \le L_i \quad \forall i \in T
+  \]
+
+  \item[\textbf{(R7)}] \textbf{Naturaleza de las variables:} Se definen como binarias las variables de asignación y de actividad en fin de semana.
+  \[
+  x_{i,j,t} \in \{0,1\}, \quad y_{i,k} \in \{0,1\}
+  \]
+  
 \end{itemize}
-
-\vspace{0.5em}
-
-\noindent
-Para la restricción (R5), se define una variable auxiliar \( w_{i,k} \in \{0,1\} \) que indica si el trabajador \( i \) realiza al menos un turno durante el fin de semana \( k \). Esta variable se relaciona con las asignaciones reales mediante:
-\[
-w_{i,k} \geq x_{i,d,t} \quad \forall d \in \text{días del fin de semana } k,\ \forall t \in S
-\]

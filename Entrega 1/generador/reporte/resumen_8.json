@@ -1,0 +1,34 @@
+{
+    "id_instancia": 8,
+    "tipo": "medium",
+    "card_T": 43,
+    "H": 7,
+    "card_S": 3,
+    "c_min": 0,
+    "c_max": 10,
+    "c_avg": 4.92,
+    "c_pct_zeros": 9.97,
+    "r_min": 9,
+    "r_max": 22,
+    "r_avg": 14.714,
+    "checks_before": {
+        "check_A_ok": true,
+        "check_B_ok": true,
+        "check_C_ok": true
+    },
+    "checks_after": {
+        "check_A_ok": true,
+        "check_B_ok": true,
+        "check_C_ok": true
+    },
+    "auto_fix": true,
+    "fixes_applied": {
+        "A_recortes": 0,
+        "B_escalados_dia": 0,
+        "C_escalado_finde": 0
+    },
+    "all_checks_ok": true,
+    "overwrote_original": false,
+    "original_path": "../instancias/medium/instancia_8.json",
+    "backup_path": null
+}

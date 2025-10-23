@@ -14,10 +14,6 @@
 Este repositorio contiene el desarrollo del proyecto de **Optimización**.  
 El objetivo es modelar y resolver un problema de asignación de personal por día–turno maximizando la disposición total de los trabajadores, cumpliendo cobertura y restricciones de bienestar/operativas.
 
-
-# Pendientes:
-- Usar issues en lo ideal.
-
 ## Estructura del repositorio (vista rápida)
 
 ```
@@ -84,17 +80,5 @@ El objetivo es modelar y resolver un problema de asignación de personal por dí
 ### Requisitos sugeridos
 - **Python 3.10+** (para generador y análisis).
 - **lp_solve** (CLI o bindings).
-- **LaTeX** con `latexmk` (para compilar reportes).
+- **LaTeX** con `LaTeX Workshop` (para compilar reportes via vsCode).
 - **Git** (flujo colaborativo).
-
-
-<!--
-
-### Entornos recomendados
-bash
-# Crear venv para generador y análisis
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r Entrega1/generador/src/requirements.txt  # si aplica
-
-
--->

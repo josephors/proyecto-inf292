@@ -48,12 +48,13 @@ El script realiza dos tareas principales:
 
 \begin{enumerate}
   \item \textbf{Inicialización:} Elimina las carpetas existentes en \texttt{generador/instancias/} para evitar duplicados y crea nuevas subcarpetas para cada tipo de instancia.
-  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. Se utiliza una semilla fija (\texttt{random.seed(1234)}) para asegurar reproducibilidad. El proceso incluye:
+  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. Se utiliza una semilla aleatoria para permitir variabilidad entre ejecuciones y facilitar pruebas de factibilidad. El proceso incluye:
   \begin{itemize}
     \item Asignación de días y trabajadores dentro de los rangos definidos.
     \item Generación de nombres de días con formato \texttt{lunes\_1}, \texttt{martes\_1}, etc., para facilitar la identificación de semanas.
     \item Cálculo de demanda por turno usando una distribución normal con media ajustada dinámicamente.
     \item Generación de disposiciones por trabajador, día y turno, con valores enteros entre 0 y 10.
+    \item Cálculo del límite máximo de turnos \( L_i = \left\lfloor \frac{2H}{3} \right\rfloor \) por trabajador, en cumplimiento de la restricción (R6) del modelo matemático.
     \item Escritura de archivos \texttt{.json} y \texttt{.csv} con la información generada.
   \end{itemize}
 \end{enumerate}

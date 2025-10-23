@@ -1,0 +1,34 @@
+{
+    "id_instancia": 13,
+    "tipo": "large",
+    "card_T": 52,
+    "H": 21,
+    "card_S": 3,
+    "c_min": 0,
+    "c_max": 10,
+    "c_avg": 4.968,
+    "c_pct_zeros": 9.25,
+    "r_min": 8,
+    "r_max": 28,
+    "r_avg": 17.984,
+    "checks_before": {
+        "check_A_ok": true,
+        "check_B_ok": true,
+        "check_C_ok": true
+    },
+    "checks_after": {
+        "check_A_ok": true,
+        "check_B_ok": true,
+        "check_C_ok": true
+    },
+    "auto_fix": true,
+    "fixes_applied": {
+        "A_recortes": 0,
+        "B_escalados_dia": 0,
+        "C_escalado_finde": 0
+    },
+    "all_checks_ok": true,
+    "overwrote_original": false,
+    "original_path": "../instancias/large/instancia_13.json",
+    "backup_path": null
+}
