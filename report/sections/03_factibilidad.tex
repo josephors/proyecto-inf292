@@ -12,7 +12,8 @@ El análisis de factibilidad evalúa si las instancias generadas permiten soluci
 
     \item \textbf{Carga total (R6):} Aunque el parámetro \( L_i = \left\lfloor \frac{2H}{3} \right\rfloor \) no se usa directamente en el generador, se respeta de forma indirecta al limitar la demanda diaria y la carga agregada por trabajador. Esto favorece la factibilidad sin imponerla explícitamente.
 
-    \item \textbf{Fines de semana (R5):} Se controla que la demanda agregada en sábados y domingos no exceda la capacidad global del equipo.
+    \item \textbf{Fines de semana (R5, parcialmente):} Se controla que la demanda agregada en sábados y domingos no exceda la capacidad global del equipo. La restricción completa sobre fines de semana consecutivos se delega al modelo.
+
 \end{itemize}
 
 \subsection*{Chequeo automatizado}
