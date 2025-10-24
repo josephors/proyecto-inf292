@@ -55,7 +55,8 @@ El script realiza dos tareas principales:
 
 \begin{enumerate}
   \item \textbf{Inicialización:} Elimina las carpetas existentes en \texttt{../instancias/} para evitar duplicados y crea nuevas subcarpetas para cada tipo de instancia.
-  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. Se utiliza una semilla aleatoria (\texttt{random.seed()}) para permitir variabilidad entre ejecuciones. El proceso incluye:
+
+  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. El script permite fijar una semilla manualmente para reproducir instancias específicas, o usar una semilla aleatoria por defecto (\texttt{random.seed()}) para obtener variabilidad entre ejecuciones. Para esta entrega, se utilizó la semilla \texttt{42}, al igual que en ejecuciones anteriores, con el fin de mantener consistencia en las pruebas. El proceso incluye:
   \begin{itemize}
     \item Asignación de días y trabajadores dentro de los rangos definidos.
     \item Generación de nombres de días con formato \texttt{lunes\_1}, \texttt{martes\_1}, etc.
@@ -65,6 +66,7 @@ El script realiza dos tareas principales:
     \item Escritura de archivos \texttt{.json} y \texttt{.csv}.
   \end{itemize}
 \end{enumerate}
+
 
 \subsection*{Fragmento del Código}
 

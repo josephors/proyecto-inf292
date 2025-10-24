@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber build/report"] 1761262605.37282 "build/report.bcf" "build/report.bbl" "build/report" 1761262956.13236 0
-  "build/report.bcf" 1761262955.98844 107769 6231c33307fb79375618b2235fdaf0ce "pdflatex"
+["biber build/report"] 1761262605.37282 "build/report.bcf" "build/report.bbl" "build/report" 1761267571.54786 0
+  "build/report.bcf" 1761267571.36189 107769 6231c33307fb79375618b2235fdaf0ce "pdflatex"
   "references.bib" 1761102215.68295 709 ec7c3aae56b91b3c71b4198ca4df5d34 ""
   (generated)
   "build/report.bbl"
   "build/report.blg"
   (rewritten before read)
-["pdflatex"] 1761262954.17036 "/home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report/report.tex" "build/report.pdf" "report" 1761262956.13267 0
+["pdflatex"] 1761267569.42517 "/home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report/report.tex" "build/report.pdf" "report" 1761267571.54833 0
   "/etc/texmf/web2c/texmf.cnf" 1757189906.9524 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report/report.tex" 1761092069.92875 587 e83e2faf5c9006627f9c9a312a5592cd ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -265,15 +265,15 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1757189935.9957 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1757190019 8215041 0bbb65a36d8a2f62efd7afb461fc5a36 ""
   "author.tex" 1761116756.5738 550 fc8b292db8274cd766a1687c18aba91f ""
-  "build/report.aux" 1761262955.98144 1051 227b2c8969229064ddcc3f96c740e078 "pdflatex"
+  "build/report.aux" 1761267571.35389 1051 227b2c8969229064ddcc3f96c740e078 "pdflatex"
   "build/report.bbl" 1761262606.30183 2471 a5a2c23bcc10a0a1f9d2c78834f3dc8f "biber build/report"
-  "build/report.out" 1761262955.98444 470 9d07669aaf894eb37a7c7d54dbc4b55c "pdflatex"
-  "build/report.run.xml" 1761262955.99 2319 85416a11bf768be6a1e5b1dccfd5e02c "pdflatex"
+  "build/report.out" 1761267571.35689 470 9d07669aaf894eb37a7c7d54dbc4b55c "pdflatex"
+  "build/report.run.xml" 1761267571.36456 2319 85416a11bf768be6a1e5b1dccfd5e02c "pdflatex"
   "preamble.tex" 1761103492.85756 2556 69fc50a21879d67c4dc95d642a01d587 ""
   "report.tex" 1761092069.92875 587 e83e2faf5c9006627f9c9a312a5592cd ""
   "sections/00_resumen.tex" 1761096837.8711 1094 8e073cf2e16420b0232825680b0ace82 ""
   "sections/01_modelo.tex" 1761110785.9951 5768 de92e39b6f51840cbaba6fcdd471e30d ""
-  "sections/02_generador.tex" 1761262953.86806 4582 7dc24f363c74ebb7f58e0ac5e1d77b13 ""
+  "sections/02_generador.tex" 1761267569.16089 4827 4aeb9bed97ef58bba76f12caf0786fca ""
   "sections/03_factibilidad.tex" 1761262868.46197 2475 e5de8a9abb49b05cad49ac04b5e9a7ff ""
   (generated)
   "build/report.aux"

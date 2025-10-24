@@ -38,8 +38,11 @@ def scale_day(demands_dict, target_sum):
     return scaled
 
 # Generador de instancias con control de capacidad
-def generar_instancias(max_turnos_dia=2, dispo_umbral=0):
-    random.seed()
+def generar_instancias(max_turnos_dia=2, dispo_umbral=0, semilla=None):
+    if semilla is not None:
+        random.seed(semilla)
+    else:
+        random.seed()
     semana_dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
 
     tipos = ["small", "medium", "large"]
@@ -127,5 +130,7 @@ def generar_instancias(max_turnos_dia=2, dispo_umbral=0):
 # Ejecutar
 if __name__ == '__main__':
     crear_directorios()
-    generar_instancias(max_turnos_dia=2, dispo_umbral=0)
+    generar_instancias(max_turnos_dia=2, dispo_umbral=0, semilla=42)  # fija
+    # generar_instancias(max_turnos_dia=2, dispo_umbral=0)              # aleatoria
+
     print("Instancias generadas en ../instancias/ con control de capacidad diaria y por turno.")
