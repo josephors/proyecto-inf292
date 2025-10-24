@@ -1,31 +1,35 @@
 {
     "id_instancia": 5,
     "tipo": "small",
-    "dias": 6,
-    "trabajadores": 14,
+    "dias": 7,
+    "trabajadores": 10,
     "demanda_dias": {
         "lunes_1": {
-            "dia": 9,
-            "noche": 6
+            "dia": 4,
+            "noche": 5
         },
         "martes_1": {
             "dia": 5,
-            "noche": 5
+            "noche": 4
         },
         "miercoles_1": {
-            "dia": 6,
-            "noche": 7
+            "dia": 5,
+            "noche": 6
         },
         "jueves_1": {
-            "dia": 6,
-            "noche": 5
+            "dia": 3,
+            "noche": 7
         },
         "viernes_1": {
-            "dia": 7,
+            "dia": 3,
             "noche": 5
         },
         "sabado_1": {
-            "dia": 12,
+            "dia": 4,
+            "noche": 5
+        },
+        "domingo_1": {
+            "dia": 4,
             "noche": 6
         }
     },
@@ -34,117 +38,129 @@
             "trabajador": 1,
             "dia": 1,
             "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 1,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 1,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 1,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 1,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 1,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 1,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 1,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 1,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 1,
-            "dia": 5,
-            "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 1,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 1,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 2,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 2,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 1
-        },
-        {
-            "trabajador": 2,
-            "dia": 2,
-            "turno": "dia",
             "disposicion": 6
         },
         {
-            "trabajador": 2,
-            "dia": 2,
+            "trabajador": 1,
+            "dia": 1,
             "turno": "noche",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 1,
+            "dia": 2,
+            "turno": "dia",
             "disposicion": 2
         },
         {
-            "trabajador": 2,
+            "trabajador": 1,
+            "dia": 2,
+            "turno": "noche",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 1,
             "dia": 3,
             "turno": "dia",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 1,
+            "dia": 3,
+            "turno": "noche",
             "disposicion": 8
         },
         {
-            "trabajador": 2,
-            "dia": 3,
+            "trabajador": 1,
+            "dia": 4,
+            "turno": "dia",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 1,
+            "dia": 4,
+            "turno": "noche",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 1,
+            "dia": 5,
+            "turno": "dia",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 1,
+            "dia": 5,
             "turno": "noche",
             "disposicion": 3
         },
         {
-            "trabajador": 2,
-            "dia": 4,
+            "trabajador": 1,
+            "dia": 6,
             "turno": "dia",
             "disposicion": 1
         },
         {
+            "trabajador": 1,
+            "dia": 6,
+            "turno": "noche",
+            "disposicion": 2
+        },
+        {
+            "trabajador": 1,
+            "dia": 7,
+            "turno": "dia",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 1,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 2,
+            "dia": 1,
+            "turno": "dia",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 2,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 8
+        },
+        {
+            "trabajador": 2,
+            "dia": 2,
+            "turno": "dia",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 2,
+            "dia": 2,
+            "turno": "noche",
+            "disposicion": 8
+        },
+        {
+            "trabajador": 2,
+            "dia": 3,
+            "turno": "dia",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 2,
+            "dia": 3,
+            "turno": "noche",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 2,
+            "dia": 4,
+            "turno": "dia",
+            "disposicion": 3
+        },
+        {
             "trabajador": 2,
             "dia": 4,
             "turno": "noche",
@@ -154,97 +170,121 @@
             "trabajador": 2,
             "dia": 5,
             "turno": "dia",
-            "disposicion": 0
+            "disposicion": 4
         },
         {
             "trabajador": 2,
             "dia": 5,
             "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 2,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 2,
-            "dia": 6,
-            "turno": "noche",
             "disposicion": 5
         },
         {
-            "trabajador": 3,
-            "dia": 1,
+            "trabajador": 2,
+            "dia": 6,
             "turno": "dia",
-            "disposicion": 3
+            "disposicion": 5
         },
         {
-            "trabajador": 3,
-            "dia": 1,
+            "trabajador": 2,
+            "dia": 6,
             "turno": "noche",
-            "disposicion": 3
+            "disposicion": 2
         },
         {
-            "trabajador": 3,
-            "dia": 2,
+            "trabajador": 2,
+            "dia": 7,
             "turno": "dia",
-            "disposicion": 0
+            "disposicion": 2
         },
         {
-            "trabajador": 3,
-            "dia": 2,
+            "trabajador": 2,
+            "dia": 7,
             "turno": "noche",
             "disposicion": 10
         },
         {
             "trabajador": 3,
-            "dia": 3,
+            "dia": 1,
             "turno": "dia",
             "disposicion": 8
         },
         {
             "trabajador": 3,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 3,
+            "dia": 2,
+            "turno": "dia",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 3,
+            "dia": 2,
+            "turno": "noche",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 3,
+            "dia": 3,
+            "turno": "dia",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 3,
             "dia": 3,
             "turno": "noche",
-            "disposicion": 0
+            "disposicion": 1
         },
         {
             "trabajador": 3,
             "dia": 4,
             "turno": "dia",
-            "disposicion": 5
+            "disposicion": 0
         },
         {
             "trabajador": 3,
             "dia": 4,
             "turno": "noche",
+            "disposicion": 1
+        },
+        {
+            "trabajador": 3,
+            "dia": 5,
+            "turno": "dia",
             "disposicion": 2
         },
         {
             "trabajador": 3,
             "dia": 5,
-            "turno": "dia",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 3,
-            "dia": 5,
             "turno": "noche",
-            "disposicion": 7
+            "disposicion": 10
         },
         {
             "trabajador": 3,
             "dia": 6,
             "turno": "dia",
-            "disposicion": 7
+            "disposicion": 8
         },
         {
             "trabajador": 3,
             "dia": 6,
             "turno": "noche",
-            "disposicion": 5
+            "disposicion": 8
+        },
+        {
+            "trabajador": 3,
+            "dia": 7,
+            "turno": "dia",
+            "disposicion": 2
+        },
+        {
+            "trabajador": 3,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 3
         },
         {
             "trabajador": 4,
@@ -255,788 +295,584 @@
         {
             "trabajador": 4,
             "dia": 1,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 4,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 4,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 4,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 4,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 4,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 4,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 4,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 4,
-            "dia": 5,
             "turno": "noche",
             "disposicion": 1
         },
         {
             "trabajador": 4,
-            "dia": 6,
+            "dia": 2,
             "turno": "dia",
             "disposicion": 0
         },
         {
             "trabajador": 4,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 5,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 5,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 5,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 5,
             "dia": 2,
             "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 5,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 5,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 5,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 5,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 5,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 5,
-            "dia": 5,
-            "turno": "noche",
-            "disposicion": 1
-        },
-        {
-            "trabajador": 5,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 5,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 1
-        },
-        {
-            "trabajador": 6,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 6,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 6,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 6,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 6,
-            "dia": 3,
-            "turno": "dia",
             "disposicion": 3
         },
         {
-            "trabajador": 6,
+            "trabajador": 4,
             "dia": 3,
-            "turno": "noche",
-            "disposicion": 0
+            "turno": "dia",
+            "disposicion": 2
         },
         {
-            "trabajador": 6,
+            "trabajador": 4,
+            "dia": 3,
+            "turno": "noche",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 4,
             "dia": 4,
+            "turno": "dia",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 4,
+            "dia": 4,
+            "turno": "noche",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 4,
+            "dia": 5,
             "turno": "dia",
             "disposicion": 10
         },
         {
-            "trabajador": 6,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 6,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 6,
+            "trabajador": 4,
             "dia": 5,
             "turno": "noche",
             "disposicion": 7
         },
         {
-            "trabajador": 6,
+            "trabajador": 4,
             "dia": 6,
             "turno": "dia",
-            "disposicion": 6
+            "disposicion": 10
         },
         {
-            "trabajador": 6,
+            "trabajador": 4,
             "dia": 6,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 7,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 7,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 7,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 7,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 7,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 7,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 7,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 7,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 7,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 7,
-            "dia": 5,
             "turno": "noche",
             "disposicion": 6
         },
         {
-            "trabajador": 7,
-            "dia": 6,
+            "trabajador": 4,
+            "dia": 7,
             "turno": "dia",
             "disposicion": 1
         },
         {
-            "trabajador": 7,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 8,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 8,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 1
-        },
-        {
-            "trabajador": 8,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 6
-        },
-        {
-            "trabajador": 8,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 8,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 8,
-            "dia": 3,
+            "trabajador": 4,
+            "dia": 7,
             "turno": "noche",
             "disposicion": 4
         },
         {
-            "trabajador": 8,
-            "dia": 4,
+            "trabajador": 5,
+            "dia": 1,
             "turno": "dia",
             "disposicion": 7
         },
         {
-            "trabajador": 8,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 8,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 8,
-            "dia": 5,
-            "turno": "noche",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 8,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 8,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 9,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 1,
             "turno": "noche",
             "disposicion": 6
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 2,
             "turno": "dia",
-            "disposicion": 9
+            "disposicion": 0
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 2,
             "turno": "noche",
-            "disposicion": 10
+            "disposicion": 1
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 3,
             "turno": "dia",
-            "disposicion": 3
+            "disposicion": 8
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 3,
-            "turno": "noche",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 9,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 9,
-            "dia": 4,
             "turno": "noche",
             "disposicion": 2
         },
         {
-            "trabajador": 9,
-            "dia": 5,
+            "trabajador": 5,
+            "dia": 4,
             "turno": "dia",
-            "disposicion": 4
+            "disposicion": 2
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
+            "dia": 4,
+            "turno": "noche",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 5,
+            "dia": 5,
+            "turno": "dia",
+            "disposicion": 8
+        },
+        {
+            "trabajador": 5,
             "dia": 5,
             "turno": "noche",
             "disposicion": 1
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 6,
             "turno": "dia",
-            "disposicion": 1
+            "disposicion": 0
         },
         {
-            "trabajador": 9,
+            "trabajador": 5,
             "dia": 6,
             "turno": "noche",
-            "disposicion": 1
+            "disposicion": 0
         },
         {
-            "trabajador": 10,
+            "trabajador": 5,
+            "dia": 7,
+            "turno": "dia",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 5,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 6,
             "dia": 1,
+            "turno": "dia",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 6,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 1
+        },
+        {
+            "trabajador": 6,
+            "dia": 2,
             "turno": "dia",
             "disposicion": 10
         },
         {
-            "trabajador": 10,
-            "dia": 1,
+            "trabajador": 6,
+            "dia": 2,
             "turno": "noche",
-            "disposicion": 9
+            "disposicion": 4
         },
         {
-            "trabajador": 10,
-            "dia": 2,
+            "trabajador": 6,
+            "dia": 3,
+            "turno": "dia",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 6,
+            "dia": 3,
+            "turno": "noche",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 6,
+            "dia": 4,
             "turno": "dia",
             "disposicion": 8
         },
         {
-            "trabajador": 10,
+            "trabajador": 6,
+            "dia": 4,
+            "turno": "noche",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 6,
+            "dia": 5,
+            "turno": "dia",
+            "disposicion": 2
+        },
+        {
+            "trabajador": 6,
+            "dia": 5,
+            "turno": "noche",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 6,
+            "dia": 6,
+            "turno": "dia",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 6,
+            "dia": 6,
+            "turno": "noche",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 6,
+            "dia": 7,
+            "turno": "dia",
+            "disposicion": 6
+        },
+        {
+            "trabajador": 6,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 2
+        },
+        {
+            "trabajador": 7,
+            "dia": 1,
+            "turno": "dia",
+            "disposicion": 6
+        },
+        {
+            "trabajador": 7,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 7,
+            "dia": 2,
+            "turno": "dia",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 7,
             "dia": 2,
             "turno": "noche",
             "disposicion": 8
         },
         {
-            "trabajador": 10,
+            "trabajador": 7,
             "dia": 3,
             "turno": "dia",
             "disposicion": 0
         },
         {
-            "trabajador": 10,
+            "trabajador": 7,
             "dia": 3,
+            "turno": "noche",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 7,
+            "dia": 4,
+            "turno": "dia",
+            "disposicion": 1
+        },
+        {
+            "trabajador": 7,
+            "dia": 4,
             "turno": "noche",
             "disposicion": 8
         },
         {
-            "trabajador": 10,
-            "dia": 4,
+            "trabajador": 7,
+            "dia": 5,
             "turno": "dia",
-            "disposicion": 8
+            "disposicion": 6
         },
         {
-            "trabajador": 10,
-            "dia": 4,
+            "trabajador": 7,
+            "dia": 5,
             "turno": "noche",
             "disposicion": 1
         },
         {
-            "trabajador": 10,
-            "dia": 5,
+            "trabajador": 7,
+            "dia": 6,
             "turno": "dia",
-            "disposicion": 10
+            "disposicion": 0
         },
         {
-            "trabajador": 10,
-            "dia": 5,
+            "trabajador": 7,
+            "dia": 6,
             "turno": "noche",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 7,
+            "dia": 7,
+            "turno": "dia",
             "disposicion": 5
         },
         {
-            "trabajador": 10,
-            "dia": 6,
+            "trabajador": 7,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 8,
+            "dia": 1,
+            "turno": "dia",
+            "disposicion": 6
+        },
+        {
+            "trabajador": 8,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 8,
+            "dia": 2,
             "turno": "dia",
             "disposicion": 3
         },
         {
-            "trabajador": 10,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 11,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 11,
-            "dia": 1,
+            "trabajador": 8,
+            "dia": 2,
             "turno": "noche",
             "disposicion": 6
         },
         {
-            "trabajador": 11,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 11,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 11,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 11,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 11,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 11,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 11,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 11,
-            "dia": 5,
-            "turno": "noche",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 11,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 11,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 12,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 12,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 12,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 12,
-            "dia": 2,
-            "turno": "noche",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 12,
+            "trabajador": 8,
             "dia": 3,
             "turno": "dia",
             "disposicion": 10
         },
         {
-            "trabajador": 12,
+            "trabajador": 8,
             "dia": 3,
-            "turno": "noche",
-            "disposicion": 1
-        },
-        {
-            "trabajador": 12,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 12,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 12,
-            "dia": 5,
-            "turno": "dia",
-            "disposicion": 10
-        },
-        {
-            "trabajador": 12,
-            "dia": 5,
-            "turno": "noche",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 12,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 8
-        },
-        {
-            "trabajador": 12,
-            "dia": 6,
             "turno": "noche",
             "disposicion": 4
         },
         {
-            "trabajador": 13,
-            "dia": 1,
+            "trabajador": 8,
+            "dia": 4,
             "turno": "dia",
-            "disposicion": 0
+            "disposicion": 7
         },
         {
-            "trabajador": 13,
-            "dia": 1,
+            "trabajador": 8,
+            "dia": 4,
             "turno": "noche",
             "disposicion": 6
         },
         {
-            "trabajador": 13,
-            "dia": 2,
+            "trabajador": 8,
+            "dia": 5,
             "turno": "dia",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 13,
-            "dia": 2,
-            "turno": "noche",
             "disposicion": 10
         },
         {
-            "trabajador": 13,
-            "dia": 3,
-            "turno": "dia",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 13,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 13,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 13,
-            "dia": 4,
-            "turno": "noche",
-            "disposicion": 3
-        },
-        {
-            "trabajador": 13,
+            "trabajador": 8,
             "dia": 5,
-            "turno": "dia",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 13,
-            "dia": 5,
-            "turno": "noche",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 13,
-            "dia": 6,
-            "turno": "dia",
-            "disposicion": 5
-        },
-        {
-            "trabajador": 13,
-            "dia": 6,
-            "turno": "noche",
-            "disposicion": 4
-        },
-        {
-            "trabajador": 14,
-            "dia": 1,
-            "turno": "dia",
-            "disposicion": 2
-        },
-        {
-            "trabajador": 14,
-            "dia": 1,
-            "turno": "noche",
-            "disposicion": 0
-        },
-        {
-            "trabajador": 14,
-            "dia": 2,
-            "turno": "dia",
-            "disposicion": 1
-        },
-        {
-            "trabajador": 14,
-            "dia": 2,
             "turno": "noche",
             "disposicion": 7
         },
         {
-            "trabajador": 14,
-            "dia": 3,
+            "trabajador": 8,
+            "dia": 6,
             "turno": "dia",
-            "disposicion": 9
+            "disposicion": 0
         },
         {
-            "trabajador": 14,
-            "dia": 3,
-            "turno": "noche",
-            "disposicion": 9
-        },
-        {
-            "trabajador": 14,
-            "dia": 4,
-            "turno": "dia",
-            "disposicion": 7
-        },
-        {
-            "trabajador": 14,
-            "dia": 4,
+            "trabajador": 8,
+            "dia": 6,
             "turno": "noche",
             "disposicion": 8
         },
         {
-            "trabajador": 14,
-            "dia": 5,
+            "trabajador": 8,
+            "dia": 7,
             "turno": "dia",
-            "disposicion": 1
+            "disposicion": 3
         },
         {
-            "trabajador": 14,
-            "dia": 5,
+            "trabajador": 8,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 9,
+            "dia": 1,
+            "turno": "dia",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 9,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 9,
+            "dia": 2,
+            "turno": "dia",
+            "disposicion": 5
+        },
+        {
+            "trabajador": 9,
+            "dia": 2,
             "turno": "noche",
             "disposicion": 3
         },
         {
-            "trabajador": 14,
+            "trabajador": 9,
+            "dia": 3,
+            "turno": "dia",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 9,
+            "dia": 3,
+            "turno": "noche",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 9,
+            "dia": 4,
+            "turno": "dia",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 9,
+            "dia": 4,
+            "turno": "noche",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 9,
+            "dia": 5,
+            "turno": "dia",
+            "disposicion": 10
+        },
+        {
+            "trabajador": 9,
+            "dia": 5,
+            "turno": "noche",
+            "disposicion": 5
+        },
+        {
+            "trabajador": 9,
+            "dia": 6,
+            "turno": "dia",
+            "disposicion": 4
+        },
+        {
+            "trabajador": 9,
+            "dia": 6,
+            "turno": "noche",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 9,
+            "dia": 7,
+            "turno": "dia",
+            "disposicion": 1
+        },
+        {
+            "trabajador": 9,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 3
+        },
+        {
+            "trabajador": 10,
+            "dia": 1,
+            "turno": "dia",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 10,
+            "dia": 1,
+            "turno": "noche",
+            "disposicion": 1
+        },
+        {
+            "trabajador": 10,
+            "dia": 2,
+            "turno": "dia",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 10,
+            "dia": 2,
+            "turno": "noche",
+            "disposicion": 8
+        },
+        {
+            "trabajador": 10,
+            "dia": 3,
+            "turno": "dia",
+            "disposicion": 6
+        },
+        {
+            "trabajador": 10,
+            "dia": 3,
+            "turno": "noche",
+            "disposicion": 7
+        },
+        {
+            "trabajador": 10,
+            "dia": 4,
+            "turno": "dia",
+            "disposicion": 9
+        },
+        {
+            "trabajador": 10,
+            "dia": 4,
+            "turno": "noche",
+            "disposicion": 5
+        },
+        {
+            "trabajador": 10,
+            "dia": 5,
+            "turno": "dia",
+            "disposicion": 5
+        },
+        {
+            "trabajador": 10,
+            "dia": 5,
+            "turno": "noche",
+            "disposicion": 0
+        },
+        {
+            "trabajador": 10,
             "dia": 6,
             "turno": "dia",
             "disposicion": 5
         },
         {
-            "trabajador": 14,
+            "trabajador": 10,
             "dia": 6,
             "turno": "noche",
-            "disposicion": 2
+            "disposicion": 0
+        },
+        {
+            "trabajador": 10,
+            "dia": 7,
+            "turno": "dia",
+            "disposicion": 6
+        },
+        {
+            "trabajador": 10,
+            "dia": 7,
+            "turno": "noche",
+            "disposicion": 1
         }
     ]
 }

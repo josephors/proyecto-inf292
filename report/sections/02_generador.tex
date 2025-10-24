@@ -15,78 +15,74 @@ Este script genera \textbf{cinco instancias por cada tamaño} (\textit{small}, \
 
 El código fuente completo está disponible en el repositorio de GitHub \cite{generador2025}.
 
+\vspace{0.5em}
+Además, el repositorio incluye un script de chequeo que genera resúmenes estadísticos por instancia, útiles para el análisis posterior. Este script complementa el generador y se encuentra en el mismo repositorio citado.
+
+
 \subsection*{Lógica de Generación y Formato de Salida}
 
 \begin{itemize}
   \item Se definen aleatoriamente los días y trabajadores según el tipo de instancia:
   \begin{itemize}
-    \item \textit{Small}: 5–7 días, 5–15 trabajadores, turnos \texttt{día} y \texttt{noche}.
-    \item \textit{Medium}: 7–14 días, 15–45 trabajadores, turnos \texttt{mañana}, \texttt{tarde}, \texttt{noche}.
-    \item \textit{Large}: 14–28 días, 45–90 trabajadores, mismos turnos que \textit{medium}.
+    \item \textit{Small}: 5--7 días, 5--15 trabajadores, turnos \texttt{dia} y \texttt{noche}.
+    \item \textit{Medium}: 7--14 días, 15--45 trabajadores, turnos \texttt{manana}, \texttt{tarde}, \texttt{noche}.
+    \item \textit{Large}: 14--28 días, 45--90 trabajadores, mismos turnos que \textit{medium}.
   \end{itemize}
-  
-  \item Para cada día y turno, se genera una demanda \( r_{j,t} \) con una \textbf{distribución normal truncada}, con media proporcional al número de trabajadores y turnos, y desviación estándar del 20\%. Esto permite simular variabilidad en la carga de trabajo diaria.
 
-  \item Para cada trabajador, día y turno, se genera una disposición \( c_{i,j,t} \sim \mathcal{U}\{0,10\} \), donde 0 indica que el trabajador no puede realizar ese turno. Esta variabilidad permite representar preferencias y restricciones personales.
+  \item Para cada día y turno, se genera una demanda \(r_{j,t}\) con una distribución normal truncada en cero, con media proporcional al número de trabajadores y turnos, y desviación estándar del 20\%. Luego:
+  \begin{enumerate}
+    \item Se limita la demanda por la disponibilidad real del turno (trabajadores con disposición positiva).
+    \item Si la suma diaria excede la capacidad máxima (\( \text{max\_turnos\_dia} \times \text{trabajadores}\)), se escala proporcionalmente.
+  \end{enumerate}
+
+  \item Para cada trabajador, día y turno, se genera una disposición \(c_{i,j,t} \sim \mathcal{U}\{0,10\}\).
 
   \item Cada instancia se guarda en dos formatos:
   \begin{itemize}
-    \item \texttt{.json}: contiene la estructura completa de la instancia, incluyendo:
-    \begin{itemize}
-      \item \texttt{meta}: metadatos como el tipo de instancia, número de días y trabajadores.
-      \item \texttt{sets}: definición de los conjuntos \( T \), \( D \), \( S \).
-      \item \texttt{demand}: matriz con los valores de \( r_{j,t} \).
-      \item \texttt{preferences}: matriz tridimensional con los valores de \( c_{i,j,t} \).
-    \end{itemize}
-    \item \texttt{.csv}: archivo plano con las disposiciones individuales, útil para inspección rápida o visualización.
+    \item \texttt{.json}: contiene \texttt{id\_instancia}, \texttt{tipo}, \texttt{dias}, \texttt{trabajadores}, \texttt{demanda\_dias} y \texttt{disposicion}.
+    \item \texttt{.csv}: archivo plano con las disposiciones individuales, con columnas:
+\begin{center}
+\texttt{trabajador, dia, turno, disposicion}
+\end{center}
+Este formato permite inspeccionar rápidamente las preferencias de cada trabajador, pero no incluye la demanda ni otros metadatos.
   \end{itemize}
 \end{itemize}
+
 \clearpage
 \subsection*{Descripción del Código}
 
 El script realiza dos tareas principales:
 
 \begin{enumerate}
-  \item \textbf{Inicialización:} Elimina las carpetas existentes en \texttt{generador/instancias/} para evitar duplicados y crea nuevas subcarpetas para cada tipo de instancia.
-  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. Se utiliza una semilla aleatoria para permitir variabilidad entre ejecuciones y facilitar pruebas de factibilidad. El proceso incluye:
+  \item \textbf{Inicialización:} Elimina las carpetas existentes en \texttt{../instancias/} para evitar duplicados y crea nuevas subcarpetas para cada tipo de instancia.
+  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. Se utiliza una semilla aleatoria (\texttt{random.seed()}) para permitir variabilidad entre ejecuciones. El proceso incluye:
   \begin{itemize}
     \item Asignación de días y trabajadores dentro de los rangos definidos.
-    \item Generación de nombres de días con formato \texttt{lunes\_1}, \texttt{martes\_1}, etc., para facilitar la identificación de semanas.
-    \item Cálculo de demanda por turno usando una distribución normal con media ajustada dinámicamente.
-    \item Generación de disposiciones por trabajador, día y turno, con valores enteros entre 0 y 10.
-    \item Cálculo del límite máximo de turnos \( L_i = \left\lfloor \frac{2H}{3} \right\rfloor \) por trabajador, en cumplimiento de la restricción (R6) del modelo matemático.
-    \item Escritura de archivos \texttt{.json} y \texttt{.csv} con la información generada.
+    \item Generación de nombres de días con formato \texttt{lunes\_1}, \texttt{martes\_1}, etc.
+    \item Cálculo de demanda por turno usando una distribución normal truncada en cero.
+    \item Ajuste de demanda por disponibilidad y escalado por capacidad diaria.
+    \item Generación de disposiciones por trabajador, día y turno.
+    \item Escritura de archivos \texttt{.json} y \texttt{.csv}.
   \end{itemize}
 \end{enumerate}
 
 \subsection*{Fragmento del Código}
 
-\begin{lstlisting}[language=Python, basicstyle=\ttfamily\footnotesize, breaklines=true]
-def generar_instancias():
-    random.seed(1234)
+\begin{lstlisting}[language=Python, basicstyle=\ttfamily\footnotesize, breaklines=true, caption={Generador de instancias con control de capacidad}]
+def generar_instancias(max_turnos_dia=2, dispo_umbral=0):
+    random.seed()  # Semilla aleatoria para variabilidad
+    semana_dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+
     tipos = ["small", "medium", "large"]
     dias_rangos = [(5, 7), (7, 14), (14, 28)]
     trabajadores_rangos = [(5, 15), (15, 45), (45, 90)]
     turnos_rangos = [["dia", "noche"], ["manana", "tarde", "noche"], ["manana", "tarde", "noche"]]
+
+    id_instancia = 1
     for tipo, dias_rng, trab_rng, turnos in zip(tipos, dias_rangos, trabajadores_rangos, turnos_rangos):
-        for _ in range(5):
+        for i in range(5):  # 5 instancias por tipo
             dias = random.randint(*dias_rng)
             trabajadores = random.randint(*trab_rng)
             cantidad_turnos = len(turnos)
-            demanda_dias = {}
-            disposicion = []
-            for j in range(dias):
-                mu = (trabajadores / cantidad_turnos) * random.uniform(1.0, 1.2)
-                sigma = mu * 0.2
-                demandas_turnos = {t: max(0, int(random.normalvariate(mu, sigma))) for t in turnos}
-                demanda_dias[f"dia_{j+1}"] = demandas_turnos
-            for i in range(1, trabajadores + 1):
-                for d in range(1, dias + 1):
-                    for t in turnos:
-                        dispo = random.randint(0, 10)
-                        disposicion.append({"trabajador": i, "dia": d, "turno": t, "disposicion": dispo})
-            # Escritura de archivos omitida por brevedad
+            # Generacion de disposicion y demanda omitida por brevedad
 \end{lstlisting}
-
-El código completo incluye la escritura de archivos y está documentado en el repositorio citado.
-

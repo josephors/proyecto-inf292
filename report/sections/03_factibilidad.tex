@@ -1,27 +1,44 @@
 \clearpage
 \section{Análisis de Factibilidad}
 
-El análisis de factibilidad evalúa si las instancias generadas permiten soluciones que cumplan las restricciones del modelo. Dado que el generador utiliza datos aleatorios, pueden aparecer casos infactibles, especialmente en instancias grandes o con parámetros extremos. Por ello, el diseño del generador considera explícitamente los factores que más afectan la factibilidad, con el objetivo de producir instancias razonables y representativas.
+El análisis de factibilidad evalúa si las instancias generadas permiten soluciones que cumplan las restricciones del modelo matemático. El generador no fuerza factibilidad, pero incorpora controles estructurales que favorecen la viabilidad operativa.
 
-\subsection*{Factores que influyen}
+\subsection*{Controles incorporados}
+
 \begin{itemize}[leftmargin=1em]
-    \item \textbf{Cobertura por turno:} Para cada día y turno, la demanda se ajusta según la capacidad disponible, es decir, el número de trabajadores que pueden cubrir ese turno según su disposición. Esto evita generar demandas imposibles de cubrir.
+    \item \textbf{Cobertura por turno (R1):} La demanda por turno se ajusta según la cantidad de trabajadores con disposición positiva, evitando requerimientos imposibles de cubrir.
 
-    \item \textbf{Capacidad diaria:} La suma de la demanda de todos los turnos de un día se limita a la capacidad total teórica del personal, considerando un máximo de turnos por trabajador por día (por ejemplo, dos). Esto previene sobrecargas que violarían restricciones del modelo.
+    \item \textbf{Capacidad diaria (R3):} La suma de la demanda por día se limita a un máximo de dos turnos por trabajador, respetando la restricción de carga diaria.
 
-    \item \textbf{Congestión en fines de semana:} Los días sábado y domingo suelen tener menor disponibilidad. El generador controla que la demanda agregada en estos días no supere la capacidad global del equipo, considerando el límite total de turnos por trabajador en el horizonte.
+    \item \textbf{Carga total (R6):} Aunque el parámetro \( L_i = \left\lfloor \frac{2H}{3} \right\rfloor \) no se usa directamente en el generador, se respeta de forma indirecta al limitar la demanda diaria y la carga agregada por trabajador. Esto favorece la factibilidad sin imponerla explícitamente.
+
+    \item \textbf{Fines de semana (R5):} Se controla que la demanda agregada en sábados y domingos no exceda la capacidad global del equipo.
+\end{itemize}
+
+\subsection*{Chequeo automatizado}
+
+Se implementaron tres verificaciones automáticas:
+
+\begin{itemize}[leftmargin=1em]
+    \item \textbf{Check A:} Demanda por turno \(\leq\) disponibilidad efectiva.
+    \item \textbf{Check B:} Demanda diaria  \(\leq\) capacidad total.
+    \item \textbf{Check C:} Demanda en fines de semana  \(\leq\) capacidad agregada.
+\end{itemize}
+
+Estas verificaciones permiten detectar y corregir sobrecargas antes de resolver el modelo.
+
+\subsection*{Restricciones delegadas al modelo}
+
+Las siguientes restricciones dependen de decisiones de asignación y no pueden verificarse en la etapa de generación o chequeo. Por ello, se delegan a la resolución del modelo:
+
+\begin{itemize}[leftmargin=1em]
+    \item \textbf{(R2)} Asignación solo si el trabajador tiene disposición positiva.
+    \item \textbf{(R4)} Prohibición de turno noche seguido de mañana.
+    \item \textbf{(R5)} No trabajar tres fines de semana consecutivos.
 \end{itemize}
 
 \subsection*{Observaciones}
-\begin{itemize}[leftmargin=1em]
-  \item Las instancias \textit{small} tienden a ser factibles, mientras que en \textit{medium} y \textit{large} la factibilidad depende de la relación entre demanda y disposición.
-  \item El diseño del generador evita casos triviales o claramente infactibles, lo que permite concentrarse en instancias relevantes para el modelo.
-  \item La aleatoriedad en la generación permite explorar una variedad de escenarios, incluyendo casos límite útiles para validar la robustez del enfoque.
-  \item El control sobre parámetros como la media de demanda, los umbrales de disposición y el límite de turnos por trabajador permite ajustar la dificultad de las instancias.
-\end{itemize}
 
-\subsection*{Justificación del generador}
-El generador fue diseñado para producir instancias que respeten las restricciones estructurales del modelo, en particular aquellas relacionadas con la capacidad de cobertura y la carga máxima por trabajador. El uso de distribuciones probabilísticas permite simular situaciones realistas y diversas, facilitando el análisis de factibilidad y el estudio del comportamiento del modelo bajo distintas condiciones. Además, al incorporar directamente el límite de turnos por trabajador (\( L_i = \left\lfloor \frac{2H}{3} \right\rfloor \)), se garantiza el cumplimiento de la restricción (R6) desde la etapa de generación.
+Las instancias \textit{small} tienden a ser factibles. En \textit{medium} y \textit{large}, la factibilidad depende de la relación entre demanda y disposición. La aleatoriedad permite explorar escenarios diversos, incluyendo casos límite útiles para validar el modelo.
 
-Este análisis se complementará en la Entrega 2 con la resolución efectiva de las instancias y el estudio de resultados.
 \clearpage
