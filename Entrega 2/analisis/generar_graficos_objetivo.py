@@ -1,5 +1,26 @@
 """
-Script para generar gráficos del análisis de función objetivo vs tamaño de instancia
+generar_graficos_objetivo.py
+---------------------------------
+Genera figuras para analizar el valor de la función objetivo en relación con el
+tamaño del problema y sus componentes (trabajadores y días).
+
+Entradas esperadas (JSON):
+- ../resultados/resumen_ejecucion.json: resumen global (solo se usa para imprimir totales).
+- ../resultados/<tipo>/resultado_*.json: resultados por instancia con claves:
+    {
+        "id_instancia", "tipo" (small|medium|large), "trabajadores", "dias",
+        "valor_objetivo", "factible" (bool)
+    }
+
+Salidas (PNG en ./graficos/):
+- objetivo_vs_tamano.png: scatter general + tendencia lineal.
+- objetivo_trabajadores_dias.png: dos subgráficos (vs trabajadores, vs días).
+- objetivo_promedio_tipo.png: barras con promedio y desviación típica por tipo.
+- correlacion_matriz.png: matriz de correlación entre variables numéricas.
+
+Notas:
+- Solo se consideran instancias factibles para los gráficos de objetivo.
+- El tamaño del problema se aproxima por trabajadores × días.
 """
 
 import json
@@ -21,11 +42,11 @@ print("=" * 70)
 # 1. Carga de Datos
 print("\n1. Cargando datos...")
 
-# Cargar resumen de ejecución
+# Cargar resumen de ejecución (opcional para imprimir totales)
 with open('../resultados/resumen_ejecucion.json', 'r') as f:
     resumen = json.load(f)
 
-# Extraer datos de instancias
+# Extraer datos de instancias (solo factibles)
 datos = []
 
 for tamano in ['small', 'medium', 'large']:
@@ -35,7 +56,7 @@ for tamano in ['small', 'medium', 'large']:
         with open(archivo, 'r') as f:
             resultado = json.load(f)
             
-            # Solo incluir instancias factibles
+            # Solo incluir instancias factibles para el análisis de objetivo
             if resultado['factible']:
                 datos.append({
                     'id': resultado['id_instancia'],
@@ -73,7 +94,7 @@ for tipo in ['small', 'medium', 'large']:
                edgecolors='black',
                linewidth=1.5)
 
-# Línea de tendencia general
+# Línea de tendencia general (ajuste lineal y = ax + b)
 z = np.polyfit(df['tamano_problema'], df['valor_objetivo'], 1)
 p = np.poly1d(z)
 ax.plot(df['tamano_problema'], p(df['tamano_problema']), 

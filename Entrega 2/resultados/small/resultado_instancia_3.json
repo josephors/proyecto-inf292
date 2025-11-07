@@ -5,7 +5,7 @@
   "trabajadores": 6,
   "estado": "Optimal",
   "valor_objetivo": 256.0,
-  "tiempo_resolucion_segundos": 0.009323,
+  "tiempo_resolucion_segundos": 0.011559,
   "factible": true,
   "asignaciones": [
     {
@@ -28,6 +28,13 @@
       "dia_nombre": "lunes_1",
       "turno": "noche",
       "disposicion": 9
+    },
+    {
+      "trabajador": 1,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "dia",
+      "disposicion": 1
     },
     {
       "trabajador": 1,
@@ -119,13 +126,6 @@
       "dia_nombre": "lunes_1",
       "turno": "noche",
       "disposicion": 10
-    },
-    {
-      "trabajador": 3,
-      "dia": 3,
-      "dia_nombre": "martes_1",
-      "turno": "dia",
-      "disposicion": 1
     },
     {
       "trabajador": 3,
@@ -268,5 +268,5 @@
       "disposicion": 8
     }
   ],
-  "fecha_resolucion": "2025-11-06T23:12:10.964038"
+  "fecha_resolucion": "2025-11-07T02:57:28.370985"
 }

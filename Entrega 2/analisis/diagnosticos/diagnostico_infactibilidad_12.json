@@ -1,0 +1,17 @@
+{
+    "id": 12,
+    "trabajadores": 52,
+    "dias": 17,
+    "L_i": 11,
+    "carga_min_requerida": 20,
+    "demanda_total": 1003,
+    "capacidad_maxima_R3": 1768,
+    "capacidad_real_slots_disponibles_R2": 2418,
+    "porcentaje_disponible": 91.17647058823529,
+    "ratio_conflictos_R4": 0.8962264150943396,
+    "turnos_con_faltantes_R2": [],
+    "causas_identificadas": [
+        "(R6) Límite L_i=11 insuficiente; carga mínima requerida=20",
+        "(R4) Conflictos noche→mañana muy altos (ratio 0.90)"
+    ]
+}

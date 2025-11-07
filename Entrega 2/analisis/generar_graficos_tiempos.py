@@ -1,5 +1,30 @@
 """
-Script para generar gráficos del análisis de tiempos de resolución vs tamaño de instancia
+generar_graficos_tiempos.py
+---------------------------------
+Genera figuras para analizar el tiempo de resolución del solver en función del
+tamaño del problema y otras métricas derivadas (número de variables, factibilidad).
+
+Entradas esperadas (JSON):
+- ../resultados/resumen_ejecucion.json: resumen global con tiempo_total_segundos.
+- ../resultados/<tipo>/resultado_*.json: resultados por instancia con claves:
+    {
+        "id_instancia", "tipo", "trabajadores", "dias", "tiempo_resolucion_segundos",
+        "factible" (bool)
+    }
+
+Derivaciones calculadas:
+- tamano_problema = trabajadores × días
+- num_variables ≈ trabajadores × días × (#turnos por día); se asume 2 turnos para small y 3 para medium/large para visualización comparativa.
+
+Salidas (PNG en ./graficos/):
+- tiempos_vs_tamano.png: scatter tiempo vs tamaño con distinción factible/infactible.
+- tiempos_vs_variables.png: scatter tiempo vs número de variables.
+- tiempos_promedio_tipo.png: barras tiempo promedio con desviación estándar.
+- tiempos_comparacion_escalabilidad.png: boxplots factible/infactible + vista log-log de escalabilidad.
+
+Notas:
+- Incluye instancias infactibles porque aportan información sobre detección temprana.
+- El ajuste polinómico se realiza sólo sobre instancias factibles.
 """
 
 import json

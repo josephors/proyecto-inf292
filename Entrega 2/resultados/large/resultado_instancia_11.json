@@ -5,7 +5,7 @@
   "trabajadores": 47,
   "estado": "Optimal",
   "valor_objetivo": 9362.0,
-  "tiempo_resolucion_segundos": 0.209905,
+  "tiempo_resolucion_segundos": 0.174466,
   "factible": true,
   "asignaciones": [
     {
@@ -115,6 +115,13 @@
     },
     {
       "trabajador": 1,
+      "dia": 14,
+      "dia_nombre": "martes_4",
+      "turno": "tarde",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 1,
       "dia": 16,
       "dia_nombre": "miercoles_2",
       "turno": "noche",
@@ -283,10 +290,10 @@
     },
     {
       "trabajador": 2,
-      "dia": 17,
-      "dia_nombre": "miercoles_3",
-      "turno": "manana",
-      "disposicion": 8
+      "dia": 16,
+      "dia_nombre": "miercoles_2",
+      "turno": "noche",
+      "disposicion": 7
     },
     {
       "trabajador": 2,
@@ -602,13 +609,6 @@
       "dia_nombre": "lunes_1",
       "turno": "tarde",
       "disposicion": 8
-    },
-    {
-      "trabajador": 4,
-      "dia": 8,
-      "dia_nombre": "lunes_2",
-      "turno": "manana",
-      "disposicion": 7
     },
     {
       "trabajador": 4,
@@ -1036,13 +1036,6 @@
       "dia_nombre": "miercoles_1",
       "turno": "tarde",
       "disposicion": 10
-    },
-    {
-      "trabajador": 6,
-      "dia": 15,
-      "dia_nombre": "miercoles_1",
-      "turno": "noche",
-      "disposicion": 6
     },
     {
       "trabajador": 6,
@@ -1193,13 +1186,6 @@
     },
     {
       "trabajador": 7,
-      "dia": 12,
-      "dia_nombre": "martes_2",
-      "turno": "tarde",
-      "disposicion": 7
-    },
-    {
-      "trabajador": 7,
       "dia": 13,
       "dia_nombre": "martes_3",
       "turno": "tarde",
@@ -1335,13 +1321,6 @@
       "trabajador": 8,
       "dia": 7,
       "dia_nombre": "lunes_1",
-      "turno": "manana",
-      "disposicion": 8
-    },
-    {
-      "trabajador": 8,
-      "dia": 7,
-      "dia_nombre": "lunes_1",
       "turno": "noche",
       "disposicion": 8
     },
@@ -1452,10 +1431,10 @@
     },
     {
       "trabajador": 8,
-      "dia": 23,
-      "dia_nombre": "viernes_3",
-      "turno": "manana",
-      "disposicion": 5
+      "dia": 22,
+      "dia_nombre": "viernes_2",
+      "turno": "noche",
+      "disposicion": 7
     },
     {
       "trabajador": 9,
@@ -1606,24 +1585,10 @@
     },
     {
       "trabajador": 9,
-      "dia": 18,
-      "dia_nombre": "sabado_1",
-      "turno": "noche",
-      "disposicion": 7
-    },
-    {
-      "trabajador": 9,
       "dia": 19,
       "dia_nombre": "sabado_2",
       "turno": "tarde",
       "disposicion": 8
-    },
-    {
-      "trabajador": 9,
-      "dia": 19,
-      "dia_nombre": "sabado_2",
-      "turno": "noche",
-      "disposicion": 7
     },
     {
       "trabajador": 9,
@@ -1711,9 +1676,9 @@
     },
     {
       "trabajador": 10,
-      "dia": 10,
-      "dia_nombre": "lunes_4",
-      "turno": "noche",
+      "dia": 11,
+      "dia_nombre": "martes_1",
+      "turno": "manana",
       "disposicion": 6
     },
     {
@@ -1778,13 +1743,6 @@
       "dia_nombre": "sabado_3",
       "turno": "manana",
       "disposicion": 10
-    },
-    {
-      "trabajador": 10,
-      "dia": 21,
-      "dia_nombre": "viernes_1",
-      "turno": "noche",
-      "disposicion": 5
     },
     {
       "trabajador": 10,
@@ -1970,6 +1928,13 @@
     },
     {
       "trabajador": 12,
+      "dia": 2,
+      "dia_nombre": "domingo_2",
+      "turno": "tarde",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 12,
       "dia": 3,
       "dia_nombre": "domingo_3",
       "turno": "noche",
@@ -2063,8 +2028,8 @@
       "trabajador": 12,
       "dia": 16,
       "dia_nombre": "miercoles_2",
-      "turno": "noche",
-      "disposicion": 8
+      "turno": "tarde",
+      "disposicion": 10
     },
     {
       "trabajador": 12,
@@ -2140,6 +2105,13 @@
       "trabajador": 13,
       "dia": 5,
       "dia_nombre": "jueves_2",
+      "turno": "tarde",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 13,
+      "dia": 5,
+      "dia_nombre": "jueves_2",
       "turno": "noche",
       "disposicion": 8
     },
@@ -2194,6 +2166,13 @@
     },
     {
       "trabajador": 13,
+      "dia": 13,
+      "dia_nombre": "martes_3",
+      "turno": "manana",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 13,
       "dia": 15,
       "dia_nombre": "miercoles_1",
       "turno": "tarde",
@@ -2242,6 +2221,13 @@
       "disposicion": 7
     },
     {
+      "trabajador": 13,
+      "dia": 23,
+      "dia_nombre": "viernes_3",
+      "turno": "noche",
+      "disposicion": 7
+    },
+    {
       "trabajador": 14,
       "dia": 1,
       "dia_nombre": "domingo_1",
@@ -2254,6 +2240,13 @@
       "dia_nombre": "domingo_3",
       "turno": "manana",
       "disposicion": 7
+    },
+    {
+      "trabajador": 14,
+      "dia": 3,
+      "dia_nombre": "domingo_3",
+      "turno": "noche",
+      "disposicion": 5
     },
     {
       "trabajador": 14,
@@ -2439,13 +2432,6 @@
     },
     {
       "trabajador": 15,
-      "dia": 7,
-      "dia_nombre": "lunes_1",
-      "turno": "manana",
-      "disposicion": 8
-    },
-    {
-      "trabajador": 15,
       "dia": 9,
       "dia_nombre": "lunes_3",
       "turno": "manana",
@@ -2464,6 +2450,13 @@
       "dia_nombre": "martes_1",
       "turno": "manana",
       "disposicion": 6
+    },
+    {
+      "trabajador": 15,
+      "dia": 12,
+      "dia_nombre": "martes_2",
+      "turno": "manana",
+      "disposicion": 4
     },
     {
       "trabajador": 15,
@@ -2609,13 +2602,6 @@
       "trabajador": 16,
       "dia": 6,
       "dia_nombre": "jueves_3",
-      "turno": "tarde",
-      "disposicion": 6
-    },
-    {
-      "trabajador": 16,
-      "dia": 6,
-      "dia_nombre": "jueves_3",
       "turno": "noche",
       "disposicion": 10
     },
@@ -2728,6 +2714,13 @@
       "trabajador": 17,
       "dia": 2,
       "dia_nombre": "domingo_2",
+      "turno": "tarde",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 17,
+      "dia": 2,
+      "dia_nombre": "domingo_2",
       "turno": "noche",
       "disposicion": 6
     },
@@ -2824,10 +2817,10 @@
     },
     {
       "trabajador": 17,
-      "dia": 14,
-      "dia_nombre": "martes_4",
-      "turno": "noche",
-      "disposicion": 5
+      "dia": 15,
+      "dia_nombre": "miercoles_1",
+      "turno": "manana",
+      "disposicion": 6
     },
     {
       "trabajador": 17,
@@ -2870,6 +2863,13 @@
       "dia_nombre": "sabado_1",
       "turno": "manana",
       "disposicion": 6
+    },
+    {
+      "trabajador": 17,
+      "dia": 18,
+      "dia_nombre": "sabado_1",
+      "turno": "tarde",
+      "disposicion": 8
     },
     {
       "trabajador": 17,
@@ -3211,13 +3211,6 @@
       "trabajador": 19,
       "dia": 17,
       "dia_nombre": "miercoles_3",
-      "turno": "tarde",
-      "disposicion": 6
-    },
-    {
-      "trabajador": 19,
-      "dia": 17,
-      "dia_nombre": "miercoles_3",
       "turno": "noche",
       "disposicion": 5
     },
@@ -3468,13 +3461,6 @@
     },
     {
       "trabajador": 21,
-      "dia": 3,
-      "dia_nombre": "domingo_3",
-      "turno": "tarde",
-      "disposicion": 8
-    },
-    {
-      "trabajador": 21,
       "dia": 4,
       "dia_nombre": "jueves_1",
       "turno": "tarde",
@@ -3552,13 +3538,6 @@
     },
     {
       "trabajador": 21,
-      "dia": 13,
-      "dia_nombre": "martes_3",
-      "turno": "tarde",
-      "disposicion": 6
-    },
-    {
-      "trabajador": 21,
       "dia": 14,
       "dia_nombre": "martes_4",
       "turno": "manana",
@@ -3568,14 +3547,7 @@
       "trabajador": 21,
       "dia": 14,
       "dia_nombre": "martes_4",
-      "turno": "tarde",
-      "disposicion": 9
-    },
-    {
-      "trabajador": 21,
-      "dia": 15,
-      "dia_nombre": "miercoles_1",
-      "turno": "manana",
+      "turno": "noche",
       "disposicion": 10
     },
     {
@@ -3771,6 +3743,13 @@
       "trabajador": 22,
       "dia": 20,
       "dia_nombre": "sabado_3",
+      "turno": "manana",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 22,
+      "dia": 20,
+      "dia_nombre": "sabado_3",
       "turno": "noche",
       "disposicion": 10
     },
@@ -3783,10 +3762,10 @@
     },
     {
       "trabajador": 22,
-      "dia": 22,
-      "dia_nombre": "viernes_2",
-      "turno": "noche",
-      "disposicion": 9
+      "dia": 23,
+      "dia_nombre": "viernes_3",
+      "turno": "manana",
+      "disposicion": 7
     },
     {
       "trabajador": 23,
@@ -3958,13 +3937,6 @@
     },
     {
       "trabajador": 23,
-      "dia": 18,
-      "dia_nombre": "sabado_1",
-      "turno": "tarde",
-      "disposicion": 8
-    },
-    {
-      "trabajador": 23,
       "dia": 19,
       "dia_nombre": "sabado_2",
       "turno": "manana",
@@ -4219,14 +4191,21 @@
       "trabajador": 25,
       "dia": 7,
       "dia_nombre": "lunes_1",
-      "turno": "tarde",
-      "disposicion": 10
+      "turno": "manana",
+      "disposicion": 9
     },
     {
       "trabajador": 25,
       "dia": 7,
       "dia_nombre": "lunes_1",
-      "turno": "noche",
+      "turno": "tarde",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 25,
+      "dia": 8,
+      "dia_nombre": "lunes_2",
+      "turno": "manana",
       "disposicion": 9
     },
     {
@@ -4235,13 +4214,6 @@
       "dia_nombre": "lunes_2",
       "turno": "tarde",
       "disposicion": 8
-    },
-    {
-      "trabajador": 25,
-      "dia": 9,
-      "dia_nombre": "lunes_3",
-      "turno": "manana",
-      "disposicion": 7
     },
     {
       "trabajador": 25,
@@ -4282,13 +4254,6 @@
       "trabajador": 25,
       "dia": 15,
       "dia_nombre": "miercoles_1",
-      "turno": "manana",
-      "disposicion": 5
-    },
-    {
-      "trabajador": 25,
-      "dia": 15,
-      "dia_nombre": "miercoles_1",
       "turno": "tarde",
       "disposicion": 8
     },
@@ -4319,13 +4284,6 @@
       "dia_nombre": "sabado_1",
       "turno": "tarde",
       "disposicion": 10
-    },
-    {
-      "trabajador": 25,
-      "dia": 19,
-      "dia_nombre": "sabado_2",
-      "turno": "tarde",
-      "disposicion": 7
     },
     {
       "trabajador": 25,
@@ -4973,10 +4931,10 @@
     },
     {
       "trabajador": 29,
-      "dia": 20,
-      "dia_nombre": "sabado_3",
-      "turno": "manana",
-      "disposicion": 7
+      "dia": 19,
+      "dia_nombre": "sabado_2",
+      "turno": "noche",
+      "disposicion": 8
     },
     {
       "trabajador": 29,
@@ -5099,13 +5057,6 @@
     },
     {
       "trabajador": 30,
-      "dia": 11,
-      "dia_nombre": "martes_1",
-      "turno": "noche",
-      "disposicion": 5
-    },
-    {
-      "trabajador": 30,
       "dia": 12,
       "dia_nombre": "martes_2",
       "turno": "tarde",
@@ -5173,6 +5124,13 @@
       "dia_nombre": "sabado_3",
       "turno": "noche",
       "disposicion": 10
+    },
+    {
+      "trabajador": 30,
+      "dia": 21,
+      "dia_nombre": "viernes_1",
+      "turno": "noche",
+      "disposicion": 5
     },
     {
       "trabajador": 30,
@@ -5260,6 +5218,13 @@
     },
     {
       "trabajador": 31,
+      "dia": 7,
+      "dia_nombre": "lunes_1",
+      "turno": "noche",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 31,
       "dia": 8,
       "dia_nombre": "lunes_2",
       "turno": "tarde",
@@ -5423,6 +5388,13 @@
       "trabajador": 32,
       "dia": 7,
       "dia_nombre": "lunes_1",
+      "turno": "manana",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 32,
+      "dia": 7,
+      "dia_nombre": "lunes_1",
       "turno": "noche",
       "disposicion": 7
     },
@@ -5449,10 +5421,17 @@
     },
     {
       "trabajador": 32,
+      "dia": 11,
+      "dia_nombre": "martes_1",
+      "turno": "noche",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 32,
       "dia": 12,
       "dia_nombre": "martes_2",
-      "turno": "manana",
-      "disposicion": 10
+      "turno": "tarde",
+      "disposicion": 8
     },
     {
       "trabajador": 32,
@@ -5502,6 +5481,13 @@
       "dia_nombre": "miercoles_2",
       "turno": "tarde",
       "disposicion": 9
+    },
+    {
+      "trabajador": 32,
+      "dia": 17,
+      "dia_nombre": "miercoles_3",
+      "turno": "manana",
+      "disposicion": 6
     },
     {
       "trabajador": 32,
@@ -5687,6 +5673,13 @@
     },
     {
       "trabajador": 33,
+      "dia": 18,
+      "dia_nombre": "sabado_1",
+      "turno": "noche",
+      "disposicion": 7
+    },
+    {
+      "trabajador": 33,
       "dia": 19,
       "dia_nombre": "sabado_2",
       "turno": "tarde",
@@ -5721,13 +5714,6 @@
       "disposicion": 8
     },
     {
-      "trabajador": 33,
-      "dia": 23,
-      "dia_nombre": "viernes_3",
-      "turno": "noche",
-      "disposicion": 7
-    },
-    {
       "trabajador": 34,
       "dia": 1,
       "dia_nombre": "domingo_1",
@@ -5754,6 +5740,13 @@
       "dia_nombre": "domingo_2",
       "turno": "tarde",
       "disposicion": 10
+    },
+    {
+      "trabajador": 34,
+      "dia": 3,
+      "dia_nombre": "domingo_3",
+      "turno": "tarde",
+      "disposicion": 8
     },
     {
       "trabajador": 34,
@@ -5960,17 +5953,17 @@
     },
     {
       "trabajador": 35,
-      "dia": 11,
-      "dia_nombre": "martes_1",
-      "turno": "manana",
-      "disposicion": 9
+      "dia": 9,
+      "dia_nombre": "lunes_3",
+      "turno": "noche",
+      "disposicion": 7
     },
     {
       "trabajador": 35,
       "dia": 11,
       "dia_nombre": "martes_1",
-      "turno": "tarde",
-      "disposicion": 6
+      "turno": "manana",
+      "disposicion": 9
     },
     {
       "trabajador": 35,
@@ -6062,6 +6055,13 @@
       "dia_nombre": "viernes_3",
       "turno": "tarde",
       "disposicion": 8
+    },
+    {
+      "trabajador": 35,
+      "dia": 23,
+      "dia_nombre": "viernes_3",
+      "turno": "noche",
+      "disposicion": 7
     },
     {
       "trabajador": 36,
@@ -6076,13 +6076,6 @@
       "dia_nombre": "domingo_1",
       "turno": "noche",
       "disposicion": 6
-    },
-    {
-      "trabajador": 36,
-      "dia": 2,
-      "dia_nombre": "domingo_2",
-      "turno": "tarde",
-      "disposicion": 8
     },
     {
       "trabajador": 36,
@@ -6639,13 +6632,6 @@
     },
     {
       "trabajador": 39,
-      "dia": 13,
-      "dia_nombre": "martes_3",
-      "turno": "manana",
-      "disposicion": 6
-    },
-    {
-      "trabajador": 39,
       "dia": 14,
       "dia_nombre": "martes_4",
       "turno": "manana",
@@ -6734,13 +6720,6 @@
       "dia_nombre": "jueves_1",
       "turno": "tarde",
       "disposicion": 8
-    },
-    {
-      "trabajador": 40,
-      "dia": 5,
-      "dia_nombre": "jueves_2",
-      "turno": "tarde",
-      "disposicion": 6
     },
     {
       "trabajador": 40,
@@ -6879,13 +6858,6 @@
       "trabajador": 40,
       "dia": 23,
       "dia_nombre": "viernes_3",
-      "turno": "tarde",
-      "disposicion": 7
-    },
-    {
-      "trabajador": 40,
-      "dia": 23,
-      "dia_nombre": "viernes_3",
       "turno": "noche",
       "disposicion": 7
     },
@@ -6975,6 +6947,13 @@
     },
     {
       "trabajador": 41,
+      "dia": 11,
+      "dia_nombre": "martes_1",
+      "turno": "tarde",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 41,
       "dia": 12,
       "dia_nombre": "martes_2",
       "turno": "manana",
@@ -7007,6 +6986,13 @@
       "dia_nombre": "miercoles_1",
       "turno": "manana",
       "disposicion": 8
+    },
+    {
+      "trabajador": 41,
+      "dia": 16,
+      "dia_nombre": "miercoles_2",
+      "turno": "manana",
+      "disposicion": 5
     },
     {
       "trabajador": 41,
@@ -7054,7 +7040,7 @@
       "trabajador": 41,
       "dia": 23,
       "dia_nombre": "viernes_3",
-      "turno": "noche",
+      "turno": "tarde",
       "disposicion": 8
     },
     {
@@ -7070,13 +7056,6 @@
       "dia_nombre": "domingo_2",
       "turno": "manana",
       "disposicion": 10
-    },
-    {
-      "trabajador": 42,
-      "dia": 2,
-      "dia_nombre": "domingo_2",
-      "turno": "tarde",
-      "disposicion": 8
     },
     {
       "trabajador": 42,
@@ -7143,6 +7122,13 @@
     },
     {
       "trabajador": 42,
+      "dia": 13,
+      "dia_nombre": "martes_3",
+      "turno": "tarde",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 42,
       "dia": 14,
       "dia_nombre": "martes_4",
       "turno": "manana",
@@ -7166,6 +7152,13 @@
       "trabajador": 42,
       "dia": 17,
       "dia_nombre": "miercoles_3",
+      "turno": "tarde",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 42,
+      "dia": 17,
+      "dia_nombre": "miercoles_3",
       "turno": "noche",
       "disposicion": 9
     },
@@ -7182,6 +7175,13 @@
       "dia_nombre": "sabado_1",
       "turno": "noche",
       "disposicion": 10
+    },
+    {
+      "trabajador": 42,
+      "dia": 19,
+      "dia_nombre": "sabado_2",
+      "turno": "tarde",
+      "disposicion": 7
     },
     {
       "trabajador": 42,
@@ -7314,13 +7314,6 @@
       "dia": 15,
       "dia_nombre": "miercoles_1",
       "turno": "noche",
-      "disposicion": 7
-    },
-    {
-      "trabajador": 43,
-      "dia": 16,
-      "dia_nombre": "miercoles_2",
-      "turno": "tarde",
       "disposicion": 7
     },
     {
@@ -7605,6 +7598,13 @@
     },
     {
       "trabajador": 45,
+      "dia": 6,
+      "dia_nombre": "jueves_3",
+      "turno": "tarde",
+      "disposicion": 6
+    },
+    {
+      "trabajador": 45,
       "dia": 7,
       "dia_nombre": "lunes_1",
       "turno": "manana",
@@ -7628,15 +7628,15 @@
       "trabajador": 45,
       "dia": 9,
       "dia_nombre": "lunes_3",
-      "turno": "tarde",
-      "disposicion": 8
+      "turno": "manana",
+      "disposicion": 7
     },
     {
       "trabajador": 45,
       "dia": 9,
       "dia_nombre": "lunes_3",
-      "turno": "noche",
-      "disposicion": 7
+      "turno": "tarde",
+      "disposicion": 8
     },
     {
       "trabajador": 45,
@@ -7745,13 +7745,6 @@
     },
     {
       "trabajador": 46,
-      "dia": 3,
-      "dia_nombre": "domingo_3",
-      "turno": "noche",
-      "disposicion": 5
-    },
-    {
-      "trabajador": 46,
       "dia": 4,
       "dia_nombre": "jueves_1",
       "turno": "tarde",
@@ -7815,9 +7808,9 @@
     },
     {
       "trabajador": 46,
-      "dia": 11,
-      "dia_nombre": "martes_1",
-      "turno": "manana",
+      "dia": 10,
+      "dia_nombre": "lunes_4",
+      "turno": "noche",
       "disposicion": 4
     },
     {
@@ -7850,10 +7843,17 @@
     },
     {
       "trabajador": 46,
-      "dia": 16,
-      "dia_nombre": "miercoles_2",
+      "dia": 15,
+      "dia_nombre": "miercoles_1",
       "turno": "manana",
       "disposicion": 5
+    },
+    {
+      "trabajador": 46,
+      "dia": 15,
+      "dia_nombre": "miercoles_1",
+      "turno": "noche",
+      "disposicion": 6
     },
     {
       "trabajador": 46,
@@ -8031,5 +8031,5 @@
       "disposicion": 8
     }
   ],
-  "fecha_resolucion": "2025-11-06T23:12:11.625514"
+  "fecha_resolucion": "2025-11-07T02:57:29.065686"
 }

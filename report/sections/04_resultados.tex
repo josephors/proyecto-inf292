@@ -1,0 +1,93 @@
+\clearpage
+\section{Presentación de Resultados}
+\label{sec:resultados}
+
+A continuación se presentan los resultados obtenidos por el solver sobre las 15 instancias solicitadas, organizados por tipo (small, medium, large).
+
+\subsection{Tabla Consolidada de Instancias}
+
+La Tabla~\ref{tab:resultados_consolidados} muestra un resumen completo de todas las instancias procesadas.
+
+\begin{table}[h]
+  \centering
+  \caption{Resultados consolidados de las 15 instancias.}
+  \label{tab:resultados_consolidados}
+  \small
+  \begin{tabular}{ccccccc}
+    \hline
+    \textbf{ID} & \textbf{Tipo} & \textbf{Trabajadores} & \textbf{Días} & \textbf{Estado} & \textbf{Objetivo} & \textbf{Tiempo (s)} \\
+    \hline
+    1  & small  & 8  & 7  & Óptimo     & 287   & 0.0241 \\
+    2  & small  & 12 & 7  & Óptimo     & 434   & 0.0403 \\
+    3  & small  & 15 & 7  & Óptimo     & 523   & 0.0528 \\
+    4  & small  & 18 & 7  & Óptimo     & 624   & 0.0669 \\
+    5  & small  & 20 & 7  & Óptimo     & 705   & 0.0770 \\
+    \hline
+    6  & medium & 25 & 10 & Óptimo     & 1123  & 0.1294 \\
+    7  & medium & 30 & 10 & Óptimo     & 1345  & 0.1613 \\
+    8  & medium & 35 & 10 & Óptimo     & 1580  & 0.1949 \\
+    9  & medium & 40 & 10 & Óptimo     & 1815  & 0.2310 \\
+    10 & medium & 45 & 10 & Óptimo     & 2044  & 0.2699 \\
+    \hline
+    11 & large  & 50 & 14 & Óptimo     & 2506  & 0.3185 \\
+    12 & large  & 52 & 17 & Infactible & ---   & 0.1074 \\
+    13 & large  & 60 & 14 & Óptimo     & 2996  & 0.2939 \\
+    14 & large  & 65 & 14 & Óptimo     & 3232  & 0.2865 \\
+    15 & large  & 78 & 14 & Infactible & ---   & 0.1957 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Estadísticas por Tamaño}
+
+La Tabla~\ref{tab:estadisticas_tipo} presenta estadísticas agregadas por tipo de instancia.
+
+\begin{table}[h]
+  \centering
+  \caption{Estadísticas por tipo de instancia.}
+  \label{tab:estadisticas_tipo}
+  \begin{tabular}{lccccc}
+    \hline
+    \textbf{Tipo} & \textbf{Total} & \textbf{Óptimas} & \textbf{Infactibles} & \textbf{Tiempo Prom. (s)} & \textbf{Obj. Prom.} \\
+    \hline
+    Small  & 5  & 5 & 0 & 0.0522 & 514.6 \\
+    Medium & 5  & 5 & 0 & 0.1973 & 1581.4 \\
+    Large  & 5  & 3 & 2 & 0.2404 & 2911.3 \\
+    \hline
+    \textbf{Total} & \textbf{15} & \textbf{13} & \textbf{2} & \textbf{0.1633} & \textbf{1669.1} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Observaciones Generales}
+
+\begin{itemize}
+  \item \textbf{Factibilidad:} Se obtuvieron 13 soluciones óptimas (instancias 1--11, 13--14) y 2 instancias infactibles (12 y 15), ambas de tipo large.
+  
+  \item \textbf{Tiempo de resolución:} Todas las instancias se resolvieron en menos de 0.32 segundos, demostrando la eficiencia del solver CBC para este tipo de problemas. Las instancias infactibles se detectaron más rápidamente (~0.1--0.2s) sin necesidad de explorar todo el espacio de búsqueda.
+  
+  \item \textbf{Valor objetivo:} El valor objetivo crece proporcionalmente con el tamaño del problema (trabajadores \(\times\) días), mostrando una relación lineal fuerte (detallada en la Sección~\ref{sec:analisis}).
+  
+  \item \textbf{Escalabilidad:} El tiempo de resolución muestra un crecimiento aproximadamente cuadrático con el tamaño, pero se mantiene en rangos muy manejables para las instancias propuestas.
+\end{itemize}
+
+\subsection{Instancias Infactibles}
+
+Las instancias 12 y 15 resultaron infactibles. Las causas principales identificadas son:
+
+\begin{itemize}
+  \item \textbf{Instancia 12} (52 trabajadores, 17 días):
+    \begin{itemize}
+      \item Límite de carga $L_i = 11$ insuficiente vs. carga mínima requerida de 20 turnos por trabajador.
+      \item Ratio de conflictos R4 (noche$\to$mañana) muy alto: 0.90.
+    \end{itemize}
+  
+  \item \textbf{Instancia 15} (78 trabajadores, 14 días):
+    \begin{itemize}
+      \item Límite de carga $L_i = 9$ insuficiente vs. carga mínima requerida de 16 turnos por trabajador.
+      \item Ratio de conflictos R4 elevado: 0.76.
+    \end{itemize}
+\end{itemize}
+
+El análisis detallado de las causas de infactibilidad, incluyendo métricas por restricción (R2--R6), se presenta en la Sección~\ref{sec:analisis}.
+

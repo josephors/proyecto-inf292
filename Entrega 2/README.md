@@ -2,7 +2,7 @@
 
 **Solver:** PuLP con CBC (Compatible con LPSolve)
 
-## 📁 Estructura
+## Estructura
 
 ```
 Entrega 2/
@@ -15,13 +15,15 @@ Entrega 2/
 │  ├─ large/                                 # Resultados instancias grandes
 │  └─ resumen_ejecucion.json                 # Estadísticas generales
 └─ analisis/
-   ├─ objetivo_vs_tamano.ipynb               # Análisis función objetivo
-   ├─ tiempos_resolucion.ipynb               # Análisis tiempos
-   ├─ factibilidad.md                        # Explicación infactibilidades
-   └─ graficos/calendarios/                  # Visualizaciones
+   ├─ generar_graficos_objetivo.py           # Script: gráficos de objetivo
+   ├─ generar_graficos_tiempos.py            # Script: gráficos de tiempos
+   ├─ generar_calendarios.py                 # Script: calendarios (small)
+  ├─ analizar_infactibilidad.py             # Script: análisis de infactibilidad
+  ├─ graficos/                              # Visualizaciones generadas (PNG)
+  └─ diagnosticos/                          # JSON con diagnósticos de infactibilidad
 ```
 
-## 🚀 Uso
+## Uso
 
 ### Resolver una instancia individual:
 ```bash
@@ -35,26 +37,37 @@ python solver/solucionador_de_instancias_lpsolve.py \
 python solver/ejecutar_solver_batch.py
 ```
 
-## 📊 Resultados
+## Orden de ejecución (paso a paso)
 
-**Total instancias:** 15  
-**Óptimas:** 13 (86.7%)  
-**Infactibles:** 2 (instancias 12 y 15 - large)  
-**Tiempo total:** 1.31s
+1. **Resolver todas las instancias y generar JSON de resultados**
 
-| Tamaño | Instancias | Óptimas | Infactibles | Tiempo promedio |
-|--------|------------|---------|-------------|-----------------|
-| Small  | 5          | 5       | 0           | ~0.02s          |
-| Medium | 5          | 5       | 0           | ~0.04s          |
-| Large  | 5          | 3       | 2           | ~0.21s          |
+```bash
+cd "Entrega 2/solver"
+python ejecutar_solver_batch.py
+```
 
-## 🔧 Modelo Implementado
+2. **Generar todos los gráficos y análisis**
 
-**Función Objetivo:** Maximizar Σᵢ Σⱼ Σₜ xᵢⱼₜ · cᵢⱼₜ
+```bash
+cd "Entrega 2/analisis"
+python generar_graficos_objetivo.py
+python generar_graficos_tiempos.py
+python generar_calendarios.py
+python analizar_infactibilidad.py
+```
 
-**Restricciones:**
-- **R1:** Cobertura exacta de demanda por turno
-- **R2:** Solo asignar si hay disponibilidad > 0
-- **R3:** Máximo 2 turnos por día por trabajador
-- **R4:** No trabajar turno noche seguido de mañana
-- **R5:** No trabajar 3 fines de semana consecutivos
+3. **Compilar el reporte LaTeX** 
+
+El documento principal es `report/report.tex`.
+
+**Notas:**
+- Entradas: JSON en `Entrega 2/resultados/`.
+- Salidas: imágenes en `Entrega 2/analisis/graficos/` y diagnósticos en `Entrega 2/analisis/diagnosticos/`.
+- Para actualizar artefactos, basta con re-ejecutar los scripts de análisis (paso 2).
+
+## Referencias
+
+- Instancias de entrada: `Entrega 1/generador/instancias/{small,medium,large}/instancia_*.json`.
+- Resultados del solver: `Entrega 2/resultados/{small,medium,large}/resultado_*.json`.
+- Artefactos de análisis: `Entrega 2/analisis/graficos/` y `Entrega 2/analisis/diagnosticos/`.
+- Reporte LaTeX: `report/report.tex`.

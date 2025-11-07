@@ -1,5 +1,24 @@
 """
-Script para generar calendarios visuales de las asignaciones de turnos para instancias pequeñas.
+generar_calendarios.py
+---------------------------------
+Genera calendarios visuales para las instancias SMALL (2 turnos: día/noche),
+utilizando los resultados JSON producidos por el solver.
+
+Entradas esperadas (JSON por instancia):
+- ../resultados/small/resultado_instancia_<id>.json con claves:
+    {
+        "factible", "trabajadores", "dias", "valor_objetivo", "asignaciones": [
+                {"trabajador", "dia", "dia_nombre", "turno" ∈ {"dia","noche"}, "disposicion"}
+        ]
+    }
+
+Salidas (PNG en ./graficos/calendarios/):
+- calendario_instancia_<id>.png: calendario detallado por trabajador/día.
+- resumen_todas_instancias.png: heatmap compacto para instancias 1–5.
+
+Convenciones visuales:
+- Amarillo = turno día (D); Morado = turno noche (N); blanco = sin asignación.
+- Celdas divididas indican dos turnos en el mismo día (máximo permitido por R3).
 """
 
 import json
@@ -19,8 +38,17 @@ COLORES_TURNOS = {
 }
 
 def generar_calendario(id_instancia):
-    """
-    Genera un calendario visual para una instancia pequeña.
+    """Genera un calendario visual para una instancia SMALL.
+
+    Parámetros
+    ----------
+    id_instancia : int
+        Identificador de la instancia (1..5) para small.
+
+    Efectos
+    -------
+    Guarda un archivo PNG en graficos/calendarios/calendario_instancia_<id>.png
+    con la grilla Trabajador×Día y codificación de colores por turno.
     """
     # Cargar resultado
     ruta = f'../resultados/small/resultado_instancia_{id_instancia}.json'

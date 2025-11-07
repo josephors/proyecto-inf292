@@ -1,0 +1,116 @@
+\clearpage
+\section{Análisis de Resultados}
+\label{sec:analisis}
+
+En esta sección se presenta un análisis completo de los resultados obtenidos, incluyendo relaciones entre variables, escalabilidad temporal, verificación visual mediante calendarios, y diagnóstico detallado de las instancias infactibles.
+
+\subsection{Función Objetivo vs. Tamaño del Problema}
+
+El valor de la función objetivo muestra una relación lineal fuerte con el tamaño del problema (medido como trabajadores \(\times\) días), como se observa en la Figura~\ref{fig:objetivo_tamano}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\textwidth]{../Entrega 2/analisis/graficos/objetivo_vs_tamano.png}
+  \caption{Relación entre el valor objetivo y el tamaño del problema. La línea punteada muestra la tendencia lineal ajustada.}
+  \label{fig:objetivo_tamano}
+\end{figure}
+
+\paragraph{Observaciones:}
+\begin{itemize}
+  \item La ecuación de tendencia es \(y = 8.78x - 75.80\), con un coeficiente de correlación muy alto (\(r > 0.99\)).
+  \item El valor objetivo crece proporcionalmente con el número de trabajadores y días disponibles.
+  \item Las instancias small muestran menor variabilidad, mientras que las large presentan mayor dispersión debido a sus mayores grados de libertad.
+\end{itemize}
+
+\subsection{Tiempos de Resolución y Escalabilidad}
+
+El tiempo de resolución muestra un crecimiento aproximadamente cuadrático con el tamaño del problema, como se ilustra en la Figura~\ref{fig:tiempos_tamano}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\textwidth]{../Entrega 2/analisis/graficos/tiempos_vs_tamano.png}
+  \caption{Tiempo de resolución en función del tamaño del problema. Los puntos marcados con X representan instancias infactibles.}
+  \label{fig:tiempos_tamano}
+\end{figure}
+
+\paragraph{Análisis de escalabilidad:}
+\begin{itemize}
+  \item \textbf{Small:} Tiempo promedio 0.052s. Resolución prácticamente instantánea.
+  \item \textbf{Medium:} Tiempo promedio 0.197s. Factor de crecimiento \(\approx 3.8\times\) respecto a small.
+  \item \textbf{Large:} Tiempo promedio 0.240s (solo instancias factibles). Factor de crecimiento \(\approx 4.6\times\) respecto a small.
+  \item Las instancias infactibles (12 y 15) se detectan más rápidamente (~0.1--0.2s) sin necesidad de explorar completamente el espacio de soluciones.
+\end{itemize}
+
+\subsection{Calendarios Visuales de Asignaciones}
+
+Para las instancias small (1--5), se generaron calendarios visuales que permiten verificar el cumplimiento de restricciones y la distribución de carga. Un ejemplo se muestra en la Figura~\ref{fig:resumen_calendarios}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png}
+  \caption{Resumen visual de asignaciones para instancias small. El color indica el número de turnos asignados por trabajador por día (0=blanco, 1=amarillo claro, 2=rojo).}
+  \label{fig:resumen_calendarios}
+\end{figure}
+
+\paragraph{Verificación visual:}
+\begin{itemize}
+  \item \textbf{R1 (Cobertura):} Los calendarios detallados muestran que cada turno requerido está cubierto exactamente.
+  \item \textbf{R3 (Máximo 2 turnos/día):} No se observan celdas con más de 2 turnos.
+  \item \textbf{Distribución de carga:} La carga está relativamente balanceada entre trabajadores, con variaciones debidas a diferencias en disponibilidad individual.
+\end{itemize}
+
+\subsection{Diagnóstico de Infactibilidad}
+El script de análisis calcula métricas clave:
+\begin{itemize}
+  \item Demanda total agregada y demanda por turno (mañana, tarde, noche).
+  \item Capacidad teórica diaria (R3) y utilización porcentual.
+  \item Disponibilidad total y por turno (R2), incluyendo porcentaje de slots disponibles.
+  \item Conflictos potenciales turno noche \(\rightarrow\) turno mañana (R4), midiendo la proporción de demanda de noche seguida de demanda de mañana.
+  \item Límite de carga \(L_i\) (R6) comparado contra la carga mínima necesaria por trabajador.
+  \item Heurística de tensión de fines de semana (R5) evaluando si, en bloques de tres fines, la demanda agregada obliga a activaciones consecutivas.
+\end{itemize}
+
+\subsection*{Métricas Clave de Instancias Infactibles}
+En la Tabla \ref{tab:infactibles} se muestra un resumen numérico para las instancias infactibles.
+
+\begin{table}[h]
+  \centering
+  \caption{Métricas clave instancias infactibles.}
+  \label{tab:infactibles}
+  \begin{tabular}{lrrrrr}
+    \hline
+    Instancia & Demanda Total & Slots Disp. (R2) & $L_i$ & Carga Mín. Req. & Ratio Conflictos (R4) \\
+    \hline
+    12 & 1003 & 2418 & 11 & 20 & 0.90 \\
+    15 & 1194 & 2952 & 9  & 16 & 0.76 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\paragraph{Interpretación:}
+\begin{itemize}
+  \item \textbf{R6 (Límite de carga).} En ambos casos la carga mínima requerida por trabajador (demanda total / trabajadores) excede claramente \(L_i=\lfloor 2H/3 \rfloor\). Esto basta para generar infactibilidad: aunque la disponibilidad sea alta, la restricción de tope global bloquea asignaciones suficientes.
+  \item \textbf{R4 (Noche\(\rightarrow\)Mañana).} La proporción de pares potencialmente conflictivos es elevada (\(>0.75\)), reduciendo la reutilización eficiente de trabajadores entre días consecutivos y amplificando la presión sobre R6.
+  \item \textbf{R2 (Disponibilidad).} No es la causa dominante (porcentaje disponible > 90\%), lo que confirma que el cuello de botella no está en ausencia de disposición sino en las restricciones estructurales.
+  \item \textbf{R5 (Fines de semana).} La heurística indica tensión: la demanda agregada en secuencias de tres fines de semana fuerza casi el uso continuo de muchos trabajadores, chocando con la prohibición de tres activaciones consecutivas.
+\end{itemize}
+
+\subsection*{Principales Causas Identificadas}
+\begin{enumerate}
+  \item \textbf{(R6) Límite de carga insuficiente:} \(L_i\) demasiado bajo respecto de la densidad de demanda. La instancia exige más turnos por trabajador que el máximo permitido.
+  \item \textbf{(R4) Alta fricción noche\(\rightarrow\)mañana:} La secuencia de demanda nocturna seguida de demanda matinal limita combinaciones factibles y aumenta fragmentación de asignaciones.
+  \item \textbf{(R5) Tensión en fines de semana:} Bloques de tres fines con demanda elevada reducen opciones, especialmente cuando muchos trabajadores ya alcanzan el tope \(L_i\).
+\end{enumerate}
+
+\subsection*{Recomendaciones para Mejora de Factibilidad}
+Para futuras generaciones de instancias o ajuste de parámetros:
+\begin{itemize}
+  \item Aumentar \(L_i\) o reducir demanda total si la carga mínima \(> L_i\).
+  \item Redistribuir demanda para bajar la concentración de pares noche\(\rightarrow\)mañana (p.ej. suavizar picos en noches consecutivas).
+  \item Asegurar que la demanda en bloques de tres fines de semana no obligue activación casi universal (balanceo inter-semanal).
+  \item Mantener disponibilidad por turno \(\ge 1.2\times\) la demanda para conservar holgura.
+\end{itemize}
+
+\subsection*{Conclusión}
+La infactibilidad de las instancias 12 y 15 surge de la interacción entre un límite de carga agresivo (R6) y patrones de demanda que elevan los conflictos (R4 y R5). Ajustar \(L_i\) y redistribuir demanda temporal ofrece la vía más directa para recuperar factibilidad sin modificar la estructura central del modelo.
+

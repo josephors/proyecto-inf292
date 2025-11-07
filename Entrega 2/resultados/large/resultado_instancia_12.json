@@ -5,8 +5,8 @@
   "trabajadores": 52,
   "estado": "Infeasible",
   "valor_objetivo": null,
-  "tiempo_resolucion_segundos": 0.106002,
+  "tiempo_resolucion_segundos": 0.091663,
   "factible": false,
   "asignaciones": [],
-  "fecha_resolucion": "2025-11-06T23:12:11.835935"
+  "fecha_resolucion": "2025-11-07T02:57:29.259309"
 }

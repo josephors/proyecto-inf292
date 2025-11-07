@@ -1,50 +1,50 @@
 {
-  "fecha_ejecucion": "2025-11-06T23:12:10.920989",
+  "fecha_ejecucion": "2025-11-07T02:57:28.330449",
   "instancias_procesadas": 15,
   "instancias_optimas": 13,
   "instancias_infactibles": 2,
-  "tiempo_total_segundos": 1.313323,
+  "tiempo_total_segundos": 1.2010720000000001,
   "resultados_por_tamano": {
     "small": {
       "total": 5,
       "optimas": 5,
       "infactibles": 0,
-      "tiempo_total": 0.060756,
-      "tiempo_promedio": 0.0121512,
+      "tiempo_total": 0.060837999999999996,
+      "tiempo_promedio": 0.012167599999999999,
       "instancias": [
         {
           "archivo": "instancia_1.json",
           "estado": "Optimal",
-          "valor_objetivo": 275.0,
-          "tiempo_segundos": 0.010642,
+          "valor_objetivo": 274.0,
+          "tiempo_segundos": 0.009266,
           "factible": true
         },
         {
           "archivo": "instancia_2.json",
           "estado": "Optimal",
-          "valor_objetivo": 399.0,
-          "tiempo_segundos": 0.011805,
+          "valor_objetivo": 397.0,
+          "tiempo_segundos": 0.009861,
           "factible": true
         },
         {
           "archivo": "instancia_3.json",
           "estado": "Optimal",
           "valor_objetivo": 256.0,
-          "tiempo_segundos": 0.009323,
+          "tiempo_segundos": 0.011559,
           "factible": true
         },
         {
           "archivo": "instancia_4.json",
           "estado": "Optimal",
           "valor_objetivo": 648.0,
-          "tiempo_segundos": 0.015256,
+          "tiempo_segundos": 0.014646,
           "factible": true
         },
         {
           "archivo": "instancia_5.json",
           "estado": "Optimal",
           "valor_objetivo": 548.0,
-          "tiempo_segundos": 0.01373,
+          "tiempo_segundos": 0.015506,
           "factible": true
         }
       ]
@@ -53,42 +53,42 @@
       "total": 5,
       "optimas": 5,
       "infactibles": 0,
-      "tiempo_total": 0.20743200000000003,
-      "tiempo_promedio": 0.04148640000000001,
+      "tiempo_total": 0.23672400000000002,
+      "tiempo_promedio": 0.047344800000000006,
       "instancias": [
         {
           "archivo": "instancia_10.json",
           "estado": "Optimal",
           "valor_objetivo": 2085.0,
-          "tiempo_segundos": 0.038108,
+          "tiempo_segundos": 0.045284,
           "factible": true
         },
         {
           "archivo": "instancia_6.json",
           "estado": "Optimal",
           "valor_objetivo": 1354.0,
-          "tiempo_segundos": 0.025791,
+          "tiempo_segundos": 0.038064,
           "factible": true
         },
         {
           "archivo": "instancia_7.json",
           "estado": "Optimal",
           "valor_objetivo": 1776.0,
-          "tiempo_segundos": 0.045133,
+          "tiempo_segundos": 0.037831,
           "factible": true
         },
         {
           "archivo": "instancia_8.json",
           "estado": "Optimal",
           "valor_objetivo": 3082.0,
-          "tiempo_segundos": 0.062422,
+          "tiempo_segundos": 0.071936,
           "factible": true
         },
         {
           "archivo": "instancia_9.json",
           "estado": "Optimal",
           "valor_objetivo": 1450.0,
-          "tiempo_segundos": 0.035978,
+          "tiempo_segundos": 0.043609,
           "factible": true
         }
       ]
@@ -97,42 +97,42 @@
       "total": 5,
       "optimas": 3,
       "infactibles": 2,
-      "tiempo_total": 1.045135,
-      "tiempo_promedio": 0.209027,
+      "tiempo_total": 0.90351,
+      "tiempo_promedio": 0.180702,
       "instancias": [
         {
           "archivo": "instancia_11.json",
           "estado": "Optimal",
           "valor_objetivo": 9362.0,
-          "tiempo_segundos": 0.209905,
+          "tiempo_segundos": 0.174466,
           "factible": true
         },
         {
           "archivo": "instancia_12.json",
           "estado": "Infeasible",
           "valor_objetivo": null,
-          "tiempo_segundos": 0.106002,
+          "tiempo_segundos": 0.091663,
           "factible": false
         },
         {
           "archivo": "instancia_13.json",
           "estado": "Optimal",
           "valor_objetivo": 11727.0,
-          "tiempo_segundos": 0.267433,
+          "tiempo_segundos": 0.267703,
           "factible": true
         },
         {
           "archivo": "instancia_14.json",
           "estado": "Optimal",
           "valor_objetivo": 12342.0,
-          "tiempo_segundos": 0.272473,
+          "tiempo_segundos": 0.244981,
           "factible": true
         },
         {
           "archivo": "instancia_15.json",
           "estado": "Infeasible",
           "valor_objetivo": null,
-          "tiempo_segundos": 0.189322,
+          "tiempo_segundos": 0.124697,
           "factible": false
         }
       ]
