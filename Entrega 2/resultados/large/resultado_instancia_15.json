@@ -1,0 +1,12 @@
+{
+  "id_instancia": 15,
+  "tipo": "large",
+  "dias": 14,
+  "trabajadores": 78,
+  "estado": "Infeasible",
+  "valor_objetivo": null,
+  "tiempo_resolucion_segundos": 0.189322,
+  "factible": false,
+  "asignaciones": [],
+  "fecha_resolucion": "2025-11-06T23:12:13.086633"
+}

@@ -1,6 +1,31 @@
-\section{Resolución con \texttt{lpsolve}}
-\subsection{Codificación del modelo}
-Se presenta la formulación en formato \texttt{.lp}, con variables binarias $x_{i,d,t}$ (y $w_{i,w}$ si se usa el modelado de fines de semana), función objetivo lineal y restricciones descritas.
+\section{Solucionador y modelo (Entrega 2)}
+\label{sec:solver}
 
-\subsection{Integración de datos}
-Conversión de instancias a parámetros del modelo (scripts de preprocesamiento) y ejecución por lotes con \texttt{run.sh}.
+\subsection{Modelo y notación}
+Planteamos un modelo de Programación Lineal Entera Binaria cuya función objetivo maximiza la suma de disposiciones asignadas:
+\begin{align*}
+\max \quad & \sum_{i\in I}\sum_{d\in D}\sum_{t\in T} c_{i d t}\, x_{i d t} \\
+	ext{s.a.}\quad & \sum_{i\in I} x_{i d t} = r_{d t} && \forall d\in D,\; t\in T \tag{R1}\\
+& x_{i d t} = 0 && \text{si } c_{i d t}=0 \quad \forall i,d,t \tag{R2}\\
+& \sum_{t\in T} x_{i d t} \le 2 && \forall i\in I,\; d\in D \tag{R3}\\
+& x_{i,d,\text{noche}} + x_{i,d+1,\text{mañana}} \le 1 && \forall i\in I,\; d=1,\dots,|D|-1 \tag{R4}\\
+& w_{i,k} \in \{0,1\},\; x_{i d t}\in\{0,1\} && \forall i,d,t
+\end{align*}
+Donde $I$ es el conjunto de trabajadores, $D$ los días y $T$ los turnos (para instancias \textit{small}: $T=\{\text{día},\text{noche}\}$; para \textit{medium/large}: $T=\{\text{mañana},\text{tarde},\text{noche}\}$). La restricción (R5), ``no tres fines de semana consecutivos'', se modela con variables auxiliares $w_{i,k}$ que indican si el trabajador $i$ trabaja en el fin de semana $k$ y con $w_{i,k}+w_{i,k+1}+w_{i,k+2}\le 2$.
+
+\paragraph{Aclaración sobre R4 en instancias \textit{small}.} En \textit{small} no existe el turno \emph{mañana} como tal, por lo que R4 aplica literalmente solo a \textit{medium/large}. De requerirse, puede activarse una variante ``noche→día'' en \textit{small} sin alterar el resto del modelo.
+
+\subsection{Tecnología utilizada}
+Aunque el enunciado menciona \texttt{lpsolve}, en Python~3.12 no hay soporte oficial para \texttt{lpsolve55}. Utilizamos \textbf{PuLP} con backend \textbf{CBC}, equivalente en términos de resolución MILP y totalmente reproducible. El script principal es \texttt{Entrega 2/solver/solucionador\_de\_instancias\_lpsolve.py} e implementa:
+\begin{itemize}
+	\item Construcción del modelo, lectura de instancias JSON y extracción de solución.
+	\item Lote de ejecución para las 15 instancias y guardado de resultados en JSON.
+	\item Comprobaciones de R1--R5 y extracción de métricas (objetivo, tiempo, estado).
+\end{itemize}
+
+\subsection{Formato de entrada y salida}
+	extbf{Entrada} (instancias): JSON con campos \texttt{trabajadores}, \texttt{dias}, \texttt{demanda\_dias} y \texttt{disposicion}.\\
+	extbf{Salida}: JSON por instancia con \texttt{estado} (\emph{Optimal}/\emph{Infeasible}), \texttt{valor\_objetivo}, \texttt{tiempo\_resolucion\_segundos} y el arreglo \texttt{asignaciones} con tuplas $(\text{trabajador},\text{día},\text{turno},\text{disposición})$.
+
+\subsection{Validez y cobertura}
+Verificamos automáticamente la cobertura exacta (R1) cruzando demanda esperada y asignaciones para cada día–turno. En \textit{small} también generamos calendarios por trabajador/día que permiten validar visualmente R1 y R3. Las instancias 1--11 y 13--14 son \emph{óptimas}; las 12 y 15 resultan \emph{infactibles} (\S\ref{sec:analisis-resultados}).
