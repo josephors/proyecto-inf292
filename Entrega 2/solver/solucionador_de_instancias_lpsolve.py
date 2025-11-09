@@ -7,13 +7,22 @@ total del personal asignado.
 
 Tecnología: PuLP con solver CBC.
 
-Restricciones implementadas:
-  R1: Cobertura exacta de demanda por turno
-  R2: Asignación solo si hay disponibilidad positiva
-  R3: Máximo 2 turnos por día por trabajador
-  R4: No asignar turno noche seguido de turno mañana consecutiva
-  R5: No trabajar 3 fines de semana consecutivos (con enlace bidireccional)
-  R6: Tope de carga total por trabajador
+Restricciones implementadas en este solver:
+    R1: Cobertura exacta de demanda por turno
+    R2: Asignación solo si hay disponibilidad positiva
+    R3: Máximo 2 turnos por día por trabajador
+    R4: No asignar turno noche seguido de turno mañana consecutiva
+    R5: No trabajar 3 fines de semana consecutivos (implementada usando variables
+            auxiliares `w_{i,k}` que indican si un trabajador trabaja en el fin de semana k)
+    R5.1: Enlace bidireccional entre `x` y `w` (x ≤ w y w ≤ Σ x) para garantizar
+                que `w_{i,k} = 1` si y solo si existe al menos una asignación `x` en ese
+                fin de semana. Esto fortalece la relajación LP y evita artefactos en la
+                solución.
+
+Nota importante: R6 (límite global de carga por trabajador, L_i) fue ELIMINADA
+del modelo por decisión de diseño y no se impone en este solver. Si se requiere
+reintroducir R6, el parámetro puede venir en la instancia como
+`max_carga_trabajador` o `max_carga_por_trabajador`.
 """
 
 import json
@@ -100,20 +109,24 @@ def obtener_fines_de_semana(datos_instancia):
     if fin_actual:
         fines_de_semana.append(fin_actual)
     
-    return fines_de_semana
+    return fines_de_semana 
 
 
 def crear_modelo_pulp(datos_instancia):
     """
     Construye y resuelve el modelo MILP de asignación de turnos.
-    
+
     El modelo maximiza la suma de disposiciones de los trabajadores asignados,
-    sujeto a las restricciones R1-R6.
-    
+    sujeto a las restricciones R1--R5 implementadas en este solver. R5 incluye
+    el enlace bidireccional R5.1 entre variables `x` y auxiliares `w`.
+
+    Nota: R6 (L_i, tope de carga por trabajador) no se aplica en este código
+    (fue eliminado del modelo).
+
     Args:
         datos_instancia: Diccionario con datos de la instancia (trabajadores,
                         dias, demanda_dias, disposicion, tipo).
-    
+
     Returns:
         tuple: (estado, valor_objetivo, asignaciones, tiempo_resolucion)
             - estado: 'Optimal', 'Infeasible', etc.
@@ -200,11 +213,13 @@ def crear_modelo_pulp(datos_instancia):
                 f"Cobertura_dia_{j}_turno_{t}"
             )
     
+    # Nota: esta implementación refleja exactamente R1 del informe.
     print(f"  - Restricciones R1 (cobertura): {num_dias * num_turnos}")
     
     # R2: Asignación solo si hay disponibilidad positiva
-    # Un trabajador solo puede ser asignado si su disposición es mayor a cero.
-    # x_ijt = 0  si c_ijt = 0,  ∀i, j, t
+    # Implementa R2 del informe: si c_ijt == 0 entonces x_ijt == 0.
+    # Esto elimina asignaciones imposibles y reduce la cantidad de variables
+    # efectivamente activas en el modelo.
     for i in range(num_trabajadores):
         for j in range(num_dias):
             for t in range(num_turnos):
@@ -214,8 +229,9 @@ def crear_modelo_pulp(datos_instancia):
     print(f"  - Restricciones R2 (disponibilidad): aplicadas")
     
     # R3: Máximo 2 turnos por día por trabajador
-    # Limita la carga diaria de cada trabajador a un máximo de 2 turnos.
-    # Σ_t x_ijt ≤ 2  ∀i ∈ I, ∀j ∈ D
+    # Implementa R3 del informe y controla la carga diaria. Es clave para
+    # evitar sobrecarga diaria y sirve como uno de los mecanismos de control
+    # de distribución de carga tras eliminar R6.
     for i in range(num_trabajadores):
         for j in range(num_dias):
             modelo += (
@@ -226,10 +242,9 @@ def crear_modelo_pulp(datos_instancia):
     print(f"  - Restricciones R3 (max 2 turnos/día): {num_trabajadores * num_dias}")
     
     # R4: No asignar turno noche seguido de turno mañana consecutiva
-    # Garantiza un descanso mínimo entre el final del turno noche y el inicio
-    # del turno mañana del día siguiente.
-    # x_i,j,noche + x_i,j+1,mañana ≤ 1  ∀i ∈ I, ∀j < H
-    # Nota: Solo aplica a instancias medium/large (que tienen turno "mañana").
+    # Implementa R4 del informe para garantizar descanso entre noche y mañana
+    # del día siguiente. Aplica solo cuando el turno "mañana" está presente
+    # (instancias medium/large).
     if "noche" in turnos and (tipo != "small" and "manana" in turnos):
         idx_noche = turno_a_idx["noche"]
         idx_manana = turno_a_idx["manana"]
@@ -243,15 +258,22 @@ def crear_modelo_pulp(datos_instancia):
                 count_r4 += 1
         print(f"  - Restricciones R4 (no noche-mañana): {count_r4}")
     
-    # R5: No trabajar 3 fines de semana consecutivos
-    # Limita la carga de fines de semana para garantizar descanso. Se usa un
-    # enlace bidireccional para vincular w_ik con "trabajar en el fin de semana k".
+    # R5: No trabajar 3 fines de semana consecutivos (incluye R5.1)
+    # -------------------------------------------------------------
+    # Esta sección implementa R5 del informe y además el enlace
+    # bidireccional R5.1 entre las variables de asignación `x[i][j][t]` y
+    # las variables auxiliares `w[i][k]` que indican "trabajó en el fin de
+    # semana k". El enlace bidireccional consta de dos familias:
     #
-    # Enlace bidireccional:
-    #   1) x_ijt ≤ w_ik  ∀i, ∀j ∈ Finde_k, ∀t (si trabaja, w debe ser 1)
-    #   2) w_ik ≤ Σ_{j∈Finde_k} Σ_t x_ijt  ∀i, ∀k (si w es 1, debe trabajar al menos un turno)
+    #   (R5.1.a) x_ijt ≤ w_ik  ∀i, ∀j ∈ Finde_k, ∀t
+    #       — si el trabajador está asignado a cualquier turno del finde k,
+    #         entonces w_ik debe ser 1.
     #
-    # Restricción principal:
+    #   (R5.1.b) w_ik ≤ Σ_{j∈Finde_k} Σ_t x_ijt  ∀i, ∀k
+    #       — si w_ik es 1 entonces debe existir al menos una asignación x
+    #         en ese fin de semana. Esto evita que el solver active w "gratis".
+    #
+    # La restricción principal que impide 3 fines consecutivos es:
     #   w_ik + w_i,k+1 + w_i,k+2 ≤ 2  ∀i ∈ I, ∀k ∈ {1,...,K-2}
     if num_fines >= 3:
         for i in range(num_trabajadores):
@@ -285,31 +307,8 @@ def crear_modelo_pulp(datos_instancia):
         
         print(f"  - Restricciones R5 (fines de semana): {count_r5}")
     
-    # R6: Tope de carga total por trabajador
-    # Limita el número total de turnos asignados a cada trabajador durante
-    # todo el horizonte de planificación.
-    #
-    # Σ_j Σ_t x_ijt ≤ L_i  ∀i ∈ I
-    #
-    # El tope L puede especificarse por instancia (clave 'max_carga_trabajador')
-    # o calcularse automáticamente como: L = ceil(1.25 × demanda_promedio_por_trabajador)
-    total_demanda = sum(demanda[j][t] for j in range(num_dias) for t in range(num_turnos))
-    promedio_por_trabajador = total_demanda / max(1, num_trabajadores)
-    tope_instancia = (
-        datos_instancia.get("max_carga_trabajador")
-        or datos_instancia.get("max_carga_por_trabajador")
-    )
-    if tope_instancia is not None:
-        tope_carga = int(tope_instancia)
-    else:
-        tope_carga = int(math.ceil(1.25 * promedio_por_trabajador))
-    
-    for i in range(num_trabajadores):
-        modelo += (
-            pulp.lpSum(x[i][j][t] for j in range(num_dias) for t in range(num_turnos)) <= tope_carga,
-            f"MaxCargaTotal_{i}"
-        )
-    print(f"  - Restricción R6 (tope carga total): tope={tope_carga}")
+    # R6 (tope de carga total) eliminado por decisión del modelo.
+    # No se impone un límite global L_i sobre la suma de turnos por trabajador.
 
     # ============== RESOLUCIÓN ==============
     

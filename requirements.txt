@@ -1,0 +1,20 @@
+# Dependencias del proyecto proyecto-inf292
+# Solver / modelado
+pulp==2.8.0
+
+# Análisis y manipulación de datos
+pandas>=1.5
+numpy>=1.25
+
+# Visualización
+matplotlib>=3.6
+seaborn>=0.12
+
+# Utilidades (opcional pero útiles)
+# json, math, pathlib, datetime son parte de la stdlib
+
+# Si usas Jupyter para inspección/plots interactivos
+jupyter
+
+# Lockfile generator (opcional)
+# pip-tools

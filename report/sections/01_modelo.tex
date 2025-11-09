@@ -44,11 +44,8 @@
   \]
   siendo \( H \) el número total de días del horizonte de planificación.
 
-  \item[$L_i$:] Límite máximo de turnos que el trabajador \( i \) puede ser asignado durante todo el horizonte de planificación. Este parámetro permite controlar la carga total de trabajo por persona, promoviendo equidad y evitando sobreasignaciones. Se puede definir como:
-  \[
-  L_i = \left\lfloor \frac{2H}{3} \right\rfloor
-  \]
-  donde \( H \) es el número total de días del horizonte.
+  % El parámetro de límite de carga L_i ha sido eliminado del modelo por decisión de diseño.
+  % No se impone un límite global de turnos por trabajador en el modelo presentado.
 
 \end{itemize}
 
@@ -122,12 +119,7 @@ El modelo considera las siguientes restricciones para asegurar la factibilidad o
   y_{i,k} \le \sum_{d \in W_k} \sum_{t \in S} x_{i,d,t} \quad \forall i \in T,\ \forall k \in \{1, \dots, K\}
   \]
 
-  \item[\textbf{(R6)}] \textbf{Límite de carga total por trabajador:} Cada trabajador puede ser asignado como máximo a \( L_i \) turnos en todo el horizonte de planificación.
-  \[
-  \sum_{j \in D} \sum_{t \in S} x_{i,j,t} \le L_i \quad \forall i \in T
-  \]
-
-  \item[\textbf{(R7)}] \textbf{Naturaleza de las variables:} Se definen como binarias las variables de asignación y de actividad en fin de semana.
+  \item[\textbf{(R6)}] \textbf{Naturaleza de las variables:} Se definen como binarias las variables de asignación y de actividad en fin de semana.
   \[
   x_{i,j,t} \in \{0,1\}, \quad y_{i,k} \in \{0,1\}
   \]

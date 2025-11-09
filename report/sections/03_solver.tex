@@ -22,12 +22,8 @@ Donde $I$ es el conjunto de trabajadores, $D$ los días y $T$ los turnos (para i
 \end{align*}
 Con ello, $w_{i,k}=1$ si y solo si el trabajador toma algún turno en ese fin de semana; esto evita soluciones “flojas” y alinea con la modelación de la Entrega~1.
 
-\paragraph{Nueva restricción R6 (tope de carga).} Añadimos un tope global de carga por trabajador:
-\[
- \sum_{d\in D}\sum_{t\in T} x_{i d t} \le L_i \qquad \forall i\in I.
-\]
-Si la instancia entrega explícitamente un parámetro (\texttt{max\_carga\_trabajador} o \texttt{max\_carga\_por\_trabajador}), se utiliza. En caso contrario, fijamos
-\(L_i = \lceil 1.25 \cdot \tfrac{\sum_{d,t} r_{d t}}{|I|} \rceil\), es decir, un 25\% por sobre la demanda promedio por trabajador, de modo de preservar factibilidad y coherencia con la Entrega~1.
+% Restricción de tope global de carga por trabajador eliminada del modelo.
+% El solver no impone un límite global \(L_i\) sobre la suma de turnos por trabajador; la distribución de carga se controla mediante R3, R5 y la función objetivo.
 
 \subsection{Tecnología utilizada}
 
@@ -38,7 +34,7 @@ Aunque el enunciado menciona \texttt{lpsolve}, en Python~3.12 no hay soporte ofi
 El script principal es \texttt{Entrega 2/solver/solucionador\_de\_instancias\_lpsolve.py} y consta de las siguientes etapas:
 \begin{enumerate}
   \item \textbf{Lectura de instancias:} Carga archivo JSON con estructura de trabajadores, días, demanda por turno y matriz de disposiciones.
-  \item \textbf{Construcción del modelo:} Crea variables binarias \(x_{idt}\) y \(w_{ik}\), define función objetivo (\(\max \sum c_{idt} x_{idt}\)), e incorpora restricciones R1--R6.
+  \item \textbf{Construcción del modelo:} Crea variables binarias \(x_{idt}\) y \(w_{ik}\), define función objetivo (\(\max \sum c_{idt} x_{idt}\)), e incorpora restricciones R1--R5.
   \item \textbf{Resolución:} Invoca CBC con límite de tiempo de 300s (nunca alcanzado en práctica).
   \item \textbf{Extracción de solución:} Recupera asignaciones óptimas, calcula métricas de carga por trabajador, valida cobertura de demanda.
   \item \textbf{Guardado de resultados:} Exporta JSON con estado, valor objetivo, tiempo, y lista detallada de asignaciones.
@@ -58,4 +54,4 @@ El script principal es \texttt{Entrega 2/solver/solucionador\_de\_instancias\_lp
 
 \subsection{Validez y cobertura}
 Verificamos automáticamente la cobertura exacta (R1) cruzando demanda esperada y asignaciones para cada día–turno. En \textit{small} también generamos calendarios por trabajador/día que permiten validar visualmente R1 y R3. Las instancias 1--11 y 13--14 son \emph{óptimas}; las 12 y 15 resultan \emph{infactibles} (ver Sección~\ref{sec:analisis}).
-\paragraph{Impacto de R5 fortalecido y R6.} Tras incorporar el enlace bidireccional en R5 y el tope global R6, re-ejecutamos las 15 instancias: los estados de factibilidad se mantuvieron (12 y 15 infactibles) y los tiempos de resolución permanecieron en el mismo orden de magnitud. El parámetro de carga $L_i$ puede ajustarse por instancia si se requiere un control más estricto de distribución de turnos.
+\paragraph{Impacto de R5 fortalecido.} Tras incorporar el enlace bidireccional en R5, re-ejecutamos las 15 instancias: los estados de factibilidad se mantuvieron (12 y 15 infactibles) y los tiempos de resolución permanecieron en el mismo orden de magnitud. La distribución de carga se controla mediante R3, R5 y la función objetivo; no se aplica un límite global \(L_i\) por trabajador.
