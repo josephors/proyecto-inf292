@@ -1,34 +1,5 @@
-
-
-% VEAN LA PAUTA 
-% VEAN LA PAUTA 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \clearpage
-\section{Generador de Instancias}
+\section{Generador de Instancias y Factibilidad}
 
 El generador fue implementado en \textbf{Python} y se encuentra en:
 
@@ -42,78 +13,49 @@ Este script genera \textbf{cinco instancias por cada tamaño} (\textit{small}, \
 \texttt{generador/instancias/}
 \end{center}
 
-El código fuente completo está disponible en el repositorio de GitHub \cite{generador2025}.
+El código fuente completo está disponible en el repositorio de GitHub \cite{generador2025}. Además, se incluye un script de chequeo que valida condiciones de factibilidad y genera resúmenes estadísticos por instancia.
 
-\vspace{0.5em}
-Además, el repositorio incluye un script de chequeo que genera resúmenes estadísticos por instancia, útiles para el análisis posterior. Este script complementa el generador y se encuentra en el mismo repositorio citado.
+\subsection*{\textbf{Lógica de Generación}}
 
-
-\subsection*{Lógica de Generación y Formato de Salida}
+Se utilizó la semilla \texttt{42} para asegurar reproducibilidad. El generador elimina carpetas previas para evitar residuos y garantizar un entorno limpio en cada ejecución.
 
 \begin{itemize}
-  \item Se definen aleatoriamente los días y trabajadores según el tipo de instancia:
+  \item Se generan aleatoriamente los días, trabajadores y turnos según el tipo de instancia:
   \begin{itemize}
-    \item \textit{Small}: 5--7 días, 5--15 trabajadores, turnos \texttt{dia} y \texttt{noche}.
-    \item \textit{Medium}: 7--14 días, 15--45 trabajadores, turnos \texttt{manana}, \texttt{tarde}, \texttt{noche}.
+    \item \textit{Small}: 5--7 días, 5--15 trabajadores, turnos \texttt{día} y \texttt{noche}.
+    \item \textit{Medium}: 7--14 días, 15--45 trabajadores, turnos \texttt{mañana}, \texttt{tarde}, \texttt{noche}.
     \item \textit{Large}: 14--28 días, 45--90 trabajadores, mismos turnos que \textit{medium}.
   \end{itemize}
 
-  \item Para cada día y turno, se genera una demanda \(r_{j,t}\) con una distribución normal truncada en cero, con media proporcional al número de trabajadores y turnos, y desviación estándar del 20\%. Luego:
-  \begin{enumerate}
-    \item Se limita la demanda por la disponibilidad real del turno (trabajadores con disposición positiva).
-    \item Si la suma diaria excede la capacidad máxima (\( \text{max\_turnos\_dia} \times \text{trabajadores}\)), se escala proporcionalmente.
-  \end{enumerate}
+  \item Para cada día y turno, se genera una demanda \(r_{j,t}\) con distribución normal truncada en cero, ajustada por:
+  \begin{itemize}
+    \item Disponibilidad efectiva (trabajadores con disposición positiva).
+    \item Capacidad máxima diaria (\( \text{max\_turnos\_dia} \times \text{trabajadores} \)).
+  \end{itemize}
 
-  \item Para cada trabajador, día y turno, se genera una disposición \(c_{i,j,t} \sim \mathcal{U}\{0,10\}\).
+  \item Las disposiciones \(c_{i,j,t} \sim \mathcal{U}\{0,10\}\) se asignan por trabajador, día y turno.
 
   \item Cada instancia se guarda en dos formatos:
   \begin{itemize}
-    \item \texttt{.json}: contiene \texttt{id\_instancia}, \texttt{tipo}, \texttt{dias}, \texttt{trabajadores}, \texttt{demanda\_dias} y \texttt{disposicion}.
-    \item \texttt{.csv}: archivo plano con las disposiciones individuales, con columnas:
-\begin{center}
-\texttt{trabajador, dia, turno, disposicion}
-\end{center}
-Este formato permite inspeccionar rápidamente las preferencias de cada trabajador, pero no incluye la demanda ni otros metadatos.
+    \item \texttt{.json}: incluye metadatos, demanda y disposiciones.
+    \item \texttt{.csv}: contiene las disposiciones individuales por fila.
   \end{itemize}
 \end{itemize}
 
-\clearpage
-\subsection*{Descripción del Código}
+\newpage
+\subsection*{\textbf{Condiciones de Factibilidad en la Generación}}
 
-El script realiza dos tareas principales:
+El generador fue diseñado para producir instancias estructuralmente válidas, es decir, con datos completos, consistentes y compatibles con el modelo matemático. Esto implica que cada instancia contiene trabajadores, días, turnos, disposiciones y demandas bien definidas, sin errores lógicos ni violaciones formales.
 
-\begin{enumerate}
-  \item \textbf{Inicialización:} Elimina las carpetas existentes en \texttt{../instancias/} para evitar duplicados y crea nuevas subcarpetas para cada tipo de instancia.
+Además, se incorporan controles que reflejan las restricciones del modelo desde la etapa de generación:
 
-  \item \textbf{Generación:} Para cada tipo de instancia, se generan 5 archivos con datos aleatorios. El script permite fijar una semilla manualmente para reproducir instancias específicas, o usar una semilla aleatoria por defecto (\texttt{random.seed()}) para obtener variabilidad entre ejecuciones. Para esta entrega, se utilizó la semilla \texttt{42}, al igual que en ejecuciones anteriores, con el fin de mantener consistencia en las pruebas. El proceso incluye:
-  \begin{itemize}
-    \item Asignación de días y trabajadores dentro de los rangos definidos.
-    \item Generación de nombres de días con formato \texttt{lunes\_1}, \texttt{martes\_1}, etc.
-    \item Cálculo de demanda por turno usando una distribución normal truncada en cero.
-    \item Ajuste de demanda por disponibilidad y escalado por capacidad diaria.
-    \item Generación de disposiciones por trabajador, día y turno.
-    \item Escritura de archivos \texttt{.json} y \texttt{.csv}.
-  \end{itemize}
-\end{enumerate}
+\begin{itemize}
+  \item \textbf{R1 (Cobertura):} La demanda por turno se ajusta según la cantidad de trabajadores disponibles con disposición positiva.
+  \item \textbf{R3 (Carga diaria):} Se limita la suma de turnos por día, escalando la demanda si excede la capacidad total del equipo.
+  \item \textbf{R5 (Fines de semana):} Se evita congestión en sábado y domingo, respetando la carga global del equipo.
+\end{itemize}
 
+Aunque no se incluye una restricción explícita sobre el total de turnos por trabajador (R6), la carga se regula indirectamente mediante R3, R5 y la función objetivo. Las instancias \textit{small} tienden a ser factibles, mientras que en \textit{medium} y \textit{large} la factibilidad depende de la relación entre demanda y disposición.
 
-\subsection*{Fragmento del Código}
-
-\begin{lstlisting}[language=Python, basicstyle=\ttfamily\footnotesize, breaklines=true, caption={Generador de instancias con control de capacidad}]
-def generar_instancias(max_turnos_dia=2, dispo_umbral=0):
-    random.seed()  # Semilla aleatoria para variabilidad
-    semana_dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
-
-    tipos = ["small", "medium", "large"]
-    dias_rangos = [(5, 7), (7, 14), (14, 28)]
-    trabajadores_rangos = [(5, 15), (15, 45), (45, 90)]
-    turnos_rangos = [["dia", "noche"], ["manana", "tarde", "noche"], ["manana", "tarde", "noche"]]
-
-    id_instancia = 1
-    for tipo, dias_rng, trab_rng, turnos in zip(tipos, dias_rangos, trabajadores_rangos, turnos_rangos):
-        for i in range(5):  # 5 instancias por tipo
-            dias = random.randint(*dias_rng)
-            trabajadores = random.randint(*trab_rng)
-            cantidad_turnos = len(turnos)
-            # Generacion de disposicion y demanda omitida por brevedad
-\end{lstlisting}
+\vspace{0.4cm}
+\textbf{Importante:} Que una instancia sea estructuralmente válida no implica que sea resoluble. La factibilidad se evalúa posteriormente mediante el modelo LPE, que determina si existe una asignación que cumpla todas las restricciones. Este enfoque permite estudiar cómo influyen los parámetros generados aleatoriamente en la posibilidad de encontrar soluciones válidas, sin alterar artificialmente las instancias para forzar su resolución.
