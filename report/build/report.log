@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.6)  7 NOV 2025 04:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.6)  9 NOV 2025 03:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report/report.tex"
-(/home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report/report.tex
+**"/home/numpi/Documentos/Semestre 6/Opti/proyecto-inf292/report/report.tex"
+(/home/numpi/Documentos/Semestre 6/Opti/proyecto-inf292/report/report.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
 \c@section=\count188
@@ -1041,7 +1041,7 @@ LaTeX Font Info:    Trying to load font information for T1+fve on input line 30.
 File: t1fve.fd 2004/09/07 scalable font definitions for T1/fve.
 )
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 30.
+(Font)              scaled to size 10.79993pt on input line 30.
 ) (/usr/share/texlive/texmf-dist/tex/latex/bera/berasans.sty
 Package: berasans 2004/01/30 (WaS)
 ) (/usr/share/texlive/texmf-dist/tex/latex/bera/beramono.sty
@@ -1097,12 +1097,12 @@ LaTeX Info: Redefining \% on input line 5.
 * \topmargin=-38.1381pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=59.0pt
+* \marginparwidth=44.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1163,13 +1163,13 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 \c@lstlisting=\count525
  (./author.tex)
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 15.55188pt on input line 8.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
 (Font)              scaled to size 18.66588pt on input line 8.
+LaTeX Font Info:    Font shape `T1/fve/m/n' will be
+(Font)              scaled to size 22.39185pt on input line 8.
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 8.
+(Font)              scaled to size 22.39185pt on input line 8.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 8.
+(Font)              scaled to size 12.9599pt on input line 8.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1183,137 +1183,62 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 8.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 8.
+(Font)              scaled to size 12.9599pt on input line 8.
  (./sections/01_modelo.tex [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 2.
+(Font)              scaled to size 15.55188pt on input line 2.
 LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 2.
-
-Overfull \hbox (10.47069pt too wide) in paragraph at lines 22--23
-[]\T1/fve/m/n/10.95 Nivel de dis-po-si-ción del tra-ba-ja-dor $\OML/cmm/m/it/10.95 i$ \T1/fve/m/n/10.95 pa-ra rea-li-zar el turno $\OML/cmm/m/it/10.95 t$ \T1/fve/m/n/10.95 del día $\OML/cmm/m/it/10.95 j$\T1/fve/m/n/10.95 , don-de $\OML/cmm/m/it/10.95 c[] \OMS/cmsy/m/n/10.95 2 f\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; [] ; \OT1/cmr/m/n/10.95 10\OMS/cmsy/m/n/10.95 g$\T1/fve/m/n/10.95 .
- []
-
+(Font)              scaled to size 15.55188pt on input line 2.
+LaTeX Font Info:    Font shape `T1/fve/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 7.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 31.
+(Font)              scaled to size 7.19995pt on input line 12.
 LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 5.39996pt on input line 31.
-[2
+(Font)              scaled to size 5.39996pt on input line 12.
+ [2
 
 ]
-LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 9.85492pt on input line 80.
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 107.
-LaTeX Font Info:    Font shape `T1/fve/m/it' in size <9> not available
-(Font)              Font shape `T1/fve/m/sl' tried instead on input line 107.
-LaTeX Font Info:    Font shape `T1/fve/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 107.
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 107.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 107.
-) (./sections/02_generador.tex [3
-
-]
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 7.
-LaTeX Font Info:    Font shape `T1/fve/m/it' in size <10.95> not available
-(Font)              Font shape `T1/fve/m/sl' tried instead on input line 10.
+(Font)              scaled to size 10.79993pt on input line 97.
+) (./sections/02_generador_y_factibilidad.tex [3]
+LaTeX Font Info:    Font shape `T1/fve/m/it' in size <12> not available
+(Font)              Font shape `T1/fve/m/sl' tried instead on input line 39.
 LaTeX Font Info:    Font shape `T1/fve/m/sl' will be
-(Font)              scaled to size 9.85492pt on input line 10.
-LaTeX Font Info:    Trying to load font information for TS1+fve on input line 27.
+(Font)              scaled to size 10.79993pt on input line 39.
+LaTeX Font Info:    Trying to load font information for TS1+fve on input line 56.
  (/usr/share/texlive/texmf-dist/tex/latex/bera/ts1fve.fd
 File: ts1fve.fd 2004/09/07 scalable font definitions for TS1/fve.
 )
 LaTeX Font Info:    Font shape `TS1/fve/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 27.
- [4
+(Font)              scaled to size 10.79993pt on input line 56.
+
+Overfull \hbox (37.78238pt too wide) in paragraph at lines 71--72
+[]\T1/fvm/m/n/12 .json\T1/fve/m/n/12 : con-tie-ne \T1/fvm/m/n/12 id_instancia\T1/fve/m/n/12 , \T1/fvm/m/n/12 tipo\T1/fve/m/n/12 , \T1/fvm/m/n/12 dias\T1/fve/m/n/12 , \T1/fvm/m/n/12 trabajadores\T1/fve/m/n/12 , \T1/fvm/m/n/12 demanda_dias \T1/fve/m/n/12 y \T1/fvm/m/n/12 disposicion\T1/fve/m/n/12 . 
+ []
+
+[4
 
 ] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 73.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 102.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 102.
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
-(Font)              scaled to size 8.09995pt on input line 74.
-LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <9> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 75.
+(Font)              scaled to size 8.99994pt on input line 103.
+LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10> not available
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 104.
 LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 75.
-) (./sections/03_solver.tex [5
+(Font)              scaled to size 8.99994pt on input line 104.
+) (./sections/03_implementacion_y_solver.tex) (./sections/04_resultados_y_analisis.tex) [5
 
-]
-LaTeX Font Info:    Font shape `T1/fve/b/it' in size <10.95> not available
-(Font)              Font shape `T1/fve/b/sl' tried instead on input line 16.
-LaTeX Font Info:    Font shape `T1/fve/b/sl' will be
-(Font)              scaled to size 9.85492pt on input line 16.
-Package textcomp Info: Symbol \textrightarrow not provided by
-(textcomp)             font family fve in TS1 encoding.
-(textcomp)             Default family used instead on input line 16.
-
-Overfull \hbox (69.37798pt too wide) in paragraph at lines 28--31
-\T1/fve/m/n/10.95 Si la ins-tan-cia en-tre-ga ex-plí-ci-ta-men-te un pa-rá-me-tro (\T1/fvm/m/n/10.95 max_carga_trabajador \T1/fve/m/n/10.95 o \T1/fvm/m/n/10.95 max_carga_por_trabajador\T1/fve/m/n/10.95 ),
- []
-
-[6{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \hbox (55.84732pt too wide) in paragraph at lines 38--40
- []\T1/fve/b/n/10.95 Implementación.[] \T1/fve/m/n/10.95 El script prin-ci-pal es \T1/fvm/m/n/10.95 Entrega 2/solver/solucionador_de_instancias_lpsolve.py
- []
-
-
-Overfull \hbox (45.08047pt too wide) in paragraph at lines 41--42
-[]\T1/fve/b/n/10.95 Construcción del mo-de-lo: \T1/fve/m/n/10.95 Crea va-ria-bles bi-na-rias $\OML/cmm/m/it/10.95 x[]$ \T1/fve/m/n/10.95 y $\OML/cmm/m/it/10.95 w[]$\T1/fve/m/n/10.95 , de-fi-ne fun-ción ob-je-ti-vo ($[] [] \OML/cmm/m/it/10.95 c[]x[]$\T1/fve/m/n/10.95 ),
- []
-
-
-Overfull \hbox (22.93506pt too wide) in paragraph at lines 56--58
-[]\T1/fve/m/n/10.95 extbfEntrada (ins-tan-cias): JSON con cam-pos \T1/fvm/m/n/10.95 trabajadores\T1/fve/m/n/10.95 , \T1/fvm/m/n/10.95 dias\T1/fve/m/n/10.95 , \T1/fvm/m/n/10.95 demanda_dias \T1/fve/m/n/10.95 y \T1/fvm/m/n/10.95 disposicion\T1/fve/m/n/10.95 . 
- []
-
-
-Overfull \hbox (95.50635pt too wide) in paragraph at lines 56--58
-\T1/fve/m/n/10.95 extbfSalida: JSON por ins-tan-cia con \T1/fvm/m/n/10.95 estado \T1/fve/m/n/10.95 (\T1/fve/m/sl/10.95 Op-ti-mal\T1/fve/m/n/10.95 /\T1/fve/m/sl/10.95 Infeasible\T1/fve/m/n/10.95 ), \T1/fvm/m/n/10.95 valor_objetivo\T1/fve/m/n/10.95 , \T1/fvm/m/n/10.95 tiempo_resolucion_segundos
- []
-
-) (./sections/04_resultados.tex [7] [8]
-LaTeX Font Info:    Font shape `T1/fve/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 15.
-LaTeX Font Info:    Font shape `T1/fve/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 18.
- [9
-
-]) (./sections/05_analisis.tex [10]
-<../Entrega 2/analisis/graficos/objetivo_vs_tamano.png, id=194, 858.8085pt x 496.9767pt>
-File: ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png Graphic file (type png)
-<use ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png>
-Package pdftex.def Info: ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png  used on input line 13.
-(pdftex.def)             Requested size: 401.22942pt x 232.18376pt.
-<../Entrega 2/analisis/graficos/tiempos_vs_tamano.png, id=197, 858.8085pt x 496.9767pt>
-File: ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png Graphic file (type png)
-<use ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png>
-Package pdftex.def Info: ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png  used on input line 31.
-(pdftex.def)             Requested size: 401.22942pt x 232.18376pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11
-
- <../Entrega 2/analisis/graficos/objetivo_vs_tamano.png>]
-<../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png, id=208, 1527.0651pt x 845.3181pt>
-File: ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png Graphic file (type png)
-<use ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png>
-Package pdftex.def Info: ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png  used on input line 50.
-(pdftex.def)             Requested size: 448.42822pt x 248.23161pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[12 <../Entrega 2/analisis/graficos/tiempos_vs_tamano.png>] [13 <../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png>]) [14] (build/report.aux
+] [6] (build/report.aux
 LaTeX Info: Redefining \sptext on input line 9.
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -1323,24 +1248,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 5687C5C1EAC04E5E3DDD21FB610652B8;3294.
+(rerunfilecheck)             Checksum: 44E0D677538D3F36A671CC2FA3AD925F;298.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41690 strings out of 474222
- 821929 string characters out of 5748734
- 2063975 words of memory out of 5000000
- 63229 multiletter control sequences out of 15000+600000
- 624760 words of font info for 124 fonts, out of 8000000 for 9000
+ 41522 strings out of 474222
+ 818778 string characters out of 5748734
+ 2060975 words of memory out of 5000000
+ 63136 multiletter control sequences out of 15000+600000
+ 603923 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,11n,90p,1133b,1772s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on build/report.pdf (14 pages, 964008 bytes).
+ 89i,11n,90p,1124b,1948s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb>
+Output written on build/report.pdf (6 pages, 129741 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 281 compressed objects within 3 object streams
- 97 named destinations out of 1000 (max. 500000)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

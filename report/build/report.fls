@@ -1,17 +1,17 @@
-PWD /home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report
+PWD /home/numpi/Documentos/Semestre 6/Opti/proyecto-inf292/report
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/numpi/Documentos/Semestre 6/Opti/Proyecto/proyecto-inf292/report/report.tex
+INPUT /home/numpi/Documentos/Semestre 6/Opti/proyecto-inf292/report/report.tex
 OUTPUT build/report.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT ./preamble.tex
 INPUT ./preamble.tex
 INPUT ./preamble.tex
@@ -31,7 +31,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
@@ -398,16 +398,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -426,7 +419,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8t.tfm
 INPUT ./sections/01_modelo.tex
 INPUT ./sections/01_modelo.tex
@@ -443,142 +436,94 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fveb8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fveb8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fver8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvero8t.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
-INPUT ./sections/02_generador.tex
-INPUT ./sections/02_generador.tex
-INPUT ./sections/02_generador.tex
-INPUT ./sections/02_generador.tex
-INPUT sections/02_generador.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fveb8t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fveb8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fver8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8r.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
+INPUT ./sections/02_generador_y_factibilidad.tex
+INPUT ./sections/02_generador_y_factibilidad.tex
+INPUT ./sections/02_generador_y_factibilidad.tex
+INPUT ./sections/02_generador_y_factibilidad.tex
+INPUT sections/02_generador_y_factibilidad.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fver8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fver8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvero8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvero8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvero8t.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/ts1fve.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/ts1fve.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/ts1fve.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8c.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvero8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvero8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fver8c.vf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmb8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmro8t.tfm
-INPUT ./sections/03_solver.tex
-INPUT ./sections/03_solver.tex
-INPUT ./sections/03_solver.tex
-INPUT ./sections/03_solver.tex
-INPUT sections/03_solver.tex
+INPUT ./sections/03_implementacion_y_solver.tex
+INPUT ./sections/03_implementacion_y_solver.tex
+INPUT ./sections/03_implementacion_y_solver.tex
+INPUT ./sections/03_implementacion_y_solver.tex
+INPUT sections/03_implementacion_y_solver.tex
+INPUT ./sections/04_resultados_y_analisis.tex
+INPUT ./sections/04_resultados_y_analisis.tex
+INPUT ./sections/04_resultados_y_analisis.tex
+INPUT ./sections/04_resultados_y_analisis.tex
+INPUT sections/04_resultados_y_analisis.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmb8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmb8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmro8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmro8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvebo8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvebo8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvebo8r.tfm
-INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-INPUT ./sections/04_resultados.tex
-INPUT ./sections/04_resultados.tex
-INPUT ./sections/04_resultados.tex
-INPUT ./sections/04_resultados.tex
-INPUT sections/04_resultados.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8t.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fveb8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fveb8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fver8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fver8r.tfm
-INPUT ./sections/05_analisis.tex
-INPUT ./sections/05_analisis.tex
-INPUT ./sections/05_analisis.tex
-INPUT ./sections/05_analisis.tex
-INPUT sections/05_analisis.tex
-INPUT ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/objetivo_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/tiempos_vs_tamano.png
-INPUT ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png
-INPUT ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png
-INPUT ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png
-INPUT ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png
-INPUT ../Entrega 2/analisis/graficos/calendarios/resumen_todas_instancias.png
 INPUT build/report.aux
 INPUT build/report.out
 INPUT build/report.out
 INPUT build/report.run.xml
 OUTPUT build/report.run.xml
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fveb8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fveb8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fver8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fver8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
-INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb
