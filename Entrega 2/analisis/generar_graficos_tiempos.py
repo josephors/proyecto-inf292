@@ -84,6 +84,12 @@ print(df.groupby('tipo')['tiempo_segundos'].describe().round(4))
 # 2. Gráfico principal: Tiempo de resolución vs tamaño del problema
 print("\n2. Generando gráfico: Tiempo de resolución vs tamaño del problema...")
 
+# --------------------------------------------------
+#  Plot: Tiempo de resolución vs Tamaño del problema
+#  - Separa instancias por tipo y factibilidad
+#  - Ajuste de tendencia: línea recta (grado 1) sobre instancias factibles
+# --------------------------------------------------
+
 fig, ax = plt.subplots(1, 1, figsize=(12, 7))
 
 # Colores por tipo
@@ -118,13 +124,17 @@ for tipo in ['small', 'medium', 'large']:
                    linewidth=2,
                    marker='X')
 
-# Línea de tendencia para instancias factibles
+# Línea de tendencia (lineal) para instancias factibles
+# Usamos ajuste lineal (grado 1). Comprobamos que haya al menos 2 puntos.
 df_factibles = df[df['factible']]
-z = np.polyfit(df_factibles['tamano_problema'], df_factibles['tiempo_segundos'], 2)
-p = np.poly1d(z)
-x_trend = np.linspace(df['tamano_problema'].min(), df['tamano_problema'].max(), 100)
-ax.plot(x_trend, p(x_trend), 
-        "k--", alpha=0.5, linewidth=2, label='Tendencia (factibles)')
+if len(df_factibles) >= 2:
+    z = np.polyfit(df_factibles['tamano_problema'], df_factibles['tiempo_segundos'], 1)
+    p = np.poly1d(z)
+    x_trend = np.linspace(df['tamano_problema'].min(), df['tamano_problema'].max(), 100)
+    ax.plot(x_trend, p(x_trend), 
+            "k--", alpha=0.5, linewidth=2, label='Tendencia lineal (factibles)')
+else:
+    print('   Aviso: no hay suficientes instancias factibles para ajustar tendencia lineal (se requieren >=2).')
 
 # Etiquetas
 ax.set_xlabel('Tamaño del Problema (Trabajadores × Días)', fontsize=12, fontweight='bold')

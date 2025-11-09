@@ -78,6 +78,12 @@ print(df.groupby('tipo')[['trabajadores', 'dias', 'tamano_problema', 'valor_obje
 # 2. Gráfico principal: Valor objetivo vs tamaño del problema
 print("\n2. Generando gráfico: Valor objetivo vs tamaño del problema...")
 
+# --------------------------------------------------
+#  Plot: Valor de la función objetivo vs Tamaño del problema
+#  - Scatter por tipo (solo instancias factibles)
+#  - Ajuste de tendencia: línea recta (grado 1)
+# --------------------------------------------------
+
 fig, ax = plt.subplots(1, 1, figsize=(12, 7))
 
 # Colores por tipo
@@ -95,10 +101,14 @@ for tipo in ['small', 'medium', 'large']:
                linewidth=1.5)
 
 # Línea de tendencia general (ajuste lineal y = ax + b)
-z = np.polyfit(df['tamano_problema'], df['valor_objetivo'], 1)
-p = np.poly1d(z)
-ax.plot(df['tamano_problema'], p(df['tamano_problema']), 
-        "k--", alpha=0.5, linewidth=2, label='Tendencia lineal')
+# Comprobación: se requieren al menos 2 puntos para ajuste lineal
+if len(df) >= 2:
+    z = np.polyfit(df['tamano_problema'], df['valor_objetivo'], 1)
+    p = np.poly1d(z)
+    ax.plot(df['tamano_problema'], p(df['tamano_problema']), 
+            "k--", alpha=0.5, linewidth=2, label='Tendencia lineal')
+else:
+    print('   Aviso: no hay suficientes instancias factibles para ajustar tendencia lineal (se requieren >=2).')
 
 # Etiquetas
 ax.set_xlabel('Tamaño del Problema (Trabajadores × Días)', fontsize=12, fontweight='bold')
