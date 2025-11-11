@@ -1,0 +1,15 @@
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.bcf
+*.blg
+*.bbl
+*.run.xml
+*.pdf
+
+# Carpetas de compilación
+/build/

@@ -22,3 +22,143 @@
 % CUALQUIER DUDA PREGUNTAME POR EL GRUPO :)
 
 % VEAN LA PAUTA % VEAN LA PAUTA % VEAN LA PAUTA % VEAN LA PAUTA 
+
+\clearpage
+\section{Resultados y Análisis}
+
+\subsection*{\textbf{Resumen general de la ejecución}}
+
+El modelo fue resuelto usando la herramienta \textbf{LPSolve} a través de un script que procesó las quince instancias generadas (\textit{small}, \textit{medium} y \textit{large}).   
+
+El archivo \texttt{ejecutar\_solver\_batch.py} ejecutó el solver para cada instancia y registró los resultados en formato JSON.   
+
+En total, se obtuvieron 13 soluciones óptimas y 2 instancias infactibles. Los tiempos de ejecución fueron muy bajos (del orden de milisegundos), confirmando la eficiencia del modelo en instancias pequeñas y medianas.
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Tamaño} & \textbf{Total} & \textbf{Óptimas} & \textbf{Infactibles} & \textbf{Tiempo promedio (s)} \\
+\midrule
+Small & 5 & 5 & 0 & 0.0155 \\
+Medium & 5 & 5 & 0 & 0.0476 \\
+Large & 5 & 3 & 2 & 0.1579 \\
+\midrule
+\textbf{Total} & 15 & 13 & 2 & --- \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de resultados globales por tipo de instancia.}
+\end{table}
+
+\vspace{0.4cm}
+
+De la tabla anterior se puede observar que las instancias \textit{small} y \textit{medium} fueron completamente factibles y alcanzaron el óptimo en menos de 0.05 segundos.  
+En cambio, dos de las instancias \textit{large} resultaron
+ infactibles, lo cual se analizará más adelante.
+
+\subsection*{\textbf{(a) Análisis de la función objetivo}}
+
+La función objetivo maximiza la disposición 
+total del personal asignado.  
+A medida que el tamaño de la instancia crece (más trabajadores y días), el valor objetivo aumenta de manera proporcional al número de asignaciones posibles, manteniendo así, la coherencia del modelo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../Entrega 2/analisis/graficos/objetivo_promedio_tipo.png}
+\caption{Promedio del valor objetivo por tipo de instancia.}
+\end{figure}
+
+En la Figura anterior se puede apreciar un crecimiento proporcional al tamaño de la instancia del valor objetivo promedio al pasar de \textit{small} a \textit{large}, esto es coherente con el aumento de la 
+demanda y la disponibilidad total de turnos.  
+Lo que demuestra que el modelo logra mantener la consistencia de asignaciones al priorizar trabajadores con mayor disposición.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../Entrega 2/analisis/graficos/objetivo_vs_tamano.png}
+\caption{Comportamiento del valor objetivo en función del tamaño (número de variables).}
+\end{figure}
+
+En la Figura 2 se puede observar que la relación entre el valor objetivo y el número de variables muestra una tendencia ascendente
+con una leve dispersión.  
+Esto refleja que el solver sigue encontrando soluciones óptimas, pero la complejidad combinatoria puede introducir ligeras variaciones en la calidad o el tiempo de resolución.  
+En resumen, el modelo mantiene su desempeño y escalabilidad dentro del rango planificado.
+
+\subsection*{\textbf{(b) Análisis de infactibilidad}}
+Que una solución sea infactible (o que el modelo es infeasible) significa que no existe ninguna combinación de valores que cumpla todas las restricciones del modelo al mismo tiempo.
+
+En total, dos instancias de tipo \textit{large} fueron declaradas infactibles.  
+Esto puede deberse principalmente a la interacción entre las restricciones de cobertura (R1), carga diaria (R3) y descanso (R4).  
+En ciertas combinaciones aleatorias de disponibilidad y demanda, 
+puede ocurrir que la cantidad de trabajadores dispuestos para cubrir un turno crítico sea insuficiente o que las reglas de descanso hagan imposible una cobertura completa.
+
+\begin{itemize}
+  \item En particular, R4 (\textit{noche $\rightarrow$ mañana}) puede reducir la disponibilidad efectiva cuando los turnos nocturnos son muy numerosos.
+  \item R3 (\textit{máx. 2 turnos por día}) restringe aún más la flexibilidad, limitando las posibles reasignaciones. \end{itemize}
+
+Es importante destacar que esto no representa un error del modelo, sino una propiedad esperable en escenarios donde 
+la demanda supera la capacidad disponible.  
+De hecho, la existencia de instancias infactibles es útil para validar la robustez del generador y del modelo de optimización.
+\subsection*{\textbf{(c) Visualización tipo calendario para instancias pequeñas}}
+
+En las instancias pequeñas, el modelo permite visualizar fácilmente la asignación diaria por trabajador.  
+La siguiente figura muestra un ejemplo de calendario generado por el script \texttt{generar\_calendarios.py}, donde cada celda indica los turnos asignados a cada empleado durante la semana.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../Entrega 2/analisis/graficos/calendarios/calendario_instancia_1.png}
+\caption{Ejemplo de calendario de asignaciones para una instancia \textit{small}.}
+\end{figure}
+En este calendario, se puede observar que las asignaciones 
+respetan las restricciones R3 y R4: ningún trabajador realiza más de dos turnos diarios ni tiene secuencias noche–mañana.  
+El modelo logra tener una distribución equilibrada de la carga laboral entre los trabajadores disponibles, maximizando la disposición total.
+
+\subsection*{\textbf{Análisis de tiempos de resolución}}
+Finalmente, se evaluó el tiempo de resolución promedio y su relación con el tamaño de las instancias 
+y la cantidad de variables involucradas.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../Entrega 2/analisis/graficos/tiempos_promedio_tipo.png}
+\caption{Tiempo promedio de resolución por tipo de instancia.}
+\end{figure}
+En el gráfico se puede observar que el tiempo crece de forma 
+proporcional al pasar de instancias pequeñas a grandes.  
+También se puede ver, que incluso en el caso \textit{large}, el tiempo promedio se mantiene bajo (0.16 s), lo que confirma la eficiencia del modelo implementado.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../Entrega 2/analisis/graficos/tiempos_vs_variables.png}
+\caption{Tiempos de resolución en función del número de variables.}
+\end{figure}
+En la figura anterior se puede observar que, aunque el tiempo de resolución 
+tiende a aumentar con el número de variables,
+este crecimiento no es abrupto ni exponencial, lo que indica que el modelo escala de forma controlada 
+y que el solver maneja de forma eficiente los casos con mayor tamaño.  
+En general, el comportamiento temporal es coherente con la naturaleza del modelo, 
+donde el aumento de combinaciones posibles no afecta de manera drástica la capacidad de resolución gracias 
+a la estructura binaria y a las restricciones acotadas del problema.
+
+
+\vspace{0.5cm}
+Al comparar los resultados de tiempo entre los tres tamaños, se evidencia que la diferencia entre \textit{small} y \textit{medium} es mínima,
+mientras que el salto hacia \textit{large} representa el aumento esperado en complejidad, pero sin llegar a comprometer la factibilidad ni el rendimiento.  
+Esto demuestra que el modelo es estable y eficiente, incluso cuando la cantidad de trabajadores, días o turnos se multiplica varias veces.
+
+\vspace{0.5cm}
+\subsection*{\textbf{Conclusión general}}
+En conclusión, el modelo propuesto demuestra ser sólido, eficiente y coherente con los objetivos planteados.  
+A lo largo de las distintas instancias, se ha podido confirmar que:
+\begin{itemize}
+  \item El modelo mantiene la escalabilidad, incrementando el valor de la función objetivo de forma proporcional al tamaño de la instancia.
+  \item Los tiempos de resolución son reducidos incluso en casos de gran tamaño, evidenciando una implementación eficiente en \textbf{LPSolve}.
+  \item Las instancias infactibles se explican por condiciones realistas de sobrecarga de demanda, lo cual logra validar la robustez del modelo.
+  \item Las soluciones factibles respetan todas las restricciones definidas, reflejando una distribución equilibrada de la carga laboral.
+\end{itemize}
+
+Además, el análisis conjunto de los resultados 
+y los tiempos de resolución permite concluir que el modelo no solo optimiza correctamente la asignación de personal, 
+sino que también lo hace con un costo computacional bastante bajo.  
+Esto sugiere que la formulación matemática podría escalar a entornos reales 
+más amplios sin comprometer la eficiencia del proceso.
+
+En resumen, el sistema de generación, modelamiento y resolución cumple con los criterios de calidad, desempeño y factibilidad requeridos,
+demostrando así, un comportamiento consistente, interpretable y aplicable en contextos reales de planificación de turnos.
