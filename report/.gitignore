@@ -9,7 +9,6 @@
 *.blg
 *.bbl
 *.run.xml
-*.pdf
 
 # Carpetas de compilación
 /build/
