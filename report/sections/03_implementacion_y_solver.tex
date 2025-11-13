@@ -15,3 +15,134 @@
 % CUALQUIER DUDA PREGUNTAME POR EL GRUPO : )
 
 % VEAN LA PAUTA % VEAN LA PAUTA % VEAN LA PAUTA 
+
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+\geometry{a4paper, margin=1in}
+
+\lstset{
+    language=Python,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    frame=single,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true
+}
+
+\begin{document}
+
+\section{Metodología de Implementación (Solver)}
+
+La implementación se realizó bajo un modelo de \textbf{Programación Lineal Entera} utilizando la librería \textbf{PuLP} con el solver \textbf{Lpsolver}.
+
+\subsubsection{Implementación F.O.}
+El objetivo es maximizar la suma de la disposición ($c_{ijt}$) de los trabajadores asignados:
+\begin{equation}
+    \max Z = \sum_{i \in T} \sum_{j \in D} \sum_{t \in S} x_{ijt} \cdot c_{ijt}
+\end{equation}
+
+El código para la definición de esta función en \texttt{PuLP} es el siguiente:
+
+\begin{lstlisting}[caption=Definición de Función Objetivo con PuLP]
+# F.O.: Maximizar la suma de disposiciones
+modelo += pulp.lpSum(
+    x[i][j][t] * disposicion[i][j][t]
+    for i in range(num_trabajadores)
+    for j in range(num_dias)
+    for t in range(num_turnos)
+), "Maximizar_Disposicion"
+\end{lstlisting}
+
+\subsection{Implementación de la Restricción R5}
+
+La restricción más compleja es la \textbf{R5 (No 3 Fines de Semana Consecutivos)}. Requiere la variable auxiliar $w_{ik}$ y un enlace bidireccional para asegurar coherencia.
+
+\begin{equation}
+    w_{i,k} + w_{i,k+1} + w_{i,k+2} \le 2 \quad \forall i \in T, \ \forall k
+\end{equation}
+
+\begin{lstlisting}[caption=Lógica de la Restricción R5 (No 3 Fines Consecutivos)]
+# Restriccion R5: No trabajar 3 fines de semana consecutivos
+if num_fines >= 3:
+    # ... (Se incluye R5.1: el enlace bidireccional entre x y w) ...
+
+    for i in range(num_trabajadores):
+        for k in range(num_fines - 2):
+            # La suma de 3 w's consecutivos no puede superar 2
+            modelo += (
+                w[i][k] + w[i][k + 1] + w[i][k + 2] <= 2,
+                f"No3Fines_{i}_{k}"
+            )
+\end{lstlisting}
+
+\section{Toma de Datos y Recopilación de Métricas}
+
+\subsection{Proceso de Ejecución}
+
+\begin{lstlisting}[caption=Estructura de Recolección de Métricas Globales]
+# Localizar directorios del proyecto
+instancias_dir = base_dir / "Entrega 1" / "generador" / "instancias"
+resultados_dir = base_dir / "Entrega 2" / "resultados"
+
+tamanos = ["small", "medium", "large"]
+
+# Estructura para acumular estadísticas globales
+resumen_total = {
+    "fecha_ejecucion": datetime.now().isoformat(),
+    "instancias_procesadas": 0,
+    "instancias_optimas": 0,
+    "instancias_infactibles": 0,
+    "tiempo_total_segundos": 0,
+    "resultados_por_tamano": {}
+}
+\end{lstlisting}
+
+\subsection{Ejemplo de Resultado JSON}
+
+\begin{lstlisting}[language=json, caption=Extracto de Resultado JSON (Instancia Large)]
+{
+  "id_instancia": 11,
+  "tipo": "large",
+  "dias": 23,
+  "trabajadores": 47,
+  "estado": "Optimal",
+  "valor_objetivo": 9362.0,
+  "tiempo_resolucion_segundos": 0.179936,
+  "factible": true,
+  "asignaciones": [
+    {
+      "trabajador": 1,
+      "dia": 1,
+      "dia_nombre": "domingo_1",
+      "turno": "noche",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 47,
+      "dia": 23,
+      "dia_nombre": "viernes_3",
+      "turno": "manana",
+      "disposicion": 8
+    }
+  ],
+  "fecha_resolucion": "2025-11-09T02:00:57.060042"
+}
+\end{lstlisting}
+
+\end{document}
