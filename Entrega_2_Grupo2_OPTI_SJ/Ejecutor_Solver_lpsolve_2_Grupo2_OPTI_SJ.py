@@ -1,4 +1,5 @@
 """
+Ejecutor_Solver_lpsolve_2_Grupo2_OPTI_SJ.py
 Ejecutor batch del solver de asignación de turnos usando lpsolve55.
 
 Este script automatiza la resolución de todas las instancias disponibles
@@ -18,7 +19,7 @@ from datetime import datetime
 import sys
 
 sys.path.append(str(Path(__file__).parent))
-from solucionador_de_instancias_lpsolve import resolver_instancia
+from Solver_lpsolve_2_Gruop2_OPTI_SJ import resolver_instancia
 
 
 def ejecutar_todas_las_instancias():

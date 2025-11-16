@@ -41,9 +41,9 @@ En total, se obtuvieron 13 soluciones óptimas y 2 instancias infactibles. Los t
 \toprule
 \textbf{Tamaño} & \textbf{Total} & \textbf{Óptimas} & \textbf{Infactibles} & \textbf{Tiempo promedio (s)} \\
 \midrule
-Small & 5 & 5 & 0 & 0.0155 \\
-Medium & 5 & 5 & 0 & 0.0476 \\
-Large & 5 & 3 & 2 & 0.1579 \\
+Small & 5 & 5 & 0 & 0.000613 \\
+Medium & 5 & 5 & 0 & 0.009846 \\
+Large & 5 & 3 & 2 & 0.208286\\
 \midrule
 \textbf{Total} & 15 & 13 & 2 & --- \\
 \bottomrule
@@ -57,6 +57,7 @@ De la tabla anterior se puede observar que las instancias \textit{small} y \text
 En cambio, dos de las instancias \textit{large} resultaron
  infactibles, lo cual se analizará más adelante.
 
+ \newpage
 \subsection*{\textbf{(a) Análisis de la función objetivo}}
 
 La función objetivo maximiza la disposición 
@@ -65,16 +66,18 @@ A medida que el tamaño de la instancia crece (más trabajadores y días), el va
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{../Entrega 2/analisis/graficos/objetivo_promedio_tipo.png}
+\includegraphics[width=0.7\textwidth]{../Entrega_2_Grupo2_OPTI_SJ/analisis/plots/objetivo/objetivo_promedio_tipo.png}
 \caption{Promedio del valor objetivo por tipo de instancia.}
 \end{figure}
 
 En la Figura anterior se puede apreciar un crecimiento proporcional al tamaño de la instancia del valor objetivo promedio al pasar de \textit{small} a \textit{large}, esto es coherente con el aumento de la 
 demanda y la disponibilidad total de turnos.  
 Lo que demuestra que el modelo logra mantener la consistencia de asignaciones al priorizar trabajadores con mayor disposición.
+\newpage
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{../Entrega 2/analisis/graficos/objetivo_vs_tamano.png}
+\includegraphics[width=0.7\textwidth]{../Entrega_2_Grupo2_OPTI_SJ/analisis/plots/objetivo/objetivo_vs_tamano.png}
 \caption{Comportamiento del valor objetivo en función del tamaño (número de variables).}
 \end{figure}
 
@@ -101,32 +104,34 @@ De hecho, la existencia de instancias infactibles es útil para validar la robus
 \subsection*{\textbf{(c) Visualización tipo calendario para instancias pequeñas}}
 
 En las instancias pequeñas, el modelo permite visualizar fácilmente la asignación diaria por trabajador.  
-La siguiente figura muestra un ejemplo de calendario generado por el script \texttt{generar\_calendarios.py}, donde cada celda indica los turnos asignados a cada empleado durante la semana.
+La siguiente figura muestra un ejemplo de calendario generado por el script \texttt{Generar\_calendarios\_2\_Grupo2\_OPTI\_SJ.py}, donde cada celda indica los turnos asignados a cada empleado durante la semana.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../Entrega 2/analisis/graficos/calendarios/calendario_instancia_1.png}
+\includegraphics[width=0.8\textwidth]{../Entrega_2_Grupo2_OPTI_SJ/analisis/plots/calendarios/calendario_instancia_1.png}
 \caption{Ejemplo de calendario de asignaciones para una instancia \textit{small}.}
 \end{figure}
 En este calendario, se puede observar que las asignaciones 
-respetan las restricciones R3 y R4: ningún trabajador realiza más de dos turnos diarios ni tiene secuencias noche–mañana.  
+respetan las restricciones R3 y R4: ningún trabajador realiza más de dos turnos diarios ni tiene secuencias noche–mañana(teniendo en cuenta que no aplica para instancias small).  
 El modelo logra tener una distribución equilibrada de la carga laboral entre los trabajadores disponibles, maximizando la disposición total.
 
+\newpage
 \subsection*{\textbf{Análisis de tiempos de resolución}}
 Finalmente, se evaluó el tiempo de resolución promedio y su relación con el tamaño de las instancias 
 y la cantidad de variables involucradas.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../Entrega 2/analisis/graficos/tiempos_promedio_tipo.png}
+\includegraphics[width=0.8\textwidth]{../Entrega_2_Grupo2_OPTI_SJ/analisis/plots/tiempos/tiempos_promedio_tipo.png}
 \caption{Tiempo promedio de resolución por tipo de instancia.}
 \end{figure}
 En el gráfico se puede observar que el tiempo crece de forma 
 proporcional al pasar de instancias pequeñas a grandes.  
-También se puede ver, que incluso en el caso \textit{large}, el tiempo promedio se mantiene bajo (0.16 s), lo que confirma la eficiencia del modelo implementado.
+También se puede ver, que incluso en el caso \textit{large}, el tiempo promedio se mantiene bajo (0.2 s), lo que confirma la eficiencia del modelo implementado.
 
+\newpage
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../Entrega 2/analisis/graficos/tiempos_vs_variables.png}
+\includegraphics[width=0.8\textwidth]{../Entrega_2_Grupo2_OPTI_SJ/analisis/plots/tiempos/tiempos_vs_variables.png}
 \caption{Tiempos de resolución en función del número de variables.}
 \end{figure}
 En la figura anterior se puede observar que, aunque el tiempo de resolución 
@@ -143,6 +148,7 @@ Al comparar los resultados de tiempo entre los tres tamaños, se evidencia que l
 mientras que el salto hacia \textit{large} representa el aumento esperado en complejidad, pero sin llegar a comprometer la factibilidad ni el rendimiento.  
 Esto demuestra que el modelo es estable y eficiente, incluso cuando la cantidad de trabajadores, días o turnos se multiplica varias veces.
 
+\newpage
 \vspace{0.5cm}
 \subsection*{\textbf{Conclusión general}}
 En conclusión, el modelo propuesto demuestra ser sólido, eficiente y coherente con los objetivos planteados.  

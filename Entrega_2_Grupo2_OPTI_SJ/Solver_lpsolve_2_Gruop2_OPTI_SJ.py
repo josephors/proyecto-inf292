@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
 """
+Solver_lpsolve_2_Gruop2_OPTI_SJ
 Solucionador de instancias de asignación de turnos — versión lpsolve55.
 
 Este archivo contiene una reimplementación completa del modelo original —que

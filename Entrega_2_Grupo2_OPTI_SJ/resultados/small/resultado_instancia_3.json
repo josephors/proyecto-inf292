@@ -1,0 +1,272 @@
+{
+  "id_instancia": 3,
+  "tipo": "small",
+  "dias": 6,
+  "trabajadores": 6,
+  "estado": "Optimal",
+  "valor_objetivo": 256.0,
+  "tiempo_resolucion_segundos": 0.000474,
+  "factible": true,
+  "asignaciones": [
+    {
+      "trabajador": 1,
+      "dia": 1,
+      "dia_nombre": "jueves_1",
+      "turno": "noche",
+      "disposicion": 7
+    },
+    {
+      "trabajador": 1,
+      "dia": 2,
+      "dia_nombre": "lunes_1",
+      "turno": "dia",
+      "disposicion": 9
+    },
+    {
+      "trabajador": 1,
+      "dia": 2,
+      "dia_nombre": "lunes_1",
+      "turno": "noche",
+      "disposicion": 9
+    },
+    {
+      "trabajador": 1,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "dia",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 1,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "noche",
+      "disposicion": 5
+    },
+    {
+      "trabajador": 2,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "dia",
+      "disposicion": 2
+    },
+    {
+      "trabajador": 2,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "noche",
+      "disposicion": 7
+    },
+    {
+      "trabajador": 2,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "dia",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 2,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "noche",
+      "disposicion": 4
+    },
+    {
+      "trabajador": 2,
+      "dia": 5,
+      "dia_nombre": "sabado_1",
+      "turno": "dia",
+      "disposicion": 9
+    },
+    {
+      "trabajador": 2,
+      "dia": 5,
+      "dia_nombre": "sabado_1",
+      "turno": "noche",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 2,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "dia",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 3,
+      "dia": 1,
+      "dia_nombre": "jueves_1",
+      "turno": "dia",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 3,
+      "dia": 1,
+      "dia_nombre": "jueves_1",
+      "turno": "noche",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 3,
+      "dia": 2,
+      "dia_nombre": "lunes_1",
+      "turno": "noche",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 3,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "noche",
+      "disposicion": 2
+    },
+    {
+      "trabajador": 3,
+      "dia": 5,
+      "dia_nombre": "sabado_1",
+      "turno": "noche",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 4,
+      "dia": 1,
+      "dia_nombre": "jueves_1",
+      "turno": "noche",
+      "disposicion": 9
+    },
+    {
+      "trabajador": 4,
+      "dia": 2,
+      "dia_nombre": "lunes_1",
+      "turno": "noche",
+      "disposicion": 5
+    },
+    {
+      "trabajador": 4,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "dia",
+      "disposicion": 3
+    },
+    {
+      "trabajador": 4,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "noche",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 4,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "dia",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 4,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "noche",
+      "disposicion": 4
+    },
+    {
+      "trabajador": 4,
+      "dia": 5,
+      "dia_nombre": "sabado_1",
+      "turno": "noche",
+      "disposicion": 7
+    },
+    {
+      "trabajador": 4,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "dia",
+      "disposicion": 4
+    },
+    {
+      "trabajador": 5,
+      "dia": 1,
+      "dia_nombre": "jueves_1",
+      "turno": "noche",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 5,
+      "dia": 2,
+      "dia_nombre": "lunes_1",
+      "turno": "noche",
+      "disposicion": 4
+    },
+    {
+      "trabajador": 5,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "dia",
+      "disposicion": 5
+    },
+    {
+      "trabajador": 5,
+      "dia": 5,
+      "dia_nombre": "sabado_1",
+      "turno": "dia",
+      "disposicion": 10
+    },
+    {
+      "trabajador": 5,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "dia",
+      "disposicion": 2
+    },
+    {
+      "trabajador": 5,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "noche",
+      "disposicion": 7
+    },
+    {
+      "trabajador": 6,
+      "dia": 1,
+      "dia_nombre": "jueves_1",
+      "turno": "dia",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 6,
+      "dia": 2,
+      "dia_nombre": "lunes_1",
+      "turno": "dia",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 6,
+      "dia": 3,
+      "dia_nombre": "martes_1",
+      "turno": "dia",
+      "disposicion": 1
+    },
+    {
+      "trabajador": 6,
+      "dia": 4,
+      "dia_nombre": "miercoles_1",
+      "turno": "noche",
+      "disposicion": 8
+    },
+    {
+      "trabajador": 6,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "dia",
+      "disposicion": 9
+    },
+    {
+      "trabajador": 6,
+      "dia": 6,
+      "dia_nombre": "viernes_1",
+      "turno": "noche",
+      "disposicion": 8
+    }
+  ],
+  "fecha_resolucion": "2025-11-16T02:18:26.558599"
+}

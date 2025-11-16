@@ -26,8 +26,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 from pathlib import Path
-
-plt.use('Agg')
+import matplotlib
+matplotlib.use('Agg')  # Correcto: configurar backend sin GUI
 
 print("=" * 80)
 print("GENERACIÓN DE CALENDARIOS VISUALES - INSTANCIAS SMALL")

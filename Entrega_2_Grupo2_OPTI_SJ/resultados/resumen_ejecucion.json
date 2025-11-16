@@ -1,0 +1,141 @@
+{
+  "fecha_ejecucion": "2025-11-16T02:18:26.547373",
+  "instancias_procesadas": 15,
+  "instancias_optimas": 13,
+  "instancias_infactibles": 2,
+  "tiempo_total_segundos": 1.09373,
+  "resultados_por_tamano": {
+    "small": {
+      "total": 5,
+      "optimas": 5,
+      "infactibles": 0,
+      "tiempo_total": 0.003065,
+      "tiempo_promedio": 0.000613,
+      "instancias": [
+        {
+          "archivo": "instancia_1.json",
+          "estado": "Optimal",
+          "valor_objetivo": 275.0,
+          "tiempo_segundos": 0.000689,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_2.json",
+          "estado": "Optimal",
+          "valor_objetivo": 399.0,
+          "tiempo_segundos": 0.00084,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_3.json",
+          "estado": "Optimal",
+          "valor_objetivo": 256.0,
+          "tiempo_segundos": 0.000474,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_4.json",
+          "estado": "Optimal",
+          "valor_objetivo": 648.0,
+          "tiempo_segundos": 0.000605,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_5.json",
+          "estado": "Optimal",
+          "valor_objetivo": 548.0,
+          "tiempo_segundos": 0.000457,
+          "factible": true
+        }
+      ]
+    },
+    "medium": {
+      "total": 5,
+      "optimas": 5,
+      "infactibles": 0,
+      "tiempo_total": 0.049234,
+      "tiempo_promedio": 0.0098468,
+      "instancias": [
+        {
+          "archivo": "instancia_10.json",
+          "estado": "Optimal",
+          "valor_objetivo": 2085.0,
+          "tiempo_segundos": 0.010915,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_6.json",
+          "estado": "Optimal",
+          "valor_objetivo": 1354.0,
+          "tiempo_segundos": 0.004634,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_7.json",
+          "estado": "Optimal",
+          "valor_objetivo": 1776.0,
+          "tiempo_segundos": 0.008275,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_8.json",
+          "estado": "Optimal",
+          "valor_objetivo": 3082.0,
+          "tiempo_segundos": 0.019447,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_9.json",
+          "estado": "Optimal",
+          "valor_objetivo": 1450.0,
+          "tiempo_segundos": 0.005963,
+          "factible": true
+        }
+      ]
+    },
+    "large": {
+      "total": 5,
+      "optimas": 3,
+      "infactibles": 2,
+      "tiempo_total": 1.041431,
+      "tiempo_promedio": 0.2082862,
+      "instancias": [
+        {
+          "archivo": "instancia_11.json",
+          "estado": "Optimal",
+          "valor_objetivo": 9362.0,
+          "tiempo_segundos": 0.175197,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_12.json",
+          "estado": "Infeasible",
+          "valor_objetivo": -1e+30,
+          "tiempo_segundos": 0.114752,
+          "factible": false
+        },
+        {
+          "archivo": "instancia_13.json",
+          "estado": "Optimal",
+          "valor_objetivo": 11727.0,
+          "tiempo_segundos": 0.292611,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_14.json",
+          "estado": "Optimal",
+          "valor_objetivo": 12342.0,
+          "tiempo_segundos": 0.275828,
+          "factible": true
+        },
+        {
+          "archivo": "instancia_15.json",
+          "estado": "Infeasible",
+          "valor_objetivo": -1e+30,
+          "tiempo_segundos": 0.183043,
+          "factible": false
+        }
+      ]
+    }
+  }
+}

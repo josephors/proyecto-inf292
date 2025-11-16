@@ -30,8 +30,8 @@ import seaborn as sns
 import numpy as np
 from pathlib import Path
 
-
-plt.use('Agg')
+import matplotlib
+matplotlib.use('Agg')  # Correcto: configurar backend sin GUI
 
 
 # Configuración de estilo

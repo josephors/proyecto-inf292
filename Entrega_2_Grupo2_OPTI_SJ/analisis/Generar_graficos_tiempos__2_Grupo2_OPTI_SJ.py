@@ -33,8 +33,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
-
-plt.use('Agg')
+import matplotlib
+matplotlib.use('Agg')  # Correcto: configurar backend sin GUI
 
 # Configuración de estilo
 sns.set_theme(style="whitegrid")
@@ -262,7 +262,7 @@ for tipo in ['small', 'medium', 'large']:
         labels_plot.append(f'{tipo.capitalize()}\nInfactible')
         colores_plot.append(colores[tipo])
 
-bp = axes[0].boxplot(datos_plot, labels=labels_plot, patch_artist=True)
+bp = axes[0].boxplot(datos_plot, tick_labels=labels_plot, patch_artist=True)
 for patch, color in zip(bp['boxes'], colores_plot):
     patch.set_facecolor(color)
     patch.set_alpha(0.7)
