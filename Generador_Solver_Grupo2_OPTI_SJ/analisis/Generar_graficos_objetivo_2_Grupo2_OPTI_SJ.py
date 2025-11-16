@@ -30,6 +30,10 @@ import seaborn as sns
 import numpy as np
 from pathlib import Path
 
+
+plt.use('Agg')
+
+
 # Configuración de estilo
 sns.set_theme(style="whitegrid")
 plt.rcParams['figure.figsize'] = (12, 6)
@@ -45,6 +49,9 @@ print("\n1. Cargando datos...")
 # Cargar resumen de ejecución (opcional para imprimir totales)
 with open('../resultados/resumen_ejecucion.json', 'r') as f:
     resumen = json.load(f)
+
+Path('./plots/objetivo/').mkdir(parents=True, exist_ok=True)
+
 
 # Extraer datos de instancias (solo factibles)
 datos = []
@@ -118,7 +125,7 @@ ax.legend(fontsize=11, frameon=True, shadow=True)
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('graficos/objetivo_vs_tamano.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/objetivo/objetivo_vs_tamano.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/objetivo_vs_tamano.png")
 print(f"   Ecuación de tendencia: y = {z[0]:.2f}x + {z[1]:.2f}")
 plt.close()
@@ -165,7 +172,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('graficos/objetivo_trabajadores_dias.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/objetivo/objetivo_trabajadores_dias.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/objetivo_trabajadores_dias.png")
 plt.close()
 
@@ -205,7 +212,7 @@ ax.set_xticklabels(tipos, fontsize=11)
 ax.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
-plt.savefig('graficos/objetivo_promedio_tipo.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/objetivo/objetivo_promedio_tipo.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/objetivo_promedio_tipo.png")
 plt.close()
 
@@ -231,7 +238,7 @@ sns.heatmap(correlaciones,
 
 ax.set_title('Matriz de Correlación', fontsize=14, fontweight='bold', pad=20)
 plt.tight_layout()
-plt.savefig('graficos/correlacion_matriz.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/objetivo/correlacion_matriz.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/correlacion_matriz.png")
 plt.close()
 

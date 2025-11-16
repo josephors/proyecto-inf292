@@ -27,6 +27,8 @@ import matplotlib.patches as mpatches
 import numpy as np
 from pathlib import Path
 
+plt.use('Agg')
+
 print("=" * 80)
 print("GENERACIÓN DE CALENDARIOS VISUALES - INSTANCIAS SMALL")
 print("=" * 80)
@@ -236,7 +238,9 @@ def generar_calendario(id_instancia):
     plt.tight_layout()
     
     # Guardar
-    output_path = f'graficos/calendarios/calendario_instancia_{id_instancia}.png'
+    Path('./plots/calendarios/').mkdir(parents=True, exist_ok=True)
+
+    output_path = f'./plots/calendarios/calendario_instancia_{id_instancia}.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
     print(f"  ✓ Guardado: {output_path}")
     
@@ -321,7 +325,7 @@ plt.suptitle('Resumen de Asignaciones - Instancias Small',
 fig.text(0.5, 0.06, 
          'Valor Obj = Suma de disposiciones | Util = % de slots utilizados respecto al máximo posible  | T = Trabajador Indexado (T #Num Trabajador) | D = Día Indexado (D #Num día de la semana (Lun(1)-Dom(7))',
          ha='center', fontsize=10, style='italic', color='gray')
-plt.savefig('graficos/calendarios/resumen_todas_instancias.png', 
+plt.savefig('./plots/calendarios/resumen_todas_instancias.png', 
            dpi=300, bbox_inches='tight', pad_inches=1.2, facecolor='white')
 print("  ✓ Guardado: graficos/calendarios/resumen_todas_instancias.png")
 plt.close()

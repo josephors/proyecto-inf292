@@ -34,6 +34,8 @@ import seaborn as sns
 import numpy as np
 from pathlib import Path
 
+plt.use('Agg')
+
 # Configuración de estilo
 sns.set_theme(style="whitegrid")
 plt.rcParams['figure.figsize'] = (12, 6)
@@ -49,6 +51,9 @@ print("\n1. Cargando datos...")
 # Cargar resumen de ejecución
 with open('../resultados/resumen_ejecucion.json', 'r') as f:
     resumen = json.load(f)
+
+Path('./plots/tiempos/').mkdir(parents=True, exist_ok=True)
+
 
 # Extraer datos de instancias (incluyendo infactibles para análisis de tiempos)
 datos = []
@@ -144,7 +149,7 @@ ax.legend(fontsize=9, frameon=True, shadow=True, loc='upper left')
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('graficos/tiempos_vs_tamano.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/tiempos/tiempos_vs_tamano.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/tiempos_vs_tamano.png")
 plt.close()
 
@@ -185,7 +190,7 @@ ax.legend(fontsize=11, frameon=True, shadow=True)
 ax.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('graficos/tiempos_vs_variables.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/tiempos/tiempos_vs_variables.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/tiempos_vs_variables.png")
 plt.close()
 
@@ -225,7 +230,7 @@ ax.set_xticklabels(tipos, fontsize=11)
 ax.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
-plt.savefig('graficos/tiempos_promedio_tipo.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/tiempos/tiempos_promedio_tipo.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/tiempos_promedio_tipo.png")
 plt.close()
 
@@ -290,7 +295,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3, which='both')
 
 plt.tight_layout()
-plt.savefig('graficos/tiempos_comparacion_escalabilidad.png', dpi=300, bbox_inches='tight')
+plt.savefig('./plots/tiempos/tiempos_comparacion_escalabilidad.png', dpi=300, bbox_inches='tight')
 print(f"   ✓ Guardado: graficos/tiempos_comparacion_escalabilidad.png")
 plt.close()
 

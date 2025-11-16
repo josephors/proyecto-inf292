@@ -1,65 +1,31 @@
-% VEAN LA PAUTA % VEAN LA PAUTA % VEAN LA PAUTA 
+\clearpage
+\section{Metodología de Implementación del Solver}
 
+Esta sección describe la arquitectura del solver, el flujo de resolución implementado y el mecanismo utilizado para procesar todas las instancias y almacenar sus resultados. Todo el desarrollo se encuentra documentado en \texttt{./Entrega 2/solver/}, incluyendo los archivos \texttt{ejecutar\_solver\_batch.py} y \texttt{solucionador\_de\_instancias\_lpsolve.py}.
 
-% CHAKA
+\vspace{0.4cm}
+\subsection*{\textbf{Arquitectura del Sistema}}
 
-% DOCUMENTA EN ./ENTREGA 2/SOLVER/
+El solver se organiza en dos componentes principales:
 
-% LOS ARCHIVOS DE EJECUTAR_SOLVER_BATCH.PY Y SOLUCIONADOR_DEINSTANCIAS_LPSOLVE
+\begin{itemize}
+    \item \textbf{\texttt{solucionador\_de\_instancias\_lpsolve.py}}: Implementa el modelo matemático en PuLP y resuelve una única instancia.
+    \item \textbf{\texttt{ejecutar\_solver\_batch.py}}: Recorre todas las carpetas de instancias, ejecuta el solver para cada archivo y genera los reportes correspondientes.
+\end{itemize}
 
+Esta separación permite mantener el código modular: un archivo se enfoca en la definición del problema y el otro en la ejecución masiva y la recolección de métricas.
 
-% ESTAS A CARGO DE HABLAR SOBRE ESTO Y COMO GUARDAR LOS RESULTADOS DENTRO DE ./ENTREGA 2/RESULTADOS/ SEGUN EL TIPO DE INSTANCIA
+\vspace{0.4cm}
+\subsection*{\textbf{Implementación de la Función Objetivo}}
 
-% SE CONSISO EN EL REPORTE Y LA PPT, ENTIENDE A GRANDES RASGOS, PERO ENTIENDE, RECUERDA QUE TU HABLARAS DE ESTO EN LA PRESENTACION!
+El solver utiliza \textbf{Programación Lineal Entera}, modelada con la librería \texttt{PuLP} junto al backend \texttt{lpsolve}.  
+La función objetivo maximiza la disposición total:
 
-% CUALQUIER DUDA PREGUNTAME POR EL GRUPO : )
+\[
+\max Z = \sum_{i \in T} \sum_{j \in D} \sum_{t \in S} c_{ijt} \cdot x_{ijt}
+\]
 
-% VEAN LA PAUTA % VEAN LA PAUTA % VEAN LA PAUTA 
-
-
-\documentclass{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{listings}
-\usepackage{geometry}
-\usepackage{xcolor}
-
-\geometry{a4paper, margin=1in}
-
-\lstset{
-    language=Python,
-    basicstyle=\footnotesize\ttfamily,
-    numbers=left,
-    numberstyle=\tiny,
-    stepnumber=1,
-    numbersep=5pt,
-    frame=single,
-    showtabs=false,
-    showspaces=false,
-    showstringspaces=false,
-    captionpos=b,
-    breaklines=true,
-    breakatwhitespace=true
-}
-
-\begin{document}
-
-\section{Metodología de Implementación (Solver)}
-
-La implementación se realizó bajo un modelo de \textbf{Programación Lineal Entera} utilizando la librería \textbf{PuLP} con el solver \textbf{Lpsolver}.
-
-\subsubsection{Implementación F.O.}
-El objetivo es maximizar la suma de la disposición ($c_{ijt}$) de los trabajadores asignados:
-\begin{equation}
-    \max Z = \sum_{i \in T} \sum_{j \in D} \sum_{t \in S} x_{ijt} \cdot c_{ijt}
-\end{equation}
-
-El código para la definición de esta función en \texttt{PuLP} es el siguiente:
-
-\begin{lstlisting}[caption=Definición de Función Objetivo con PuLP]
+\begin{lstlisting}[caption=Implementación de la Función Objetivo en PuLP]
 # F.O.: Maximizar la suma de disposiciones
 modelo += pulp.lpSum(
     x[i][j][t] * disposicion[i][j][t]
@@ -69,40 +35,65 @@ modelo += pulp.lpSum(
 ), "Maximizar_Disposicion"
 \end{lstlisting}
 
-\subsection{Implementación de la Restricción R5}
+\newpage
+\vspace{0.4cm}
+\subsection*{\textbf{Restricción R5: No trabajar 3 fines de semana consecutivos}}
 
-La restricción más compleja es la \textbf{R5 (No 3 Fines de Semana Consecutivos)}. Requiere la variable auxiliar $w_{ik}$ y un enlace bidireccional para asegurar coherencia.
+La restricción más compleja del modelo es la R5, que requiere el uso de la variable binaria auxiliar \( w_{ik} \). Esta regula cuántos fines de semana trabaja un mismo trabajador.
 
-\begin{equation}
-    w_{i,k} + w_{i,k+1} + w_{i,k+2} \le 2 \quad \forall i \in T, \ \forall k
-\end{equation}
+\[
+w_{i,k} + w_{i,k+1} + w_{i,k+2} \le 2
+\]
 
-\begin{lstlisting}[caption=Lógica de la Restricción R5 (No 3 Fines Consecutivos)]
-# Restriccion R5: No trabajar 3 fines de semana consecutivos
+Su implementación en código es la siguiente:
+
+\begin{lstlisting}[caption=Lógica de la Restricción R5]
+# Restriccion R5: No trabajar 3 fines consecutivos
 if num_fines >= 3:
-    # ... (Se incluye R5.1: el enlace bidireccional entre x y w) ...
+
+    # Enlace entre las variables x e y (R5.1)
+    # Se omite por brevedad, pero esta implementado en el solver.
 
     for i in range(num_trabajadores):
         for k in range(num_fines - 2):
-            # La suma de 3 w's consecutivos no puede superar 2
             modelo += (
-                w[i][k] + w[i][k + 1] + w[i][k + 2] <= 2,
+                w[i][k] + w[i][k+1] + w[i][k+2] <= 2,
                 f"No3Fines_{i}_{k}"
             )
 \end{lstlisting}
 
-\section{Toma de Datos y Recopilación de Métricas}
+\vspace{0.4cm}
+\subsection*{\textbf{Proceso de Ejecución Masiva}}
 
-\subsection{Proceso de Ejecución}
+El archivo \texttt{ejecutar\_solver\_batch.py} recorre automáticamente los directorios:
 
-\begin{lstlisting}[caption=Estructura de Recolección de Métricas Globales]
-# Localizar directorios del proyecto
-instancias_dir = base_dir / "Entrega 1" / "generador" / "instancias"
-resultados_dir = base_dir / "Entrega 2" / "resultados"
+\begin{center}
+\texttt{data/small/}, \texttt{data/medium/}, \texttt{data/large/}
+\end{center}
 
-tamanos = ["small", "medium", "large"]
+Para cada archivo JSON:
 
-# Estructura para acumular estadísticas globales
+\begin{enumerate}
+    \item Se carga la instancia.
+    \item Se construye el modelo con PuLP.
+    \item Se ejecuta el solver \texttt{lpsolve}.
+    \item Se mide el tiempo de resolución.
+    \item Se clasifica el resultado como óptimo, factible o infactible.
+    \item Se guarda un archivo JSON en:
+\end{enumerate}
+
+\[
+\texttt{./Entrega 2/resultados/<tamaño>/}
+\]
+
+Así, cada instancia genera su propio reporte independiente.
+
+\vspace{0.4cm}
+\subsection*{\textbf{Estructura del Módulo de Métricas}}
+
+El sistema acumula información global para producir un archivo resumen:
+
+\begin{lstlisting}[caption=Estructura de Recolección de Métricas]
 resumen_total = {
     "fecha_ejecucion": datetime.now().isoformat(),
     "instancias_procesadas": 0,
@@ -113,9 +104,14 @@ resumen_total = {
 }
 \end{lstlisting}
 
-\subsection{Ejemplo de Resultado JSON}
+Este resumen incluye estadísticas por categoría (\texttt{small}, \texttt{medium}, \texttt{large}) y métricas agregadas.
 
-\begin{lstlisting}[language=json, caption=Extracto de Resultado JSON (Instancia Large)]
+\vspace{0.4cm}
+\subsection*{\textbf{Ejemplo de Archivo de Resultados}}
+
+A continuación se muestra un fragmento de un archivo JSON generado para una instancia \texttt{large}:
+
+\begin{lstlisting}[language=json, caption=Ejemplo de Resultado JSON]
 {
   "id_instancia": 11,
   "tipo": "large",
@@ -132,17 +128,17 @@ resumen_total = {
       "dia_nombre": "domingo_1",
       "turno": "noche",
       "disposicion": 8
-    },
-    {
-      "trabajador": 47,
-      "dia": 23,
-      "dia_nombre": "viernes_3",
-      "turno": "manana",
-      "disposicion": 8
     }
   ],
   "fecha_resolucion": "2025-11-09T02:00:57.060042"
 }
 \end{lstlisting}
 
-\end{document}
+\vspace{0.4cm}
+\subsection*{\textbf{Notas Finales}}
+
+\begin{itemize}
+    \item El sistema está diseñado para ser escalable y completamente automatizado.
+    \item Los tiempos de ejecución aumentan en instancias \texttt{large}, debido a la naturaleza entera del problema.
+    \item Todos los archivos están documentados y explicados en \texttt{./Entrega 2/solver/}.
+\end{itemize}
